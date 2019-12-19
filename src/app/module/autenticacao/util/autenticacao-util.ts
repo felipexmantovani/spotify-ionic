@@ -1,6 +1,6 @@
 export class AutenticacaoUtil {
   public static readonly SETUP = {
-    nome: 'Autenticacao',
+    nome: 'Autenticação',
     path: {
       nome: 'autenticacao',
       front: '/autenticacao'
