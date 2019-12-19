@@ -1,52 +1,36 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { SistemaUtil } from '../module/sistema/util/sistema-util';
+import { TabsUtil } from './tabs-util';
 import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: TabsUtil.SETUP.path.nome,
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: SistemaUtil.SETUP.path.nome,
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab1/tab1.module').then(m => m.Tab1PageModule)
-          }
-        ]
-      },
-      {
-        path: 'tab2',
-        children: [
-          {
-            path: '',
-            loadChildren: () =>
-              import('../tab2/tab2.module').then(m => m.Tab2PageModule)
-          }
-        ]
-      },
-      {
-        path: 'tab3',
-        children: [
-          {
-            path: '',
-            loadChildren: () =>
-              import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+              import('../module/sistema/sistema.module').then(
+                m => m.SistemaModule
+              )
           }
         ]
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: `${TabsUtil.SETUP.path.front}${SistemaUtil.SETUP.path.front}`,
         pathMatch: 'full'
       }
-    ]
+    ],
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: `${TabsUtil.SETUP.path.front}${SistemaUtil.SETUP.path.front}`,
     pathMatch: 'full'
   }
 ];
