@@ -1,5 +1,11 @@
 @import '../variables.scss';
 
+ion-button {
+  text-transform: uppercase;
+  font-size: .75em;
+  font-weight: 700;
+}
+
 ion-content.gradient {
   --background: linear-gradient(
     0deg,
