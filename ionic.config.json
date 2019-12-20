@@ -1,5 +1,7 @@
 {
   "name": "spotify-ionic",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
