@@ -2,12 +2,35 @@
 
 ion-button {
   text-transform: uppercase;
-  font-size: .75em;
   font-weight: 700;
+  font-size: 0.85em;
+  &.button-small {
+    --padding-top: 1em;
+    --padding-end: 1em;
+    --padding-bottom: 1em;
+    --padding-start: 1em;
+    height: 1.5em;
+    font-size: 0.65em;
+  }
+  &.button-default {
+    --padding-top: 1em;
+    --padding-end: 1.5em;
+    --padding-bottom: 1em;
+    --padding-start: 1.5em;
+    height: 2.5em;
+    font-size: 0.85em;
+  }
+  &.button-large {
+    --padding-top: 1em;
+    --padding-end: 2.5em;
+    --padding-bottom: 1em;
+    --padding-start: 2.5em;
+    height: 3.5em;
+  }
 }
 
 ion-content {
-  --background: var(--ion-color-dark) ;
+  --background: var(--ion-color-dark);
 }
 ion-content.gradient {
   --background: linear-gradient(
@@ -24,8 +47,29 @@ ion-content.gradient-25deg {
   );
 }
 
-.header-md:after {
+ion-header.header-md:after {
   background-image: none !important;
+}
+
+ion-input {
+  --background: var(--ion-color-medium-tint) !important;
+  --color: var(--ion-color-light) !important;
+  --padding-top: 1em !important;
+  --padding-end: 0.5em !important;
+  --padding-bottom: 1em !important;
+  --padding-start: 0.5em !important;
+  font-weight: 600;
+  font-size: 0.85em !important;
+  border-radius: 0.25em;
+  margin-bottom: 2em;
+  &.has-focus {
+    --background: rgba(var(--ion-color-light-rgb), .65) !important;
+  }
+}
+
+ion-label.label-input {
+  font-size: 1.75em;
+  font-weight: 700;
 }
 
 ion-toolbar {

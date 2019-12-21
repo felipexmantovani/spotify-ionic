@@ -1,10 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
 
-@import "./geral.scss";
-@import "./height.scss";
-@import "./ionic.scss";
-@import "./margin.scss";
-@import "./width.scss";
+@import './geral.scss';
+@import './ionic.scss';
+@import './scss/align.scss';
+@import './scss/display.scss';
+@import './scss/height.scss';
+@import './scss/margin.scss';
+@import './scss/padding.scss';
+@import './scss/width.scss';
 
 * {
   font-family: 'Montserrat', sans-serif;
