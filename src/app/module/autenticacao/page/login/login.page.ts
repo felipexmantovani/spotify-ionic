@@ -9,4 +9,8 @@ export class LoginPage implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  public login(): void {}
+
+  public esqueciSenha(): void {}
 }
