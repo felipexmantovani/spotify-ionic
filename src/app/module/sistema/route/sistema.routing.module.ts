@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TabsUtil } from 'src/app/tabs/tabs-util';
-import { SistemaUtil } from '../util/sistema-util';
 
 const routes: Routes = [
   {
-    path: '',
-    children: []
-  }
+    path: 'inicio',
+    loadChildren: () =>
+      import('../page/sistema-inicio/sistema-inicio.module').then(
+        m => m.SistemaInicioPageModule
+      )
+  },
+  { path: '', redirectTo: 'inicio', pathMatch: 'full' }
 ];
 
 @NgModule({

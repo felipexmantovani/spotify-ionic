@@ -1,0 +1,22 @@
+<ion-content class="gradient ion-padding">
+  <ion-grid class="h-100">
+    <ion-row class="ion-align-items-center ion-justify-content-center h-100">
+      <ion-col size="12">
+        <app-logo  [tamanho]="'25'"></app-logo>
+      </ion-col>
+  
+      <ion-col size="12">
+        <ion-text color="light">
+          <p class="ion-no-margin"><strong>Milhões de músicas à sua escolha.</strong></p>
+          <p class="ion-no-margin"><strong>Grátis no Spotify.</strong></p>
+        </ion-text>
+      </ion-col>
+  
+      <ion-col size="12" class="ion-text-center">
+        <ion-button class="ion-margin-vertical" color="success" shape="round" expand="full">Inscreva-se grátis</ion-button>
+        <ion-button class="ion-margin-vertical" color="light" shape="round" expand="full" fill="outline">Continuar com o Facebook</ion-button>
+        <ion-button (click)="goLogin()" class="ion-margin-vertical" color="light" expand="block" fill="clear">Entrar</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
