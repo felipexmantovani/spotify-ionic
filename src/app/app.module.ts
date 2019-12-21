@@ -11,7 +11,13 @@ import { SharedComponentModule } from './shared/component/shared-component.modul
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot({
+      backButtonText: ''
+    }),
+    AppRoutingModule
+  ],
   providers: [
     StatusBar,
     SplashScreen,

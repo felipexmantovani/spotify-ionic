@@ -6,6 +6,9 @@ ion-button {
   font-weight: 700;
 }
 
+ion-content {
+  --background: var(--ion-color-dark) ;
+}
 ion-content.gradient {
   --background: linear-gradient(
     0deg,
@@ -19,4 +22,12 @@ ion-content.gradient-25deg {
     rgba(var(--ion-color-dark-rgb), 1) 50%,
     rgba(var(--ion-color-medium-rgb), 1) 100%
   );
+}
+
+.header-md:after {
+  background-image: none !important;
+}
+
+ion-toolbar {
+  --border-width: 0 !important;
 }
