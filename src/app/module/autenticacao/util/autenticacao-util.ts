@@ -4,6 +4,9 @@ export class AutenticacaoUtil {
     path: {
       nome: 'autenticacao',
       front: '/autenticacao'
+    },
+    storageKey: {
+      token: 'tokenKey'
     }
   }
 }
