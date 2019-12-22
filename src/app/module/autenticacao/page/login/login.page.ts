@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Login } from '../../model/login';
 
 @Component({
   selector: 'app-login',
@@ -6,11 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.page.scss']
 })
 export class LoginPage implements OnInit {
-  constructor() {}
+  private login: Login = new Login();
+  public loginForm: FormGroup = null;
 
-  ngOnInit() {}
+  constructor(private formBuilder: FormBuilder) {}
 
-  public login(): void {}
+  ngOnInit() {
+    this.criarForm();
+  }
 
-  public esqueciSenha(): void {}
+  private criarForm(): void {
+    this.login = new Login();
+    this.loginForm = this.login.criarForm(this.formBuilder);
+  }
+
+  public onSubmit(): void {}
+
+  public goEsqueciSenha(): void {}
 }

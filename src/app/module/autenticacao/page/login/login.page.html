@@ -8,19 +8,41 @@
 
 <ion-content>
   <div class="px-1">
-    <ion-label class="label-input" color="light">E-mail ou nome de usuário</ion-label>
-    <ion-input type="text"></ion-input>
-
-    <ion-label class="label-input" color="light">Senha</ion-label>
-    <ion-input type="password"></ion-input>
+    <form [formGroup]="loginForm">
+      <ion-label 
+        class="label-input" 
+        color="light">
+        E-mail ou nome de usuário
+      </ion-label>
+      <ion-input formControlName="login" type="text" class="mb-3"></ion-input>
+  
+      <ion-label class="label-input" color="light">Senha</ion-label>
+      <ion-input formControlName="senha" type="password"></ion-input>
+    </form>
 
     <ion-grid class="text-center">
       <ion-row>
         <ion-col size="12">
-          <ion-button (click)="login()" class="mb-1" size="large" color="light" shape="round">Entrar</ion-button>
+          <ion-button
+            class="mb-1" 
+            [disabled]="loginForm.invalid" 
+            (click)="onSubmit()" 
+            size="large" 
+            color="light" 
+            shape="round">
+            Entrar
+        </ion-button>
         </ion-col>
         <ion-col size="12">
-          <ion-button (click)="esqueciSenha()" size="small" color="light" shape="round" fill="outline">Esqueceu sua senha?</ion-button>
+          <ion-button 
+            class="borda-cinza"
+            (click)="goEsqueciSenha()" 
+            size="small" 
+            color="light" 
+            shape="round" 
+            fill="outline">
+            Esqueceu sua senha?
+        </ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>

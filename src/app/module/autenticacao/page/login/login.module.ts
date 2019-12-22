@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { SharedComponentModule } from '../../../../shared/component/shared-component.module';
 import { LoginPageRoutingModule } from './login-routing.module';
 import { LoginPage } from './login.page';
 
 @NgModule({
-  imports: [IonicModule, LoginPageRoutingModule, SharedComponentModule],
+  imports: [IonicModule, LoginPageRoutingModule, ReactiveFormsModule],
   declarations: [LoginPage]
 })
 export class LoginPageModule {}
