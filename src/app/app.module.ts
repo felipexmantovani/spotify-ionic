@@ -6,7 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SharedComponentModule } from './shared/component/shared-component.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,12 +16,12 @@ import { SharedComponentModule } from './shared/component/shared-component.modul
     IonicModule.forRoot({
       backButtonText: ''
     }),
-    AppRoutingModule
+    AppRoutingModule,
+    CoreModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    SharedComponentModule,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
