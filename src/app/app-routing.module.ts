@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AutenticacaoUtil } from './module/autenticacao/util/autenticacao-util';
 import { SistemaUtil } from './module/sistema/util/sistema-util';
+import { UsuarioUtil } from './module/usuario/util/usuario-util';
 
 const routes: Routes = [
   {
@@ -15,6 +16,11 @@ const routes: Routes = [
       import('./module/autenticacao/autenticacao.module').then(
         m => m.AutenticacaoModule
       )
+  },
+  {
+    path: UsuarioUtil.SETUP.path.nome,
+    loadChildren: () =>
+      import('./module/usuario/usuario.module').then(m => m.UsuarioModule)
   },
   { path: '', redirectTo: SistemaUtil.SETUP.path.nome, pathMatch: 'full' }
 ];

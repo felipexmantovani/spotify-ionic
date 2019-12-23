@@ -1,12 +1,7 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-
+import { UsuarioRoutingModule } from './route/usuario-rounting.module';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+  imports: [UsuarioRoutingModule]
 })
-export class UsuarioModule { }
+export class UsuarioModule {}
