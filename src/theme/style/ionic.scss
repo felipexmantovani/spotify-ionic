@@ -78,4 +78,8 @@ ion-label.label-input {
 
 ion-toolbar {
   --border-width: 0 !important;
+  &.transparent {
+    --background: transparent;
+    --ion-color-base: transparent !important;
+  }
 }
