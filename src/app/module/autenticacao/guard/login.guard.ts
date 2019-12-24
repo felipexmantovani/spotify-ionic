@@ -8,10 +8,7 @@ import { AutenticacaoService } from '../service/autenticacao.service';
   providedIn: 'root'
 })
 export class LoginGuard implements CanActivate {
-  constructor(
-    private autenticacaoSevice: AutenticacaoService,
-    private navController: NavController
-  ) {}
+  constructor(private autenticacaoSevice: AutenticacaoService, private navController: NavController) {}
 
   public async canActivate(): Promise<boolean> {
     const logado = await this.autenticacaoSevice.isLogado();
