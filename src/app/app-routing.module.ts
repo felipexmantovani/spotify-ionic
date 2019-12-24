@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { AutenticacaoGuard } from './module/autenticacao/guard/autenticacao.guard';
 import { AutenticacaoUtil } from './module/autenticacao/util/autenticacao-util';
 import { SistemaUtil } from './module/sistema/util/sistema-util';
 import { UsuarioUtil } from './module/usuario/util/usuario-util';
@@ -16,11 +15,13 @@ const routes: Routes = [
   },
   {
     path: UsuarioUtil.SETUP.path.nome,
-    canLoad: [AutenticacaoGuard],
-    canActivate: [AutenticacaoGuard],
     loadChildren: () => import('./module/usuario/usuario.module').then((m) => m.UsuarioModule)
   },
-  { path: '', redirectTo: SistemaUtil.SETUP.path.nome, pathMatch: 'full' }
+  { path: '', redirectTo: SistemaUtil.SETUP.path.nome, pathMatch: 'full' },
+  {
+    path: 'usuario-novo',
+    loadChildren: () => import('./module/usuario/page/usuario-novo/usuario-novo.module').then( m => m.UsuarioNovoPageModule)
+  }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],

@@ -4,6 +4,7 @@ import { LoadingService } from '../../../../core/service/loading/loading.service
 import { Login } from '../../../autenticacao/model/login';
 import { AutenticacaoService } from '../../../autenticacao/service/autenticacao.service';
 import { AutenticacaoUtil } from '../../../autenticacao/util/autenticacao-util';
+import { UsuarioUtil } from '../../../usuario/util/usuario-util';
 
 @Component({
   selector: 'app-sistema-inicio',
@@ -34,5 +35,9 @@ export class SistemaInicioPage implements OnInit {
       this.loadingService.hide();
       this.autenticacaoService.login(this.login);
     }, 2000);
+  }
+
+  public criarConta(): void {
+    this.router.navigateByUrl(`${UsuarioUtil.SETUP.path.front}/novo`);
   }
 }
