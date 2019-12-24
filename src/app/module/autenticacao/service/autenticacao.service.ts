@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { StorageService } from '../../../core/service/storage/storage.service';
+import { TabsUtil } from '../../../tabs/tabs-util';
 import { SistemaUtil } from '../../sistema/util/sistema-util';
-import { UsuarioUtil } from '../../usuario/util/usuario-util';
 import { Login } from '../model/login';
 import { AutenticacaoUtil } from '../util/autenticacao-util';
 
@@ -19,7 +19,7 @@ export class AutenticacaoService {
         .toString(36)
         .slice(-`${login.senha.length}`)}`
     );
-    this.navController.navigateRoot(UsuarioUtil.SETUP.path.front);
+    this.navController.navigateRoot(TabsUtil.SETUP.path.front);
   }
 
   public logout(): void {

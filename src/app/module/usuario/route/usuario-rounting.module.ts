@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AutenticacaoGuard } from '../../autenticacao/guard/autenticacao.guard';
 
 const routes: Routes = [
   {
@@ -9,8 +8,6 @@ const routes: Routes = [
   },
   {
     path: 'inicio',
-    canLoad: [AutenticacaoGuard],
-    canActivate: [AutenticacaoGuard],
     loadChildren: () => import('../page/usuario-inicio/usuario-inicio.module').then((m) => m.UsuarioInicioPageModule)
   },
   { path: '', redirectTo: 'inicio', pathMatch: 'full' }
