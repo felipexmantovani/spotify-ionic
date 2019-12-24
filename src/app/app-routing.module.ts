@@ -25,7 +25,11 @@ const routes: Routes = [
     canActivate: [AutenticacaoGuard],
     loadChildren: () => import('./tabs/tabs.module').then((m) => m.TabsPageModule)
   },
-  { path: '', redirectTo: SistemaUtil.SETUP.path.nome, pathMatch: 'full' }
+  { path: '', redirectTo: SistemaUtil.SETUP.path.nome, pathMatch: 'full' },
+  {
+    path: 'biblioteca-busca',
+    loadChildren: () => import('./module/biblioteca/page/biblioteca-busca/biblioteca-busca.module').then( m => m.BibliotecaBuscaPageModule)
+  }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],

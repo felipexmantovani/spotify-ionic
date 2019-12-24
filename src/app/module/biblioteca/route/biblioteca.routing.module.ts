@@ -7,6 +7,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('../page/biblioteca-inicio/biblioteca-inicio.module').then((m) => m.BibliotecaInicioPageModule)
   },
+  {
+    path: 'buscar',
+    loadChildren: () =>
+      import('../page/biblioteca-busca/biblioteca-busca.module').then((m) => m.BibliotecaBuscaPageModule)
+  },
   { path: '', redirectTo: 'inicio', pathMatch: 'full' }
 ];
 
