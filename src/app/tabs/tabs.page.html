@@ -1,17 +1,17 @@
 <ion-tabs>
 
   <ion-tab-bar slot="bottom" color="dark">
-    <ion-tab-button tab="/tabs/usuario/inicio">
+    <ion-tab-button tab="{{ pathInicio }}">
       <ion-icon name="home"></ion-icon>
       <ion-label>Início</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="/tabs/sistema/busca">
+    <ion-tab-button tab="{{ pathBuscar }}">
       <ion-icon name="search"></ion-icon>
       <ion-label>Buscar</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="/tabs/usuario/biblioteca">
+    <ion-tab-button tab="{{ pathBiblioteca }}">
       <ion-icon name="list"></ion-icon>
       <ion-label>Sua Biblioteca</ion-label>
     </ion-tab-button>
