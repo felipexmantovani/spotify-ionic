@@ -10,6 +10,8 @@ import { AutenticacaoUtil } from '../util/autenticacao-util';
   providedIn: 'root'
 })
 export class AutenticacaoService {
+  private loginNovo: Login = new Login();
+
   constructor(private storageService: StorageService, private navController: NavController) {}
 
   public login(login: Login): void {
@@ -20,6 +22,13 @@ export class AutenticacaoService {
         .slice(-`${login.senha.length}`)}`
     );
     this.navController.navigateRoot(TabsUtil.SETUP.path.front);
+  }
+
+  public loginFake(): void {
+    this.loginNovo = new Login();
+    this.loginNovo.autenticacao = 'login_fake';
+    this.loginNovo.senha = '0123456789';
+    this.login(this.loginNovo);
   }
 
   public logout(): void {

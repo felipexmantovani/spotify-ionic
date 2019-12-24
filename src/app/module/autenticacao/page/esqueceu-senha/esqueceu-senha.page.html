@@ -11,9 +11,9 @@
   <div class="p-1">
     <form [formGroup]="esqueceuSenhaForm">
       <ion-label 
-          class="label-input" 
-          color="light">
-          E-mail ou nome de usuário
+        class="label-input" 
+        color="light">
+        E-mail ou nome de usuário
       </ion-label>
       <ion-input formControlName="autenticacao" type="text" class="mb-0"></ion-input>
       <ion-text color="light">
@@ -23,13 +23,13 @@
   
     <div class="text-center">
       <ion-button
-          class="mt-2"
-          [disabled]="esqueceuSenhaForm.invalid" 
-          (click)="onSubmit()" 
-          size="large" 
-          color="light" 
-          shape="round">
-          Enviar link
+        class="mt-2"
+        [disabled]="esqueceuSenhaForm.invalid" 
+        (click)="onSubmit()" 
+        size="large" 
+        color="light" 
+        shape="round">
+        Enviar link
       </ion-button>
     </div>
   </div>
