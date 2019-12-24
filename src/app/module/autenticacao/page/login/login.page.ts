@@ -35,8 +35,8 @@ export class LoginPage implements OnInit {
     this.loadingService.show('Entrando, espere...');
     this.login = this.loginForm.value;
     setTimeout(() => {
-      this.autenticacaoService.login(this.login);
       this.loadingService.hide();
+      this.autenticacaoService.login(this.login);
     }, 2000);
   }
 
