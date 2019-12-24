@@ -10,22 +10,18 @@ export class AutenticacaoService {
   constructor(private storageService: StorageService) {}
 
   public login(login: Login): void {
-    this.storageService.setValue(
+    this.storageService.setKey(
       AutenticacaoUtil.SETUP.storageKey.token,
-      `(tokenFake)_${login.autenticacao}_${Math.random()
-        .toString(36)
-        .slice(-`${login.senha.length}`)}`
+      `(tokenFake)_${login.autenticacao}_${Math.random().toString(36).slice(-`${login.senha.length}`)}`
     );
   }
 
   public logout(): void {
-    this.storageService.clear(AutenticacaoUtil.SETUP.storageKey.token);
+    this.storageService.removeKey(AutenticacaoUtil.SETUP.storageKey.token);
   }
 
   public async isLogado(): Promise<boolean> {
-    const token = await this.storageService.getValue(
-      AutenticacaoUtil.SETUP.storageKey.token
-    );
+    const token = await this.storageService.getKey(AutenticacaoUtil.SETUP.storageKey.token);
     return token ? true : false;
   }
 }

@@ -5,7 +5,7 @@ import { StorageService } from './storage/storage.service';
 @NgModule({
   imports: [IonicStorageModule.forRoot({
     name: 'spotify-ionic-db',
-    driverOrder: ['indexeddb', 'sqlite', 'websql']
+    driverOrder: ['localstorage', 'indexeddb', 'sqlite', 'websql']
   })],
   providers: [StorageService]
 })

@@ -5,15 +5,23 @@ import { Storage } from '@ionic/storage';
 export class StorageService {
   constructor(private storage: Storage) {}
 
-  public setValue(key: string, value: string): void {
+  public setKey(key: string, value: string): void {
     this.storage.set(key, value);
   }
 
-  public getValue(key: string): Promise<string> {
+  public getKey(key: string): Promise<string> {
     return this.storage.get(key);
   }
 
-  public clear(key: string): void {
+  public removeKey(key: string): void {
     this.storage.remove(key);
+  }
+
+  public clearKeys(): void {
+    this.storage.clear();
+  }
+
+  public allKeys(): Promise<Array<string>> {
+    return this.storage.keys();
   }
 }
