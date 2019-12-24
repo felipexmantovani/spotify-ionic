@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LoadingService } from '../../../../core/service/loading/loading.service';
 import { Login } from '../../model/login';
 import { AutenticacaoService } from '../../service/autenticacao.service';
-import { Router } from '@angular/router';
 import { AutenticacaoUtil } from '../../util/autenticacao-util';
 
 @Component({
@@ -17,7 +18,8 @@ export class LoginPage implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private autenticacaoService: AutenticacaoService,
-    private router: Router
+    private router: Router,
+    private loadingService: LoadingService
   ) {}
 
   ngOnInit() {
@@ -30,8 +32,12 @@ export class LoginPage implements OnInit {
   }
 
   public onSubmit(): void {
+    this.loadingService.show('Entrando, espere...');
     this.login = this.loginForm.value;
-    this.autenticacaoService.login(this.login);
+    setTimeout(() => {
+      this.autenticacaoService.login(this.login);
+      this.loadingService.hide();
+    }, 2000);
   }
 
   public goEsqueceuSenha() {
