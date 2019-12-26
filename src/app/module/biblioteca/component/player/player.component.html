@@ -8,11 +8,11 @@
         </ion-button>
       </ion-buttons>
   
-      <div class="text-center">
+      <div *ngIf="musicaKeyArray >= 0" class="text-center">
         <small>
-          <strong class="musica">Se...</strong>
+          <strong class="musica">{{ musicas[musicaKeyArray].titulo }}</strong>
           <span class="bolinha"> • </span>
-          <span class="artista">Djavan</span>
+          <span class="artista">{{ musicas[musicaKeyArray].artista.nome }}</span>
         </small>
       </div>
   
