@@ -10,6 +10,10 @@ const routes: Routes = [
     path: 'inicio',
     loadChildren: () => import('../page/usuario-inicio/usuario-inicio.module').then((m) => m.UsuarioInicioPageModule)
   },
+  {
+    path: 'configurar',
+    loadChildren: () => import('../page/usuario-configurar/usuario-configurar.module').then((m) => m.UsuarioConfigurarPageModule)
+  },
   { path: '', redirectTo: 'inicio', pathMatch: 'full' }
 ];
 
