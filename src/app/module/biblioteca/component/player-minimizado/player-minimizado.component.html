@@ -9,11 +9,11 @@
     </ion-button>
   </ion-buttons>
 
-  <div (click)="maximizar()" *ngIf="musicaKeyArray >= 0" class="text-center">
+  <div (click)="modal()" *ngIf="musica" class="text-center">
     <small>
-      <strong class="musica">{{ musicas[musicaKeyArray].titulo }}</strong>
+      <strong class="musica">{{ musica.titulo }}</strong>
       <span class="bolinha opacity-05"> • </span>
-      <span class="artista opacity-05">{{ musicas[musicaKeyArray].artista.nome }}</span>
+      <span class="artista opacity-05">{{ musica.artista.nome }}</span>
     </small>
   </div>
 
