@@ -2,16 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-player-modal',
-  templateUrl: './player-modal.page.html',
-  styleUrls: ['./player-modal.page.scss']
+  selector: 'app-shared-modal',
+  templateUrl: './shared-modal.page.html',
+  styleUrls: ['./shared-modal.page.scss']
 })
-export class PlayerModalPage implements OnInit {
+export class SharedModalPage implements OnInit {
   constructor(private modalController: ModalController) {}
 
   ngOnInit() {}
 
-  public minimizar(): void {
+  public fechar(): void {
     this.modalController.dismiss({
       dismissed: true
     });

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { SharedModalPage } from '../../../../shared/page/shared-modal/shared-modal.page';
 import { Musica } from '../../model/musica';
-import { PlayerModalPage } from '../../page/player-modal/player-modal.page';
 import { MusicaService } from '../../service/musica.service';
 
 @Component({
@@ -38,7 +38,7 @@ export class PlayerMinimizadoComponent implements OnInit {
 
   public async maximizar(): Promise<any> {
     const modal = await this.modalController.create({
-      component: PlayerModalPage
+      component: SharedModalPage
     });
     return await modal.present();
   }

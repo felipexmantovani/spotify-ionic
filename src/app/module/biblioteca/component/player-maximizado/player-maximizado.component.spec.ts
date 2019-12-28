@@ -1,18 +1,18 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
-import { PlayerModalPage } from './player-modal.page';
+import { PlayerMaximizadoComponent } from './player-maximizado.component';
 
-describe('PlayerModalPage', () => {
-  let component: PlayerModalPage;
-  let fixture: ComponentFixture<PlayerModalPage>;
+describe('PlayerMaximizadoComponent', () => {
+  let component: PlayerMaximizadoComponent;
+  let fixture: ComponentFixture<PlayerMaximizadoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [PlayerModalPage],
+      declarations: [PlayerMaximizadoComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(PlayerModalPage);
+    fixture = TestBed.createComponent(PlayerMaximizadoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
