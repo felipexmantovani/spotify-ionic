@@ -1,18 +1,18 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
-import { PlayerComponent } from './player.component';
+import { PlayerMinimizadoComponent } from './player-minimizado.component';
 
-describe('PlayerComponent', () => {
-  let component: PlayerComponent;
-  let fixture: ComponentFixture<PlayerComponent>;
+describe('PlayerMinimizadoComponent', () => {
+  let component: PlayerMinimizadoComponent;
+  let fixture: ComponentFixture<PlayerMinimizadoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [PlayerComponent],
+      declarations: [PlayerMinimizadoComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(PlayerComponent);
+    fixture = TestBed.createComponent(PlayerMinimizadoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

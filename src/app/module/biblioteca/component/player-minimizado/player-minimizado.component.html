@@ -1,0 +1,24 @@
+<ion-toolbar color="dark">
+  <ion-buttons slot="start">
+    <ion-button (click)="favoritar()">
+      <ion-icon *ngIf="favoritada" color="success" name="heart"></ion-icon>
+      <ion-icon *ngIf="!favoritada" color="light" name="heart-empty"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+
+  <div (click)="maximizar()" *ngIf="musicaKeyArray >= 0" class="text-center">
+    <small>
+      <strong class="musica">{{ musicas[musicaKeyArray].titulo }}</strong>
+      <span class="bolinha"> • </span>
+      <span class="artista">{{ musicas[musicaKeyArray].artista.nome }}</span>
+    </small>
+  </div>
+
+  <ion-buttons slot="end">
+    <ion-button (click)="tocar()" class="icon-custom">
+      <ion-icon *ngIf="tocando" class=" icon-pause" name="pause"></ion-icon>
+      <ion-icon *ngIf="!tocando" class="icon-play" name="play"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
