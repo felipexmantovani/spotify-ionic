@@ -40,14 +40,14 @@ ion-content.gradient {
   --background: linear-gradient(
     0deg,
     rgba(var(--ion-color-dark-rgb), 1) 50%,
-    rgba(var(--ion-color-medium-rgb), 1) 100%
+    rgba(var(--ion-color-medium-tint-rgb), 1) 100%
   );
 }
 ion-content.gradient-25deg {
   --background: linear-gradient(
     -25deg,
     rgba(var(--ion-color-dark-rgb), 1) 50%,
-    rgba(var(--ion-color-medium-rgb), 1) 100%
+    rgba(var(--ion-color-medium-tint-rgb), 1) 100%
   );
 }
 
