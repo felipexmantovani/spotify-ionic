@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { Musica } from '../../model/musica';
+import { Musica } from '../../../biblioteca/model/musica';
 import { PlayerModalPage } from '../../page/player-modal/player-modal.page';
-import { MusicaService } from '../../service/musica.service';
+import { MusicaService } from '../../../biblioteca/service/musica.service';
 
 @Component({
   selector: 'app-player-minimizado',

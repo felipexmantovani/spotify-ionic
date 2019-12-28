@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, NavParams } from '@ionic/angular';
-import { Musica } from '../../model/musica';
+import { Musica } from '../../../biblioteca/model/musica';
 
 @Component({
   selector: 'app-player-modal',
