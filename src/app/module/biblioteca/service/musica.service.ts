@@ -11,7 +11,7 @@ export class MusicaService {
 
   public buscarPorId(id: number): Musica {
     let musica: Musica = new Musica();
-    let musicas: Array<Musica> = this.buscar();
+    let musicas: Array<Musica> = this.buscarTodas();
     musicas.forEach((musicaR: Musica) => {
       if (musicaR.id === id) {
         musica = musicaR;
@@ -20,7 +20,7 @@ export class MusicaService {
     return musica;
   }
 
-  public buscar(): Array<Musica> {
+  public buscarTodas(): Array<Musica> {
     let musicas = new Array<Musica>();
     musicas.push(
       this.novo(0, 'Se...', this.artistaService.buscarPorId(0)),
@@ -38,5 +38,11 @@ export class MusicaService {
     musica.titulo = titulo;
     musica.artista = artista;
     return musica;
+  }
+
+  public buscarRandom(): Musica {
+    let musicas: Array<Musica> = this.buscarTodas();
+    let id = Math.round(Math.random() * (musicas.length - 1) + 0);
+    return this.buscarPorId(id);
   }
 }

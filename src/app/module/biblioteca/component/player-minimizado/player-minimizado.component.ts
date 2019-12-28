@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { SharedModalPage } from '../../../../shared/page/shared-modal/shared-modal.page';
 import { Musica } from '../../model/musica';
+import { PlayerModalPage } from '../../page/player-modal/player-modal.page';
 import { MusicaService } from '../../service/musica.service';
 
 @Component({
@@ -14,8 +14,8 @@ export class PlayerMinimizadoComponent implements OnInit {
 
   public tocando: boolean = false;
 
-  public musicas: Array<Musica> = new Array<Musica>();
-  public musicaKeyArray: number;
+  public musica: Musica;
+  public musicas: Array<Musica>;
 
   constructor(private musicaService: MusicaService, private modalController: ModalController) {}
 
@@ -24,8 +24,8 @@ export class PlayerMinimizadoComponent implements OnInit {
   }
 
   private buscarMusicas(): void {
-    this.musicas = this.musicaService.buscar();
-    this.musicaKeyArray = Math.round(Math.random() * (this.musicas.length - 1) + 0);
+    this.musicas = this.musicaService.buscarTodas();
+    this.musica = this.musicaService.buscarRandom();
   }
 
   public favoritar(): void {
@@ -36,9 +36,13 @@ export class PlayerMinimizadoComponent implements OnInit {
     this.tocando = !this.tocando;
   }
 
-  public async maximizar(): Promise<any> {
+  public async modal(): Promise<any> {
     const modal = await this.modalController.create({
-      component: SharedModalPage
+      component: PlayerModalPage,
+      componentProps: {
+        musicas: this.musicas,
+        musica: this.musica
+      }
     });
     return await modal.present();
   }
