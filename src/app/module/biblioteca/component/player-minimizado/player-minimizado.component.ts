@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { Musica } from '../../model/musica';
 import { PlayerModalPage } from '../../page/player-modal/player-modal.page';
