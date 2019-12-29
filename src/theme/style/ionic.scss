@@ -76,6 +76,15 @@ ion-label.label-input {
   font-weight: 700;
 }
 
+ion-loading {
+  --background: var(--ion-color-dark) !important;
+  color: var(--ion-color-light) !important;
+  --spinner-color: var(--ion-color-success) !important;
+  .loading-wrapper {
+    box-shadow: none !important;
+  }
+}
+
 ion-tab-bar.custom-tab-bar {
   --ion-color-base: var(--ion-color-medium) !important;
 }

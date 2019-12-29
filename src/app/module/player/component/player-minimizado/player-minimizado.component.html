@@ -9,13 +9,20 @@
     </ion-button>
   </ion-buttons>
 
-  <div (click)="modal()" *ngIf="musica" class="text-center">
-    <small>
-      <strong class="musica">{{ musica.titulo }}</strong>
-      <span class="bolinha opacity-05"> • </span>
-      <span class="artista opacity-05">{{ musica.artista.nome }}</span>
-    </small>
-  </div>
+  <ion-slides 
+    #slides 
+    *ngIf="musicas" 
+    pager="false" 
+    [options]="slideOpts"
+    (ionSlidesDidLoad)="initSlide()">
+    <ion-slide *ngFor="let musica of musicas">
+      <small (click)="modal(musica)" class="d-block text-center">
+        <strong class="musica">{{ musica.titulo }}</strong>
+        <span class="bolinha opacity-05"> • </span>
+        <span class="artista opacity-05">{{ musica.artista.nome }}</span>
+      </small>
+    </ion-slide>
+  </ion-slides>
 
   <ion-buttons slot="end">
     <ion-button (click)="tocar()" class="icon-custom">

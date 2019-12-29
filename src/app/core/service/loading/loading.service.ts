@@ -8,9 +8,9 @@ export class LoadingService {
   public async show(message?: string, duration?: number): Promise<any> {
     const loading = await this.loadingController.create({
       spinner: 'crescent',
-      duration: duration ? duration : 5000,
+      duration: duration ? duration : 0,
       message: message ? message : 'Aguarde...',
-      translucent: true
+      translucent: false
     });
     return await loading.present();
   }

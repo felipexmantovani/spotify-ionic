@@ -19,10 +19,17 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="gradient" fullscreen>
-  <div class="p-1" *ngIf="musica && musicas">
-    <div class="px-2 mb-1">
-      <img class="w-100 foto" src="{{ musica.artista.foto }}" alt="{{ musica.artista.nome }}" />
+<ion-content fullscreen class="gradient">
+  <ng-container *ngIf="musica && musicas">
+  
+    <div class="w-100 h-100 foto-bg opacity-04" #fotoBg>
+      <div class="w-100 h-100 foto-bg-gradient"></div>
     </div>
-  </div>
+    <div class="p-1 player-infos">
+      <div class="px-2 mb-1">
+        <img class="w-100 foto" src="{{ musica.artista.foto }}" alt="{{ musica.artista.nome }}" />
+      </div>
+    </div>
+
+  </ng-container>
 </ion-content>

@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonSlides, ModalController } from '@ionic/angular';
 import { Musica } from '../../../biblioteca/model/musica';
-import { PlayerModalPage } from '../../page/player-modal/player-modal.page';
 import { MusicaService } from '../../../biblioteca/service/musica.service';
+import { PlayerModalPage } from '../../page/player-modal/player-modal.page';
 
 @Component({
   selector: 'app-player-minimizado',
@@ -10,6 +10,11 @@ import { MusicaService } from '../../../biblioteca/service/musica.service';
   styleUrls: ['./player-minimizado.component.scss']
 })
 export class PlayerMinimizadoComponent implements OnInit {
+  @ViewChild(IonSlides, { static: false })
+  public slides: IonSlides;
+  public slideOpts: Object;
+  public mostrarSlide: boolean = false;
+
   public favoritada: boolean = false;
 
   public tocando: boolean = false;
@@ -25,7 +30,16 @@ export class PlayerMinimizadoComponent implements OnInit {
 
   private buscarMusicas(): void {
     this.musicas = this.musicaService.buscarTodas();
+  }
+
+  public initSlide(): void {
     this.musica = this.musicaService.buscarRandom();
+    this.slideOpts = {
+      initialSlide: 0,
+      speed: 100
+    };
+    this.slides.slideTo(this.musica.id);
+    this.mostrarSlide = true;
   }
 
   public favoritar(): void {
@@ -36,12 +50,12 @@ export class PlayerMinimizadoComponent implements OnInit {
     this.tocando = !this.tocando;
   }
 
-  public async modal(): Promise<any> {
+  public async modal(musica: Musica): Promise<any> {
     const modal = await this.modalController.create({
       component: PlayerModalPage,
       componentProps: {
         musicas: this.musicas,
-        musica: this.musica
+        musica: musica
       }
     });
     return await modal.present();
