@@ -15,6 +15,13 @@
   background-position: center;
 }
 
+.foto-hex-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
 .foto-bg-gradient {
   position: absolute;
   top: 0;

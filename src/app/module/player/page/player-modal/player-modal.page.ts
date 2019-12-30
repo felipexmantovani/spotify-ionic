@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { ModalController, NavParams } from '@ionic/angular';
 import { Musica } from '../../../biblioteca/model/musica';
+let Vibrant = require('node-vibrant');
 
 @Component({
   selector: 'app-player-modal',
@@ -22,7 +23,12 @@ export class PlayerModalPage implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.renderer.setStyle(this.fotoBg.nativeElement, 'background-image', `url(${this.musica.artista.foto})`);
+    Vibrant
+      .from(this.musica.artista.foto)
+      .getPalette()
+      .then((palette: any) => {
+        this.renderer.setStyle(this.fotoBg.nativeElement, 'background-color', palette.DarkVibrant.hex);
+      })
   }
 
   public fechar(): void {
