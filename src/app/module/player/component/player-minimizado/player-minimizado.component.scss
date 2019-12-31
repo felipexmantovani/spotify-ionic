@@ -1,11 +1,14 @@
 @import '../../../../../theme/variables.scss';
 
-.bolinha {
-  font-weight: 700; 
-}
 ion-toolbar {
   --ion-color-base: var(--ion-color-medium) !important;
   border-bottom: 1px solid var(--ion-color-dark);
+}
+.musica {
+  font-size: 0.6em;
+}
+.musica-bolinha {
+  font-weight: 700; 
 }
 .icon-custom  {
   border: 1px solid var(--ion-color-light);

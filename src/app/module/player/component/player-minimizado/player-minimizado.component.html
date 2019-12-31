@@ -16,10 +16,10 @@
     [options]="slideOpts"
     (ionSlidesDidLoad)="initSlide()">
     <ion-slide *ngFor="let musica of musicas">
-      <small (click)="modal(musica)" class="d-block text-center">
-        <strong class="musica">{{ musica.titulo }}</strong>
-        <span class="bolinha opacity-05"> • </span>
-        <span class="artista opacity-05">{{ musica.artista.nome }}</span>
+      <small (click)="modal(musica)" class="musica d-block text-center">
+        <strong class="musica-titulo">{{ musica.titulo }}</strong>
+        <span class="musica-bolinha opacity-05"> • </span>
+        <span class="musica-artista opacity-05">{{ musica.artista.nome }}</span>
       </small>
     </ion-slide>
   </ion-slides>
