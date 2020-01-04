@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { ModalController, NavParams } from '@ionic/angular';
+import { ColorPaletteService } from '../../../../core/service/color-palette/color-palette.service';
 import { Musica } from '../../../biblioteca/model/musica';
 let Vibrant = require('node-vibrant');
 
@@ -17,7 +18,12 @@ export class PlayerModalPage implements OnInit, AfterViewInit {
   public musica: Musica;
   public musicas: Array<Musica>;
 
-  constructor(private modalController: ModalController, private navParams: NavParams, private renderer: Renderer2) {}
+  constructor(
+    private modalController: ModalController,
+    private navParams: NavParams,
+    private renderer: Renderer2,
+    private colorPaletteService: ColorPaletteService
+  ) {}
 
   ngOnInit() {
     this.musica = this.navParams.get('musica');
@@ -25,11 +31,14 @@ export class PlayerModalPage implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    Vibrant.from(this.musica.artista.foto)
-      .getPalette()
-      .then((palette: any) => {
-        this.renderer.setStyle(this.fotoBg.nativeElement, 'background-color', palette.DarkVibrant.hex);
-      });
+    this.backgroundColor(this.musica.artista.foto);
+  }
+
+  private async backgroundColor(image: string) {
+    let palette = await this.colorPaletteService.getByImage(image);
+    if (palette) {
+      this.renderer.setStyle(this.fotoBg.nativeElement, 'background-color', palette.DarkVibrant.hex);
+    }
   }
 
   public tocar(): void {
