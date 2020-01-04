@@ -3,18 +3,10 @@
 </span>
 <ion-toolbar color="dark">
   <ion-buttons slot="start">
-    <ion-button (click)="favoritar()">
-      <ion-icon *ngIf="favoritada" color="success" name="heart"></ion-icon>
-      <ion-icon *ngIf="!favoritada" color="light" name="heart-empty"></ion-icon>
-    </ion-button>
+    <app-player-btn-favoritar [buttonFill]="'clear'" [buttonColor]="'dark'"></app-player-btn-favoritar>
   </ion-buttons>
 
-  <ion-slides 
-    #slides 
-    *ngIf="musicas" 
-    pager="false" 
-    [options]="slideOpts"
-    (ionSlidesDidLoad)="initSlide()">
+  <ion-slides #slides *ngIf="musicas" pager="false" [options]="slideOpts" (ionSlidesDidLoad)="initSlide()">
     <ion-slide *ngFor="let musica of musicas">
       <small (click)="modal(musica)" class="musica d-block text-center">
         <strong class="musica-titulo">{{ musica.titulo }}</strong>
@@ -31,4 +23,3 @@
     </ion-button>
   </ion-buttons>
 </ion-toolbar>
-

@@ -1,12 +1,8 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-
+import { PlayerModalPageModule } from './page/player-modal/player-modal.module';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+  imports: [PlayerModalPageModule],
+  exports: [PlayerModalPageModule]
 })
-export class PlayerModule { }
+export class PlayerModule {}

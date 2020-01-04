@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonSlides, ModalController } from '@ionic/angular';
+import { IonSlides } from '@ionic/angular';
 import { Musica } from '../../../biblioteca/model/musica';
 import { MusicaService } from '../../../biblioteca/service/musica.service';
-import { PlayerModalPage } from '../../page/player-modal/player-modal.page';
+import { PlayerService } from '../../service/player.service';
 
 @Component({
   selector: 'app-player-minimizado',
@@ -22,7 +22,7 @@ export class PlayerMinimizadoComponent implements OnInit {
   public musica: Musica;
   public musicas: Array<Musica>;
 
-  constructor(private musicaService: MusicaService, private modalController: ModalController) {}
+  constructor(private musicaService: MusicaService, private playerService: PlayerService) {}
 
   ngOnInit() {
     this.buscarMusicas();
@@ -50,14 +50,7 @@ export class PlayerMinimizadoComponent implements OnInit {
     this.tocando = !this.tocando;
   }
 
-  public async modal(musica: Musica): Promise<any> {
-    const modal = await this.modalController.create({
-      component: PlayerModalPage,
-      componentProps: {
-        musicas: this.musicas,
-        musica: musica
-      }
-    });
-    return await modal.present();
+  public modal(musica: Musica): void {
+    this.playerService.modal(musica, this.musicas);
   }
 }

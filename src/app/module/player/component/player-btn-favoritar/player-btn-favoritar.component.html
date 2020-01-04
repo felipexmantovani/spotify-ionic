@@ -1,0 +1,8 @@
+<ion-button #button size="{{ buttonSize }}" fill="{{ buttonFill }}" color="{{ buttonColor }}" (click)="favoritar()">
+  <ion-icon
+    #icon
+    size="{{ iconSize }}"
+    color="{{ isFavoritada ? 'success' : 'light' }}"
+    name="{{ isFavoritada ? 'heart' : 'heart-empty' }}"
+  ></ion-icon>
+</ion-button>

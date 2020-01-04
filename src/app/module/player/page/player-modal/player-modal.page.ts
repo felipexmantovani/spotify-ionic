@@ -12,6 +12,8 @@ export class PlayerModalPage implements OnInit, AfterViewInit {
   @ViewChild('fotoBg', { static: false })
   public fotoBg: ElementRef;
 
+  public tocando: boolean = false;
+
   public musica: Musica;
   public musicas: Array<Musica>;
 
@@ -23,12 +25,15 @@ export class PlayerModalPage implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    Vibrant
-      .from(this.musica.artista.foto)
+    Vibrant.from(this.musica.artista.foto)
       .getPalette()
       .then((palette: any) => {
         this.renderer.setStyle(this.fotoBg.nativeElement, 'background-color', palette.DarkVibrant.hex);
-      })
+      });
+  }
+
+  public tocar(): void {
+    this.tocando = !this.tocando;
   }
 
   public fechar(): void {
