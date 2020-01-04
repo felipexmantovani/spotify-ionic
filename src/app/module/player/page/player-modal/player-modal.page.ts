@@ -2,7 +2,6 @@ import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } fr
 import { ModalController, NavParams } from '@ionic/angular';
 import { ColorPaletteService } from '../../../../core/service/color-palette/color-palette.service';
 import { Musica } from '../../../biblioteca/model/musica';
-let Vibrant = require('node-vibrant');
 
 @Component({
   selector: 'app-player-modal',
