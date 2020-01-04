@@ -42,11 +42,12 @@
               <p class="my-0 opacity-05">{{ musica.artista.nome }}</p>
             </ion-text>
           </ion-col>
-          <ion-col size="2" class="text-right">
+          <ion-col size="2" class="text-right pr-0">
             <app-player-btn-favoritar
               [iconSize]="'large'"
               [buttonFill]="'clear'"
               [buttonColor]="'dark'"
+              [buttonPaddingX]="false"
             ></app-player-btn-favoritar>
           </ion-col>
         </ion-row>

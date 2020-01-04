@@ -16,6 +16,8 @@ export class PlayerBtnFavoritarComponent {
   public buttonFill: string;
   @Input()
   public buttonColor: string;
+  @Input()
+  public buttonPaddingX: boolean = true;
 
   @ViewChild('icon', { static: false })
   public icon: IonIcon;

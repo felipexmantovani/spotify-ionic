@@ -1,4 +1,4 @@
-<ion-button #button size="{{ buttonSize }}" fill="{{ buttonFill }}" color="{{ buttonColor }}" (click)="favoritar()">
+<ion-button #button [ngClass]="{'px-0': !buttonPaddingX}" size="{{ buttonSize }}" fill="{{ buttonFill }}" color="{{ buttonColor }}" (click)="favoritar()">
   <ion-icon
     #icon
     size="{{ iconSize }}"
