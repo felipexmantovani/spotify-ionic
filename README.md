@@ -1,2 +1,2 @@
 # spotify-ionic
-Spotify em Ionic 4 - Desenvolvimento de algumas telas do APP mobile do Spotify utilizando o framework Ionic 4
+Spotify Clone em Ionic 4 - Desenvolvimento de algumas telas do Spotify APP Mobile utilizando o framework Ionic 4
