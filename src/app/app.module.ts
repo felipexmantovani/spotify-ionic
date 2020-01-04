@@ -7,6 +7,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
+import { SharedPageModule } from './shared/page/shared-page.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,13 +18,10 @@ import { CoreModule } from './core/core.module';
       backButtonText: ''
     }),
     AppRoutingModule,
-    CoreModule
+    CoreModule,
+    SharedPageModule
   ],
-  providers: [
-    StatusBar,
-    SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
-  ],
+  providers: [StatusBar, SplashScreen, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
