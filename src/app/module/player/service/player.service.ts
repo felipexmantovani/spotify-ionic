@@ -9,7 +9,11 @@ import { PlayerModalPage } from '../page/player-modal/player-modal.page';
 export class PlayerService {
   constructor(private modalController: ModalController) {}
 
-  public favoritar(value: boolean): boolean {
+  public like(value: boolean): boolean {
+    return !value;
+  }
+
+  public playPause(value: boolean): boolean {
     return !value;
   }
 

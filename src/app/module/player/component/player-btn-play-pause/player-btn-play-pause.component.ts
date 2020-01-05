@@ -3,11 +3,11 @@ import { IonButton, IonIcon } from '@ionic/angular';
 import { PlayerService } from '../../service/player.service';
 
 @Component({
-  selector: 'app-player-btn-favoritar',
-  templateUrl: './player-btn-favoritar.component.html',
-  styleUrls: ['./player-btn-favoritar.component.scss']
+  selector: 'app-player-btn-play-pause',
+  templateUrl: './player-btn-play-pause.component.html',
+  styleUrls: ['./player-btn-play-pause.component.scss']
 })
-export class PlayerBtnFavoritarComponent {
+export class PlayerBtnPlayPauseComponent {
   @ViewChild('button', { static: false })
   public button: IonButton;
   @Input()
@@ -24,11 +24,11 @@ export class PlayerBtnFavoritarComponent {
   @Input()
   public iconSize: string;
 
-  public isFavoritada: boolean = false;
+  public isTocando: boolean = false;
 
   constructor(private playerService: PlayerService) {}
 
-  public favoritar(): void {
-    this.isFavoritada = this.playerService.like(this.isFavoritada);
+  public tocar(): void {
+    this.isTocando = this.playerService.playPause(this.isTocando);
   }
 }

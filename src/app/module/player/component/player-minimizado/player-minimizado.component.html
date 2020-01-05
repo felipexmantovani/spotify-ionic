@@ -17,9 +17,6 @@
   </ion-slides>
 
   <ion-buttons slot="end">
-    <ion-button (click)="tocar()" class="icon-custom">
-      <ion-icon *ngIf="tocando" class=" icon-pause" name="pause"></ion-icon>
-      <ion-icon *ngIf="!tocando" class="icon-play" name="play"></ion-icon>
-    </ion-button>
+    <app-player-btn-play-pause [iconSize]="'large'" [buttonFill]="'clear'" [buttonColor]="'dark'"></app-player-btn-play-pause>
   </ion-buttons>
 </ion-toolbar>

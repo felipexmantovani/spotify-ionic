@@ -1,0 +1,8 @@
+<ion-button #button [ngClass]="{'px-0': !buttonPaddingX}" size="{{ buttonSize }}" fill="{{ buttonFill }}" color="{{ buttonColor }}" (click)="tocar()">
+  <ion-icon
+    #icon
+    size="{{ iconSize }}"
+    color="light"
+    name="{{ isTocando ? 'pause' : 'play' }}"
+  ></ion-icon>
+</ion-button>
