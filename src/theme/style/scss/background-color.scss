@@ -1,0 +1,127 @@
+@import '../../variables.scss';
+
+/** primary **/
+.bg-primary {
+  background-color: var(--ion-color-primary);
+}
+.bg-primary-contrast {
+  background-color: var(--ion-color-primary-contrast);
+}
+.bg-primary-shade {
+  background-color: var(--ion-color-primary-shade);
+}
+.bg-primary-tint {
+  background-color: var(--ion-color-primary-tint);
+}
+
+/** secondary **/
+.bg-secondary {
+  background-color: var(--ion-color-secondary);
+}
+.bg-secondary-contrast {
+  background-color: var(--ion-color-secondary-contrast);
+}
+.bg-secondary-shade {
+  background-color: var(--ion-color-secondary-shade);
+}
+.bg-secondary-tint {
+  background-color: var(--ion-color-secondary-tint);
+}
+
+/** tertiary **/
+.bg-tertiary {
+  background-color: var(--ion-color-tertiary);
+}
+.bg-tertiary-contrast {
+  background-color: var(--ion-color-tertiary-contrast);
+}
+.bg-tertiary-shade {
+  background-color: var(--ion-color-tertiary-shade);
+}
+.bg-tertiary-tint {
+  background-color: var(--ion-color-tertiary-tint);
+}
+
+/** success **/
+.bg-success {
+  background-color: var(--ion-color-success);
+}
+.bg-success-contrast {
+  background-color: var(--ion-color-success-contrast);
+}
+.bg-success-shade {
+  background-color: var(--ion-color-success-shade);
+}
+.bg-success-tint {
+  background-color: var(--ion-color-success-tint);
+}
+
+/** warning **/
+.bg-warning {
+  background-color: var(--ion-color-warning);
+}
+.bg-warning-contrast {
+  background-color: var(--ion-color-warning-contrast);
+}
+.bg-warning-shade {
+  background-color: var(--ion-color-warning-shade);
+}
+.bg-warning-tint {
+  background-color: var(--ion-color-warning-tint);
+}
+
+/** danger **/
+.bg-danger {
+  background-color: var(--ion-color-danger);
+}
+.bg-danger-contrast {
+  background-color: var(--ion-color-danger-contrast);
+}
+.bg-danger-shade {
+  background-color: var(--ion-color-danger-shade);
+}
+.bg-danger-tint {
+  background-color: var(--ion-color-danger-tint);
+}
+
+/** dark **/
+.bg-dark {
+  background-color: var(--ion-color-dark);
+}
+.bg-dark-contrast {
+  background-color: var(--ion-color-dark-contrast);
+}
+.bg-dark-shade {
+  background-color: var(--ion-color-dark-shade);
+}
+.bg-dark-tint {
+  background-color: var(--ion-color-dark-tint);
+}
+
+/** medium **/
+.bg-medium {
+  background-color: var(--ion-color-medium);
+}
+.bg-medium-contrast {
+  background-color: var(--ion-color-medium-contrast);
+}
+.bg-medium-shade {
+  background-color: var(--ion-color-medium-shade);
+}
+.bg-medium-tint {
+  background-color: var(--ion-color-medium-tint);
+}
+
+/** light **/
+.bg-light {
+  background-color: var(--ion-color-light);
+}
+.bg-light-contrast {
+  background-color: var(--ion-color-light-contrast);
+}
+.bg-light-shade {
+  background-color: var(--ion-color-light-shade);
+}
+.bg-light-tint {
+  background-color: var(--ion-color-light-tint);
+}
