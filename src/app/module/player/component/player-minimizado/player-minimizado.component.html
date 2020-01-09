@@ -1,6 +1,5 @@
-<span class="timeline">
-  <span class="timeline-percent"></span>
-</span>
+<app-player-timeline></app-player-timeline>
+
 <ion-toolbar color="dark">
   <ion-buttons slot="start">
     <app-player-btn-favoritar [buttonFill]="'clear'" [buttonColor]="'dark'"></app-player-btn-favoritar>
@@ -17,6 +16,10 @@
   </ion-slides>
 
   <ion-buttons slot="end">
-    <app-player-btn-play-pause [iconSize]="'large'" [buttonFill]="'clear'" [buttonColor]="'dark'"></app-player-btn-play-pause>
+    <app-player-btn-play-pause
+      [iconSize]="'large'"
+      [buttonFill]="'clear'"
+      [buttonColor]="'light'"
+    ></app-player-btn-play-pause>
   </ion-buttons>
 </ion-toolbar>

@@ -29,7 +29,7 @@
       <ion-grid>
         <ion-row>
           <ion-col size="12">
-            <div class="px-1 my-1">
+            <div class="px-1 mb-1">
               <img class="w-100 foto" src="{{ musica.artista.foto }}" alt="{{ musica.artista.nome }}" />
             </div>
           </ion-col>
@@ -49,6 +49,48 @@
               [buttonColor]="'dark'"
               [buttonPaddingX]="false"
             ></app-player-btn-favoritar>
+          </ion-col>
+          <ion-col size="12">
+            <app-player-timeline class="d-block mt-1" [isSmall]="false"></app-player-timeline>
+          </ion-col>
+        </ion-row>
+        
+        <ion-row class="px-1 ion-align-items-center ion-justify-content-center">
+          <ion-col size="2" class="pl-0 text-left">
+            <ion-button class="btn-shuffle" fill="clear" color="light">
+              <ion-icon name="shuffle" size="large"></ion-icon>
+            </ion-button>
+          </ion-col>
+          <ion-col size="2" class="text-right">
+            <ion-button class="btn-prev-next" fill="clear" color="light">
+              <ion-icon name="skip-backward" size="large"></ion-icon>
+            </ion-button>
+          </ion-col>
+          <ion-col size="4" class="text-center">
+            <app-player-btn-play-pause
+              [buttonFill]="'solid'"
+              [buttonColor]="'light'"
+              [iconSize]="'large'"
+              [isInModal]="true"
+            ></app-player-btn-play-pause>
+          </ion-col>
+          <ion-col size="2" class="text-left">
+            <ion-button class="btn-prev-next" fill="clear" color="light">
+              <ion-icon name="skip-forward" size="large"></ion-icon>
+            </ion-button>
+          </ion-col>
+          <ion-col size="2" class="pr-0 text-right">
+            <ion-button class="btn-repeat" fill="clear" color="light">
+              <ion-icon name="repeat" size="large"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="px-1 text-right">
+          <ion-col size="12">
+            <ion-button class="btn-list" fill="clear" color="light">
+              <ion-icon name="list" size="small"></ion-icon>
+            </ion-button>
           </ion-col>
         </ion-row>
       </ion-grid>

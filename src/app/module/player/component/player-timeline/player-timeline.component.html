@@ -1,0 +1,17 @@
+<span #timeline class="timeline">
+  <span #timelinePercent class="timeline-percent">
+    <span *ngIf="showMarker" class="timeline-marker"></span>
+  </span>
+</span>
+<ion-text *ngIf="showMinutes" color="light" class="timeline-minutes opacity-05 d-block">
+  <ion-grid class="p-0">
+    <ion-row class="p-0">
+      <ion-col size="6" class="text-left p-0">
+        <span class="start">1:10</span>
+      </ion-col>
+      <ion-col size="6" class="text-right p-0">
+        <span class="end">3:59</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-text>

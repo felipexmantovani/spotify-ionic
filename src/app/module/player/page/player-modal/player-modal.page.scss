@@ -37,3 +37,13 @@
   position: relative;
   z-index: 2;
 }
+
+ion-button {
+  &.btn-prev-next,
+  &.btn-shuffle,
+  &.btn-repeat,
+  &.btn-list {
+    --padding-start: 0;
+    --padding-end: 0;
+  }
+}

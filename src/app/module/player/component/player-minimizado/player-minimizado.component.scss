@@ -8,20 +8,5 @@ ion-toolbar {
   font-size: 0.75em;
 }
 .musica-bolinha {
-  font-weight: 700; 
-}
-.timeline {
-  display: block;
-  width: 100%;
-  height: 1px;
-  background-color: var(--ion-color-medium-tint);
-  position: relative;
-}
-.timeline-percent {
-  width: 25%;
-  height: 1px;
-  background-color: var(--ion-color-light);  
-  position: absolute;
-  top: 0;
-  left: 0;
+  font-weight: 700;
 }

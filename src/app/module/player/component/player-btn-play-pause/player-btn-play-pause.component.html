@@ -1,8 +1,18 @@
-<ion-button #button [ngClass]="{'px-0': !buttonPaddingX}" size="{{ buttonSize }}" fill="{{ buttonFill }}" color="{{ buttonColor }}" (click)="tocar()">
+<ion-button  
+  #button 
+  [ngClass]="{
+    'px-0': !buttonPaddingX,
+    'btn-modal': isInModal
+  }" 
+  (click)="tocar()"
+  size="{{ buttonSize }}" 
+  fill="{{ buttonFill }}" 
+  color="{{ buttonColor }}"
+>
   <ion-icon
     #icon
     size="{{ iconSize }}"
-    color="light"
+    color="{{ iconColor }}"
     name="{{ isTocando ? 'pause' : 'play' }}"
   ></ion-icon>
 </ion-button>

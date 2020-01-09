@@ -23,6 +23,11 @@ export class PlayerBtnPlayPauseComponent {
   public icon: IonIcon;
   @Input()
   public iconSize: string;
+  @Input()
+  public iconColor: string;
+
+  @Input()
+  public isInModal: boolean = false;
 
   public isTocando: boolean = false;
 
