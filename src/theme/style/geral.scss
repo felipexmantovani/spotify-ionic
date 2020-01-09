@@ -9,22 +9,3 @@ h6 {
   font-weight: 700;
   font-size: 1em;
 }
-
-.gradient {
-  background: linear-gradient(
-    0deg,
-    rgba(var(--ion-color-dark-rgb), 1) 50%,
-    rgba(var(--ion-color-medium-tint-rgb), 1) 100%
-  );
-}
-.gradient-25deg {
-  background: linear-gradient(
-    -25deg,
-    rgba(var(--ion-color-dark-rgb), 1) 50%,
-    rgba(var(--ion-color-medium-tint-rgb), 1) 100%
-  );
-}
-
-.bg-transparent {
-  background-color: transparent !important;
-}

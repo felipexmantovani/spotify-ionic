@@ -1,5 +1,9 @@
 @import '../../variables.scss';
 
+.bg-transparent {
+  background-color: transparent !important;
+}
+
 /** primary **/
 .bg-primary {
   background-color: var(--ion-color-primary);
