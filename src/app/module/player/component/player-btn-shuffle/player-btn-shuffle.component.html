@@ -1,0 +1,16 @@
+<ion-button  
+  #button 
+  [ngClass]="{'px-0': !buttonPaddingX}" 
+  (click)="surffle()"
+  size="{{ buttonSize }}" 
+  fill="{{ buttonFill }}" 
+  color="{{ buttonColor }}"
+>
+  <ion-icon
+    #icon
+    mode="ios"
+    size="{{ iconSize }}"
+    color="{{ isActive ? 'success' : 'light' }}"
+    name="shuffle"
+  ></ion-icon>
+</ion-button>

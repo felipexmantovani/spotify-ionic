@@ -17,6 +17,10 @@ export class PlayerService {
     return !value;
   }
 
+  public surffle(value: boolean): boolean {
+    return !value;
+  }
+
   public async modal(musica: Musica, musicas: Array<Musica>): Promise<any> {
     const modal = await this.modalController.create({
       component: PlayerModalPage,
