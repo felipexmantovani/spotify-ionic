@@ -83,9 +83,12 @@
             </ion-button>
           </ion-col>
           <ion-col size="2" class="pr-0 text-right">
-            <ion-button class="btn-repeat" fill="clear" color="light">
-              <ion-icon name="repeat" size="large"></ion-icon>
-            </ion-button>
+            <app-player-btn-repeat
+              [iconSize]="'large'"
+              [buttonFill]="'clear'"
+              [buttonColor]="'dark'"
+              [buttonPaddingX]="false"
+            ></app-player-btn-repeat>
           </ion-col>
         </ion-row>
 
