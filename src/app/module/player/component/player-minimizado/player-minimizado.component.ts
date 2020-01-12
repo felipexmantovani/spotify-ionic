@@ -15,10 +15,6 @@ export class PlayerMinimizadoComponent implements OnInit {
   public slideOpts: Object;
   public mostrarSlide: boolean = false;
 
-  public favoritada: boolean = false;
-
-  public tocando: boolean = false;
-
   public musica: Musica;
   public musicas: Array<Musica>;
 
@@ -40,14 +36,6 @@ export class PlayerMinimizadoComponent implements OnInit {
     };
     this.slides.slideTo(this.musica.id);
     this.mostrarSlide = true;
-  }
-
-  public favoritar(): void {
-    this.favoritada = !this.favoritada;
-  }
-
-  public tocar(): void {
-    this.tocando = !this.tocando;
   }
 
   public modal(musica: Musica): void {

@@ -1,6 +1,6 @@
 <ion-button 
   #button 
-  (click)="favoritar()"
+  (click)="like()"
   [ngClass]="{'px-0': !buttonPaddingX}" 
   size="{{ buttonSize }}" 
   fill="{{ buttonFill }}" 
@@ -9,7 +9,7 @@
   <ion-icon
     #icon
     size="{{ iconSize }}"
-    color="{{ isFavoritada ? 'success' : 'light' }}"
-    name="{{ isFavoritada ? 'heart' : 'heart-empty' }}"
+    color="{{ isLiked ? 'success' : 'light' }}"
+    name="{{ isLiked ? 'heart' : 'heart-empty' }}"
   ></ion-icon>
 </ion-button>

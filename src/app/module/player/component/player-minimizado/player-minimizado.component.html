@@ -2,7 +2,7 @@
 
 <ion-toolbar color="dark">
   <ion-buttons slot="start">
-    <app-player-btn-favoritar [buttonFill]="'clear'" [buttonColor]="'dark'"></app-player-btn-favoritar>
+    <app-player-btn-like [buttonFill]="'clear'" [buttonColor]="'dark'"></app-player-btn-like>
   </ion-buttons>
 
   <ion-slides #slides *ngIf="musicas" pager="false" [options]="slideOpts" (ionSlidesDidLoad)="initSlide()">
