@@ -8,14 +8,14 @@
 </ion-header>
 
 <ion-content>
-  <div class="p-1">
+  <div class="p-1" *ngIf="usuario">
 
     <ion-text color="light">
       <h6 class="my-1">Outros</h6>
     </ion-text>
     <ion-text (click)="sair()" color="light" class="d-block">
       Sair
-      <small class="opacity-08 d-block">Você entrou como Felipe Mantovani</small>
+      <small class="opacity-08 d-block">Você entrou como {{ usuario.nomeCompleto }}</small>
     </ion-text>
 
   </div>

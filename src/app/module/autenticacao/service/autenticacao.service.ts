@@ -3,6 +3,8 @@ import { NavController } from '@ionic/angular';
 import { StorageService } from '../../../core/service/storage/storage.service';
 import { TabsUtil } from '../../../tabs/tabs-util';
 import { SistemaUtil } from '../../sistema/util/sistema-util';
+import { UsuarioService } from '../../usuario/service/usuario.service';
+import { UsuarioUtil } from '../../usuario/util/usuario-util';
 import { Login } from '../model/login';
 import { AutenticacaoUtil } from '../util/autenticacao-util';
 
@@ -12,7 +14,11 @@ import { AutenticacaoUtil } from '../util/autenticacao-util';
 export class AutenticacaoService {
   private loginNovo: Login = new Login();
 
-  constructor(private storageService: StorageService, private navController: NavController) {}
+  constructor(
+    private storageService: StorageService,
+    private navController: NavController,
+    private usuarioService: UsuarioService
+  ) {}
 
   public login(login: Login): void {
     this.storageService.setKey(
@@ -21,6 +27,9 @@ export class AutenticacaoService {
         .toString(36)
         .slice(-`${login.senha.length}`)}`
     );
+
+    this.storageService.setKey(UsuarioUtil.SETUP.storageKey.user, JSON.stringify(this.usuarioService.novo()));
+
     this.navController.navigateRoot(TabsUtil.SETUP.path.front);
   }
 

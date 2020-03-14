@@ -4,6 +4,9 @@ export class UsuarioUtil {
     path: {
       nome: 'usuario',
       front: '/usuario'
+    },
+    storageKey: {
+      user: 'user'
     }
   }
 }

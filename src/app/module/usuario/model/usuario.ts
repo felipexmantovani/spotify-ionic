@@ -4,6 +4,7 @@ export class Usuario {
   id: number = null;
   nome: string = null;
   sobrenome: string = null;
+  nomeCompleto: string = null;
   email: string = null;
   senha: string = null;
   foto: string = null;
