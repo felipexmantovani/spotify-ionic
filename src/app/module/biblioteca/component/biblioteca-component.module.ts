@@ -3,8 +3,6 @@ import { NgModule } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 
 @NgModule({
-  imports: [CommonModule, IonicModule],
-  declarations: [],
-  exports: []
+  imports: [CommonModule, IonicModule]
 })
 export class BibliotecaComponentModule {}
