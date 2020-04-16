@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { NavController } from '@ionic/angular';
+import { AUTENTICACAO_CONFIG } from '../../autenticacao.config';
 import { EsqueceuSenha } from '../../model/esqueceu-senha';
-import { AutenticacaoUtil } from '../../util/autenticacao-util';
 
 @Component({
   selector: 'app-esqueceu-senha',
@@ -35,6 +35,6 @@ export class EsqueceuSenhaPage implements OnInit {
 
   public onSubmit(): void {
     this.esqueceuSenha = this.esqueceuSenhaForm.value;
-    this.navController.navigateBack(AutenticacaoUtil.SETUP.path.front);
+    this.navController.navigateBack(AUTENTICACAO_CONFIG.pathFront);
   }
 }

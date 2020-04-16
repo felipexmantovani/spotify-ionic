@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadingService } from '../../../../core/service/loading/loading.service';
+import { AUTENTICACAO_CONFIG } from '../../autenticacao.config';
 import { Login } from '../../model/login';
 import { AutenticacaoService } from '../../service/autenticacao.service';
-import { AutenticacaoUtil } from '../../util/autenticacao-util';
 
 @Component({
   selector: 'app-login',
@@ -41,6 +41,6 @@ export class LoginPage implements OnInit {
   }
 
   public goEsqueceuSenha() {
-    this.router.navigateByUrl(`${AutenticacaoUtil.SETUP.path.front}/esqueceu-senha`);
+    this.router.navigateByUrl(`${AUTENTICACAO_CONFIG.pathFront}/esqueceu-senha`);
   }
 }

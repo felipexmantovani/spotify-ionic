@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoadingService } from '../../../../core/service/loading/loading.service';
+import { AUTENTICACAO_CONFIG } from '../../../autenticacao/autenticacao.config';
 import { AutenticacaoService } from '../../../autenticacao/service/autenticacao.service';
-import { AutenticacaoUtil } from '../../../autenticacao/util/autenticacao-util';
 import { UsuarioUtil } from '../../../usuario/util/usuario-util';
 
 @Component({
@@ -20,7 +20,7 @@ export class SistemaInicioPage implements OnInit {
   ngOnInit() {}
 
   public goLogin(): void {
-    this.router.navigateByUrl(AutenticacaoUtil.SETUP.path.front);
+    this.router.navigateByUrl(AUTENTICACAO_CONFIG.pathFront);
   }
 
   public goFacebook(): void {

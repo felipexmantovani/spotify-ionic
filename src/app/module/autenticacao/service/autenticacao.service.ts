@@ -5,8 +5,8 @@ import { TabsUtil } from '../../../tabs/tabs-util';
 import { SistemaUtil } from '../../sistema/util/sistema-util';
 import { UsuarioService } from '../../usuario/service/usuario.service';
 import { UsuarioUtil } from '../../usuario/util/usuario-util';
+import { AUTENTICACAO_CONFIG } from '../autenticacao.config';
 import { Login } from '../model/login';
-import { AutenticacaoUtil } from '../util/autenticacao-util';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +22,7 @@ export class AutenticacaoService {
 
   public login(login: Login): void {
     this.storageService.setKey(
-      AutenticacaoUtil.SETUP.storageKey.token,
+      AUTENTICACAO_CONFIG.token,
       `(tokenFake)_${login.autenticacao}_${Math.random()
         .toString(36)
         .slice(-`${login.senha.length}`)}`
@@ -41,12 +41,12 @@ export class AutenticacaoService {
   }
 
   public logout(): void {
-    this.storageService.removeKey(AutenticacaoUtil.SETUP.storageKey.token);
+    this.storageService.removeKey(AUTENTICACAO_CONFIG.token);
     this.navController.navigateRoot(SistemaUtil.SETUP.path.front);
   }
 
   public async isLogado(): Promise<boolean> {
-    const token = await this.storageService.getKey(AutenticacaoUtil.SETUP.storageKey.token);
+    const token = await this.storageService.getKey(AUTENTICACAO_CONFIG.token);
     return token ? true : false;
   }
 }

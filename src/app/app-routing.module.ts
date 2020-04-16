@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AUTENTICACAO_CONFIG } from './module/autenticacao/autenticacao.config';
 import { AutenticacaoGuard } from './module/autenticacao/guard/autenticacao.guard';
-import { AutenticacaoUtil } from './module/autenticacao/util/autenticacao-util';
 import { SistemaUtil } from './module/sistema/util/sistema-util';
 import { UsuarioUtil } from './module/usuario/util/usuario-util';
 import { TabsUtil } from './tabs/tabs-util';
@@ -12,7 +12,7 @@ const routes: Routes = [
     loadChildren: () => import('./module/sistema/sistema.module').then((m) => m.SistemaModule)
   },
   {
-    path: AutenticacaoUtil.SETUP.path.nome,
+    path: AUTENTICACAO_CONFIG.path,
     loadChildren: () => import('./module/autenticacao/autenticacao.module').then((m) => m.AutenticacaoModule)
   },
   {
