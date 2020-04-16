@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BibliotecaRoutingModule } from './route/biblioteca.routing.module';
+import { BibliotecaRoutingModule } from './biblioteca.routing.module';
 
 @NgModule({
   imports: [BibliotecaRoutingModule]
