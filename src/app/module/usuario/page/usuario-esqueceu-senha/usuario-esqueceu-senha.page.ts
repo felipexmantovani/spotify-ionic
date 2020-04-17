@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { NavController } from '@ionic/angular';
-import { AUTENTICACAO_CONFIG } from '../../autenticacao.config';
-import { EsqueceuSenha } from '../../model/esqueceu-senha';
+import { AUTENTICACAO_CONFIG } from '../../../autenticacao/autenticacao.config';
+import { EsqueceuSenha } from '../../../autenticacao/model/esqueceu-senha';
 
 @Component({
-  selector: 'app-esqueceu-senha',
-  templateUrl: './esqueceu-senha.page.html',
-  styleUrls: ['./esqueceu-senha.page.scss']
+  selector: 'app-usuario-esqueceu-senha',
+  templateUrl: './usuario-esqueceu-senha.page.html',
+  styleUrls: ['./usuario-esqueceu-senha.page.scss']
 })
-export class EsqueceuSenhaPage implements OnInit {
+export class UsuarioEsqueceuSenhaPage implements OnInit {
   private nomePagina: string = 'Esqueceu sua senha?';
 
   private esqueceuSenha: EsqueceuSenha = new EsqueceuSenha();

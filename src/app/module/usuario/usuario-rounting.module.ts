@@ -14,6 +14,10 @@ const routes: Routes = [
     path: 'configurar',
     loadChildren: () => import('./page/usuario-configurar/usuario-configurar.module').then((m) => m.UsuarioConfigurarPageModule)
   },
+  {
+    path: 'esqueceu-senha',
+    loadChildren: () => import('./page/usuario-esqueceu-senha/usuario-esqueceu-senha.module').then((m) => m.UsuarioEsqueceuSenhaPageModule)
+  },
   { path: '', redirectTo: 'inicio', pathMatch: 'full' }
 ];
 

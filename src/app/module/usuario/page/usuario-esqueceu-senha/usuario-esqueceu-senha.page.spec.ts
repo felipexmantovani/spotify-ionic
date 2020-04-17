@@ -1,18 +1,18 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
-import { EsqueceuSenhaPage } from './esqueceu-senha.page';
+import { UsuarioEsqueceuSenhaPage } from './usuario-esqueceu-senha.page';
 
-describe('EsqueceuSenhaPage', () => {
-  let component: EsqueceuSenhaPage;
-  let fixture: ComponentFixture<EsqueceuSenhaPage>;
+describe('UsuarioEsqueceuSenhaPage', () => {
+  let component: UsuarioEsqueceuSenhaPage;
+  let fixture: ComponentFixture<UsuarioEsqueceuSenhaPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [EsqueceuSenhaPage],
+      declarations: [UsuarioEsqueceuSenhaPage],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(EsqueceuSenhaPage);
+    fixture = TestBed.createComponent(UsuarioEsqueceuSenhaPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

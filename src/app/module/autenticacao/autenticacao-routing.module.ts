@@ -9,13 +9,6 @@ const routes: Routes = [
     loadChildren: () =>
       import('./page/login/login.module').then(m => m.LoginPageModule)
   },
-  {
-    path: 'esqueceu-senha',
-    loadChildren: () =>
-      import('./page/esqueceu-senha/esqueceu-senha.module').then(
-        m => m.EsqueceuSenhaPageModule
-      )
-  },
   { path: '', redirectTo: 'login', pathMatch: 'full' }
 ];
 
