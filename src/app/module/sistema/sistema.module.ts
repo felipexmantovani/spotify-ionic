@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { SistemaRoutingModule } from './route/sistema.routing.module';
+import { SistemaRoutingModule } from './sistema.routing.module';
 
 @NgModule({
   imports: [SistemaRoutingModule]

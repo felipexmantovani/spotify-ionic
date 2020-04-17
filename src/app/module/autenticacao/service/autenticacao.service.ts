@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { StorageService } from '../../../core/service/storage/storage.service';
 import { TabsUtil } from '../../../tabs/tabs-util';
-import { SistemaUtil } from '../../sistema/util/sistema-util';
+import { SISTEMA_CONFIG } from '../../sistema/sistema.config';
 import { UsuarioService } from '../../usuario/service/usuario.service';
 import { UsuarioUtil } from '../../usuario/util/usuario-util';
 import { AUTENTICACAO_CONFIG } from '../autenticacao.config';
@@ -42,7 +42,7 @@ export class AutenticacaoService {
 
   public logout(): void {
     this.storageService.removeKey(AUTENTICACAO_CONFIG.token);
-    this.navController.navigateRoot(SistemaUtil.SETUP.path.front);
+    this.navController.navigateRoot(SISTEMA_CONFIG.pathFront);
   }
 
   public async isLogado(): Promise<boolean> {
