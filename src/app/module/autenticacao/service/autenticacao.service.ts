@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { StorageService } from '../../../core/service/storage/storage.service';
-import { TabsUtil } from '../../../tabs/tabs-util';
+import { TABS_CONFIG } from '../../../tabs/tabs.config';
 import { SISTEMA_CONFIG } from '../../sistema/sistema.config';
 import { UsuarioService } from '../../usuario/service/usuario.service';
 import { USUARIO_CONFIG } from '../../usuario/usuario.config';
@@ -30,7 +30,7 @@ export class AutenticacaoService {
 
     this.storageService.setKey(USUARIO_CONFIG.storageKey, JSON.stringify(this.usuarioService.novo()));
 
-    this.navController.navigateRoot(TabsUtil.SETUP.path.front);
+    this.navController.navigateRoot(TABS_CONFIG.pathFront);
   }
 
   public loginFake(): void {

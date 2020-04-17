@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate } from '@angular/router';
 import { NavController } from '@ionic/angular';
-import { TabsUtil } from '../../../tabs/tabs-util';
+import { TABS_CONFIG } from '../../../tabs/tabs.config';
 import { AutenticacaoService } from '../service/autenticacao.service';
 
 @Injectable({
@@ -13,7 +13,7 @@ export class LoginGuard implements CanActivate {
   public async canActivate(): Promise<boolean> {
     const logado = await this.autenticacaoSevice.isLogado();
     if (logado) {
-      this.navController.navigateRoot(TabsUtil.SETUP.path.front);
+      this.navController.navigateRoot(TABS_CONFIG.pathFront);
       return false;
     } else {
       return true;

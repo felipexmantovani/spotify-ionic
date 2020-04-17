@@ -4,7 +4,7 @@ import { AUTENTICACAO_CONFIG } from './module/autenticacao/autenticacao.config';
 import { AutenticacaoGuard } from './module/autenticacao/guard/autenticacao.guard';
 import { SISTEMA_CONFIG } from './module/sistema/sistema.config';
 import { USUARIO_CONFIG } from './module/usuario/usuario.config';
-import { TabsUtil } from './tabs/tabs-util';
+import { TABS_CONFIG } from './tabs/tabs.config';
 
 const routes: Routes = [
   {
@@ -20,7 +20,7 @@ const routes: Routes = [
     loadChildren: () => import('./module/usuario/usuario.module').then((m) => m.UsuarioModule)
   },
   {
-    path: TabsUtil.SETUP.path.nome,
+    path: TABS_CONFIG.path,
     canLoad: [AutenticacaoGuard],
     canActivate: [AutenticacaoGuard],
     loadChildren: () => import('./tabs/tabs.module').then((m) => m.TabsPageModule)

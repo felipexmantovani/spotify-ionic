@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { BIBLIOTECA_CONFIG } from '../module/biblioteca/biblioteca.config';
 import { USUARIO_CONFIG } from '../module/usuario/usuario.config';
-import { TabsUtil } from './tabs-util';
+import { TABS_CONFIG } from './tabs.config';
 
 @Component({
   selector: 'app-tabs',
@@ -10,7 +10,7 @@ import { TabsUtil } from './tabs-util';
   styleUrls: ['tabs.page.scss']
 })
 export class TabsPage {
-  private pathTabsFront: string = TabsUtil.SETUP.path.front;
+  private pathTabsFront: string = TABS_CONFIG.pathFront;
   private pathUsuarioFront: string = USUARIO_CONFIG.pathFront;
   private pathBibliotecaFront: string = BIBLIOTECA_CONFIG.pathFont;
 
