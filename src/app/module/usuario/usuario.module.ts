@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { UsuarioRoutingModule } from './route/usuario-rounting.module';
+import { UsuarioRoutingModule } from './usuario.rounting.module';
 
 @NgModule({
   imports: [UsuarioRoutingModule]

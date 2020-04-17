@@ -3,7 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AUTENTICACAO_CONFIG } from './module/autenticacao/autenticacao.config';
 import { AutenticacaoGuard } from './module/autenticacao/guard/autenticacao.guard';
 import { SISTEMA_CONFIG } from './module/sistema/sistema.config';
-import { UsuarioUtil } from './module/usuario/util/usuario-util';
+import { USUARIO_CONFIG } from './module/usuario/usuario.config';
 import { TabsUtil } from './tabs/tabs-util';
 
 const routes: Routes = [
@@ -16,7 +16,7 @@ const routes: Routes = [
     loadChildren: () => import('./module/autenticacao/autenticacao.module').then((m) => m.AutenticacaoModule)
   },
   {
-    path: UsuarioUtil.SETUP.path.nome,
+    path: USUARIO_CONFIG.path,
     loadChildren: () => import('./module/usuario/usuario.module').then((m) => m.UsuarioModule)
   },
   {

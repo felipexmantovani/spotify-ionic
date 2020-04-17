@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { TabsUtil } from '../../../../tabs/tabs-util';
-import { UsuarioUtil } from '../../util/usuario-util';
+import { USUARIO_CONFIG } from '../../usuario.config';
 
 @Component({
   selector: 'app-usuario-inicio',
@@ -12,6 +12,6 @@ export class UsuarioInicioPage {
   constructor(private router: Router) {}
 
   public goConfigurar(): void {
-    this.router.navigateByUrl(`${TabsUtil.SETUP.path.front}${UsuarioUtil.SETUP.path.front}/configurar`);
+    this.router.navigateByUrl(`${TabsUtil.SETUP.path.front}${USUARIO_CONFIG.pathFront}/configurar`);
   }
 }

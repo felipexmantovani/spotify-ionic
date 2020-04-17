@@ -4,7 +4,7 @@ import { StorageService } from '../../../core/service/storage/storage.service';
 import { TabsUtil } from '../../../tabs/tabs-util';
 import { SISTEMA_CONFIG } from '../../sistema/sistema.config';
 import { UsuarioService } from '../../usuario/service/usuario.service';
-import { UsuarioUtil } from '../../usuario/util/usuario-util';
+import { USUARIO_CONFIG } from '../../usuario/usuario.config';
 import { AUTENTICACAO_CONFIG } from '../autenticacao.config';
 import { Login } from '../model/login';
 
@@ -28,7 +28,7 @@ export class AutenticacaoService {
         .slice(-`${login.senha.length}`)}`
     );
 
-    this.storageService.setKey(UsuarioUtil.SETUP.storageKey.user, JSON.stringify(this.usuarioService.novo()));
+    this.storageService.setKey(USUARIO_CONFIG.storageKey, JSON.stringify(this.usuarioService.novo()));
 
     this.navController.navigateRoot(TabsUtil.SETUP.path.front);
   }

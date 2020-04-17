@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { BIBLIOTECA_CONFIG } from '../module/biblioteca/biblioteca.config';
-import { UsuarioUtil } from '../module/usuario/util/usuario-util';
+import { USUARIO_CONFIG } from '../module/usuario/usuario.config';
 import { TabsUtil } from './tabs-util';
 
 @Component({
@@ -11,7 +11,7 @@ import { TabsUtil } from './tabs-util';
 })
 export class TabsPage {
   private pathTabsFront: string = TabsUtil.SETUP.path.front;
-  private pathUsuarioFront: string = UsuarioUtil.SETUP.path.front;
+  private pathUsuarioFront: string = USUARIO_CONFIG.pathFront;
   private pathBibliotecaFront: string = BIBLIOTECA_CONFIG.pathFont;
 
   private pathInicio: string = `${this.pathTabsFront}${this.pathUsuarioFront}/inicio`;

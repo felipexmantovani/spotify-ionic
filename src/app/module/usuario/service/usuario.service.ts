@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Usuario } from '../model/usuario';
 import { StorageService } from '../../../core/service/storage/storage.service';
-import { UsuarioUtil } from '../util/usuario-util';
+import { Usuario } from '../model/usuario';
+import { USUARIO_CONFIG } from '../usuario.config';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +25,7 @@ export class UsuarioService {
     
     return new Promise((resolve, reject) => {
       this.storageService
-        .getKey(UsuarioUtil.SETUP.storageKey.user)
+        .getKey(USUARIO_CONFIG.storageKey)
         .then((json: string) => {
           resolve((JSON.parse(json) as Usuario));
         })

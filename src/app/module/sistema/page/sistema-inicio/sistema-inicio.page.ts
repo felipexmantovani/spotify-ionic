@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { LoadingService } from '../../../../core/service/loading/loading.service';
 import { AUTENTICACAO_CONFIG } from '../../../autenticacao/autenticacao.config';
 import { AutenticacaoService } from '../../../autenticacao/service/autenticacao.service';
-import { UsuarioUtil } from '../../../usuario/util/usuario-util';
+import { USUARIO_CONFIG } from '../../../usuario/usuario.config';
 
 @Component({
   selector: 'app-sistema-inicio',
@@ -32,6 +32,6 @@ export class SistemaInicioPage implements OnInit {
   }
 
   public criarConta(): void {
-    this.router.navigateByUrl(`${UsuarioUtil.SETUP.path.front}/novo`);
+    this.router.navigateByUrl(`${USUARIO_CONFIG.pathFront}/novo`);
   }
 }
