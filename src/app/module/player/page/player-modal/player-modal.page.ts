@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { ModalController, NavParams } from '@ionic/angular';
 import { ColorPaletteService } from '../../../../core/service/color-palette/color-palette.service';
-import { Musica } from '../../../biblioteca/model/musica';
+import { Musica } from '../../../musica/model/musica';
 
 @Component({
   selector: 'app-player-modal',

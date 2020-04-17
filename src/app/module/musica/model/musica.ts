@@ -1,4 +1,4 @@
-import { Artista } from './artista';
+import { Artista } from '../../artista/model/artista';
 
 export class Musica {
   id: number = null;

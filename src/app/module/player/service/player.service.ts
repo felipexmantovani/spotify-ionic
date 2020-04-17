@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { Musica } from '../../biblioteca/model/musica';
+import { Musica } from '../../musica/model/musica';
 import { PlayerModalPage } from '../page/player-modal/player-modal.page';
 
 @Injectable({

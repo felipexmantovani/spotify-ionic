@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
-import { Musica } from '../../../biblioteca/model/musica';
-import { MusicaService } from '../../../biblioteca/service/musica.service';
+import { Musica } from '../../../musica/model/musica';
+import { MusicaService } from '../../../musica/service/musica.service';
 import { PlayerService } from '../../service/player.service';
 
 @Component({

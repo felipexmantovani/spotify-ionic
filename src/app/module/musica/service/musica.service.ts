@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Artista } from '../model/artista';
+import { Artista } from '../../artista/model/artista';
 import { Musica } from '../model/musica';
-import { ArtistaService } from './artista.service';
+import { ArtistaService } from '../../artista/service/artista.service';
 
 @Injectable({
   providedIn: 'root'
