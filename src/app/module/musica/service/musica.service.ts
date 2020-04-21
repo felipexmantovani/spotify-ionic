@@ -1,26 +1,57 @@
 import { Injectable } from '@angular/core';
+import { StorageService } from '../../../core/service/storage/storage.service';
 import { Artista } from '../../artista/model/artista';
-import { Musica } from '../model/musica';
 import { ArtistaService } from '../../artista/service/artista.service';
+import { Musica } from '../model/musica';
+import { MUSICA_COFIG } from '../musica.config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MusicaService {
-  constructor(private artistaService: ArtistaService) {}
+  private musica: Musica;
 
-  public buscarPorId(id: number): Musica {
-    let musica: Musica = new Musica();
-    let musicas: Array<Musica> = this.buscarTodas();
-    musicas.forEach((musicaR: Musica) => {
+  private musicas: Array<Musica>;
+
+  constructor(private artistaService: ArtistaService, private storageService: StorageService) {}
+
+  public async buscarPorId(id: number) {
+    this.musicas = await this.buscarTodas();
+    this.musicas.forEach((musicaR: Musica) => {
       if (musicaR.id === id) {
-        musica = musicaR;
+        this.musica = musicaR;
       }
     });
-    return musica;
+    return this.musica;
   }
 
-  public buscarTodas(): Array<Musica> {
+  public async buscarTodas() {
+    this.musicas = await this.getListaStorage();
+    if (this.musicas) {
+      return this.musicas;
+    } else {
+      this.setListaStorage();
+      this.musicas = await this.getListaStorage();
+      return this.musicas;
+    }
+  }
+
+  private novo(id: number, titulo: string, artista: Artista): Musica {
+    this.musica = new Musica();
+    this.musica.id = id;
+    this.musica.titulo = titulo;
+    this.musica.artista = artista;
+    return this.musica;
+  }
+
+  public async buscarRandom() {
+    this.musicas = await this.buscarTodas();
+    let id = Math.round(Math.random() * (this.musicas.length - 1) + 0);
+    this.musica = await this.buscarPorId(id);
+    return this.musica;
+  }
+
+  private setListaStorage(): void {
     let musicas = new Array<Musica>();
     musicas.push(
       this.novo(0, 'Se...', this.artistaService.buscarPorId(0)),
@@ -29,20 +60,20 @@ export class MusicaService {
       this.novo(3, 'Best of You', this.artistaService.buscarPorId(3)),
       this.novo(4, 'Ferreirinha', this.artistaService.buscarPorId(4))
     );
-    return musicas;
+
+    this.storageService.setKey(MUSICA_COFIG.storageKey, JSON.stringify(musicas));
   }
 
-  private novo(id: number, titulo: string, artista: Artista): Musica {
-    let musica: Musica = new Musica();
-    musica.id = id;
-    musica.titulo = titulo;
-    musica.artista = artista;
-    return musica;
-  }
-
-  public buscarRandom(): Musica {
-    let musicas: Array<Musica> = this.buscarTodas();
-    let id = Math.round(Math.random() * (musicas.length - 1) + 0);
-    return this.buscarPorId(id);
+  private getListaStorage(): Promise<Array<Musica>> {
+    return new Promise((resolve, reject) => {
+      this.storageService
+        .getKey(MUSICA_COFIG.storageKey)
+        .then((json: string) => {
+          resolve((JSON.parse(json) as Array<Musica>));
+        })
+        .catch((error) => {
+          reject(`catch: ${error}`);
+        });
+    });
   }
 }

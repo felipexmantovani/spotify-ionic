@@ -24,12 +24,12 @@ export class PlayerMinimizadoComponent implements OnInit {
     this.buscarMusicas();
   }
 
-  private buscarMusicas(): void {
-    this.musicas = this.musicaService.buscarTodas();
+  private async buscarMusicas() {
+    this.musicas = await this.musicaService.buscarTodas();
   }
 
-  public initSlide(): void {
-    this.musica = this.musicaService.buscarRandom();
+  public async initSlide() {
+    this.musica = await this.musicaService.buscarRandom();
     this.slideOpts = {
       initialSlide: 0,
       speed: 100
