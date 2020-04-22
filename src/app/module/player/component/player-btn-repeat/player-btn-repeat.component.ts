@@ -30,7 +30,5 @@ export class PlayerBtnRepeatComponent {
 
   constructor(private playerService: PlayerService) {}
 
-  public repeat(): void {
-    this.isActive = this.playerService.repeat(this.isActive);
-  }
+  public repeat(): void {}
 }

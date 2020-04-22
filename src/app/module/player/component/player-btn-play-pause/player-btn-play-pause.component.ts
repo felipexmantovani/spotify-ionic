@@ -40,7 +40,7 @@ export class PlayerBtnPlayPauseComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subs.push(
       this.playerService.playerBS.subscribe((player) => {
-        this.player = player;
+        player ? this.player = player : null;
       })
     );
   }

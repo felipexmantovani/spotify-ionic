@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { StorageService } from '../../../core/service/storage/storage.service';
-import { Artista } from '../../artista/model/artista';
-import { ArtistaService } from '../../artista/service/artista.service';
+import { Artist } from '../../artist/model/artist';
+import { ArtistService } from '../../artist/service/artist.service';
 import { Musica } from '../model/musica';
 import { MUSICA_COFIG } from '../musica.config';
 
@@ -13,13 +13,13 @@ export class MusicaService {
 
   private musicas: Array<Musica>;
 
-  constructor(private artistaService: ArtistaService, private storageService: StorageService) {}
+  constructor(private artistService: ArtistService, private storageService: StorageService) {}
 
-  private create(id: number, titulo: string, artista: Artista): Musica {
+  private create(id: number, title: string, artist: Artist): Musica {
     this.musica = new Musica();
     this.musica.id = id;
-    this.musica.titulo = titulo;
-    this.musica.artista = artista;
+    this.musica.title = title;
+    this.musica.artist = artist;
     return this.musica;
   }
 
@@ -54,11 +54,11 @@ export class MusicaService {
   public setStorage(): void {
     this.musicas = new Array<Musica>();
     this.musicas.push(
-      this.create(0, 'Se...', this.artistaService.buscarPorId(0)),
-      this.create(1, 'Wonderwall', this.artistaService.buscarPorId(1)),
-      this.create(2, 'Piccola Stella', this.artistaService.buscarPorId(2)),
-      this.create(3, 'Best of You', this.artistaService.buscarPorId(3)),
-      this.create(4, 'Ferreirinha', this.artistaService.buscarPorId(4))
+      this.create(0, 'Se...', this.artistService.getById(0)),
+      this.create(1, 'Wonderwall', this.artistService.getById(1)),
+      this.create(2, 'Piccola Stella', this.artistService.getById(2)),
+      this.create(3, 'Best of You', this.artistService.getById(3)),
+      this.create(4, 'Ferreirinha', this.artistService.getById(4))
     );
     this.storageService.setKey(MUSICA_COFIG.storageKey, JSON.stringify(this.musicas));
   }

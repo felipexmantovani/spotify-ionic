@@ -9,10 +9,8 @@ import { Musica } from '../../../musica/model/musica';
   styleUrls: ['./player-modal.page.scss']
 })
 export class PlayerModalPage implements OnInit, AfterViewInit {
-  @ViewChild('fotoBg', { static: false })
-  public fotoBg: ElementRef;
-
-  public tocando: boolean = false;
+  @ViewChild('bgPhoto', { static: false })
+  public bgPhoto: ElementRef;
 
   public musica: Musica;
   public musicas: Array<Musica>;
@@ -30,21 +28,17 @@ export class PlayerModalPage implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.backgroundColor(this.musica.artista.foto);
+    this.backgroundColor(this.musica.artist.photo);
   }
 
   private async backgroundColor(image: string) {
     let palette = await this.colorPaletteService.getByImage(image);
     if (palette) {
-      this.renderer.setStyle(this.fotoBg.nativeElement, 'background-color', palette.DarkVibrant.hex);
+      this.renderer.setStyle(this.bgPhoto.nativeElement, 'background-color', palette.DarkVibrant.hex);
     }
   }
 
-  public tocar(): void {
-    this.tocando = !this.tocando;
-  }
-
-  public fechar(): void {
+  public close(): void {
     this.modalController.dismiss({
       dismissed: true
     });

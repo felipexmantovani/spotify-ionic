@@ -30,7 +30,5 @@ export class PlayerBtnShuffleComponent {
 
   constructor(private playerService: PlayerService) {}
 
-  public surffle(): void {
-    this.isActive = this.playerService.surffle(this.isActive);
-  }
+  public shuffle(): void {}
 }

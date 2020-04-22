@@ -27,7 +27,7 @@ export class PlayerService {
     this.setStorage(this.player);
   }
 
-  public async surffle() {
+  public async shuffle() {
     this.player = await this.getStorage();
     this.player.shuffling = !this.player.shuffling;
     this.setStorage(this.player);

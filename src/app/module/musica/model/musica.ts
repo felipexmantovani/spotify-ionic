@@ -1,7 +1,7 @@
-import { Artista } from '../../artista/model/artista';
+import { Artist } from '../../artist/model/artist';
 
 export class Musica {
   id: number = null;
-  titulo: string = null;
-  artista: Artista = new Artista();
+  title: string = null;
+  artist: Artist
 }

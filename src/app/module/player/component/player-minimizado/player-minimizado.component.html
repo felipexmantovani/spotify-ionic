@@ -8,9 +8,9 @@
   <ion-slides #slides *ngIf="musicas" pager="false" [options]="slideOpts" (ionSlidesDidLoad)="initSlide()">
     <ion-slide *ngFor="let musica of musicas">
       <small (click)="modal(musica)" class="musica d-block text-center">
-        <strong class="musica-titulo">{{ musica.titulo }}</strong>
-        <span class="musica-bolinha opacity-05"> • </span>
-        <span class="musica-artista opacity-05">{{ musica.artista.nome }}</span>
+        <strong>{{ musica.title }}</strong>
+        <span class="musica-ball opacity-05"> • </span>
+        <span class="opacity-05">{{ musica.artist.name }}</span>
       </small>
     </ion-slide>
   </ion-slides>
