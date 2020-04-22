@@ -1,18 +1,18 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
-import { BibliotecaBuscaPage } from './biblioteca-busca.page';
+import { LibrarySearchPage } from './library-search.page';
 
-describe('BibliotecaBuscaPage', () => {
-  let component: BibliotecaBuscaPage;
-  let fixture: ComponentFixture<BibliotecaBuscaPage>;
+describe('LibrarySearchPage', () => {
+  let component: LibrarySearchPage;
+  let fixture: ComponentFixture<LibrarySearchPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [BibliotecaBuscaPage],
+      declarations: [LibrarySearchPage],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(BibliotecaBuscaPage);
+    fixture = TestBed.createComponent(LibrarySearchPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

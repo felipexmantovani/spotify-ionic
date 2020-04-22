@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { BIBLIOTECA_CONFIG } from '../module/biblioteca/biblioteca.config';
+import { LIBRARY_CONFIG } from '../module/library/library.config';
 import { USUARIO_CONFIG } from '../module/usuario/usuario.config';
 import { TABS_CONFIG } from './tabs.config';
 
@@ -10,25 +10,21 @@ import { TABS_CONFIG } from './tabs.config';
   styleUrls: ['tabs.page.scss']
 })
 export class TabsPage {
-  private pathTabsFront: string = TABS_CONFIG.pathFront;
-  private pathUsuarioFront: string = USUARIO_CONFIG.pathFront;
-  private pathBibliotecaFront: string = BIBLIOTECA_CONFIG.pathFont;
-
-  private pathInicio: string = `${this.pathTabsFront}${this.pathUsuarioFront}/inicio`;
-  private pathBuscar: string = `${this.pathTabsFront}${this.pathBibliotecaFront}/buscar`;
-  private pathBiblioteca: string = `${this.pathTabsFront}${this.pathBibliotecaFront}/inicio`;
+  private pathHome: string = `${TABS_CONFIG.pathFront}${USUARIO_CONFIG.pathFront}/inicio`;
+  private pathLibraryHome: string = `${TABS_CONFIG.pathFront}${LIBRARY_CONFIG.pathFont}/home`;
+  private pathLibrarySearch: string = `${TABS_CONFIG.pathFront}${LIBRARY_CONFIG.pathFont}/search`;
 
   constructor(private navController: NavController) {}
 
-  public goInicio(): void {
-    this.navController.navigateRoot(this.pathInicio);
+  public goHome(): void {
+    this.navController.navigateRoot(this.pathHome);
   }
 
-  public goBuscar(): void {
-    this.navController.navigateRoot(this.pathBuscar);
+  public goSearch(): void {
+    this.navController.navigateRoot(this.pathLibrarySearch);
   }
 
-  public goBiblioteca(): void {
-    this.navController.navigateRoot(this.pathBiblioteca);
+  public goLibrary(): void {
+    this.navController.navigateRoot(this.pathLibraryHome);
   }
 }
