@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { AUTENTICACAO_CONFIG } from './module/autenticacao/autenticacao.config';
-import { AutenticacaoGuard } from './module/autenticacao/guard/autenticacao.guard';
+import { AUTH_CONFIG } from './module/auth/auth.config';
+import { AuthGuard } from './module/auth/guard/auth.guard';
 import { SISTEMA_CONFIG } from './module/sistema/sistema.config';
 import { USUARIO_CONFIG } from './module/usuario/usuario.config';
 import { TABS_CONFIG } from './tabs/tabs.config';
@@ -12,8 +12,8 @@ const routes: Routes = [
     loadChildren: () => import('./module/sistema/sistema.module').then((m) => m.SistemaModule)
   },
   {
-    path: AUTENTICACAO_CONFIG.path,
-    loadChildren: () => import('./module/autenticacao/autenticacao.module').then((m) => m.AutenticacaoModule)
+    path: AUTH_CONFIG.path,
+    loadChildren: () => import('./module/auth/auth.module').then((m) => m.AuthModule)
   },
   {
     path: USUARIO_CONFIG.path,
@@ -21,8 +21,8 @@ const routes: Routes = [
   },
   {
     path: TABS_CONFIG.path,
-    canLoad: [AutenticacaoGuard],
-    canActivate: [AutenticacaoGuard],
+    canLoad: [AuthGuard],
+    canActivate: [AuthGuard],
     loadChildren: () => import('./tabs/tabs.module').then((m) => m.TabsPageModule)
   },
   { path: '', redirectTo: SISTEMA_CONFIG.path, pathMatch: 'full' }

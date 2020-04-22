@@ -14,10 +14,10 @@
         color="light">
         E-mail ou nome de usuário
       </ion-label>
-      <ion-input formControlName="autenticacao" type="text" class="mb-3"></ion-input>
+      <ion-input formControlName="auth" type="text" class="mb-3"></ion-input>
   
       <ion-label class="label-input" color="light">Senha</ion-label>
-      <ion-input formControlName="senha" type="password"></ion-input>
+      <ion-input formControlName="password" type="password"></ion-input>
     </form>
 
     <ion-grid class="text-center">
@@ -36,7 +36,7 @@
         <ion-col size="12">
           <ion-button 
             class="borda-cinza"
-            (click)="goEsqueceuSenha()" 
+            (click)="goForgotPassword()" 
             size="small" 
             color="light" 
             shape="round" 

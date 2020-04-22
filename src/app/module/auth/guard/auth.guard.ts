@@ -2,16 +2,16 @@ import { Injectable } from '@angular/core';
 import { CanActivate, CanLoad } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { SISTEMA_CONFIG } from '../../sistema/sistema.config';
-import { AutenticacaoService } from '../service/autenticacao.service';
+import { AuthService } from '../service/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AutenticacaoGuard implements CanLoad, CanActivate {
-  constructor(private autenticacaoSevice: AutenticacaoService, private navController: NavController) {}
+export class AuthGuard implements CanLoad, CanActivate {
+  constructor(private authService: AuthService, private navController: NavController) {}
 
-  private async verificarAcesso(): Promise<boolean> {
-    const logado = await this.autenticacaoSevice.isLogado();
+  private async isLoggedIn(): Promise<boolean> {
+    const logado = await this.authService.isLogado();
     if (logado) {
       return true;
     } else {
@@ -21,10 +21,10 @@ export class AutenticacaoGuard implements CanLoad, CanActivate {
   }
 
   canLoad(): Promise<boolean> {
-    return this.verificarAcesso();
+    return this.isLoggedIn();
   }
 
   canActivate(): Promise<boolean> {
-    return this.verificarAcesso();
+    return this.isLoggedIn();
   }
 }

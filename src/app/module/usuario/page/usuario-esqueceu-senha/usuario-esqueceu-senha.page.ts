@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { NavController } from '@ionic/angular';
-import { AUTENTICACAO_CONFIG } from '../../../autenticacao/autenticacao.config';
-import { EsqueceuSenha } from '../../../autenticacao/model/esqueceu-senha';
+import { AUTH_CONFIG } from '../../../auth/auth.config';
+import { UserForgotPassword } from '../../model/user-forgot-password';
 
 @Component({
   selector: 'app-usuario-esqueceu-senha',
@@ -10,10 +10,10 @@ import { EsqueceuSenha } from '../../../autenticacao/model/esqueceu-senha';
   styleUrls: ['./usuario-esqueceu-senha.page.scss']
 })
 export class UsuarioEsqueceuSenhaPage implements OnInit {
-  private nomePagina: string = 'Esqueceu sua senha?';
+  private pageName: string = 'Esqueceu sua senha?';
 
-  private esqueceuSenha: EsqueceuSenha = new EsqueceuSenha();
-  public esqueceuSenhaForm: FormGroup = null;
+  private forgotPassword: UserForgotPassword = new UserForgotPassword();
+  public forgotPasswordForm: FormGroup = null;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -21,20 +21,20 @@ export class UsuarioEsqueceuSenhaPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.criarForm();
+    this.createForm();
   }
 
-  public getNomePagina(): string {
-    return this.nomePagina;
+  public getPageName(): string {
+    return this.pageName;
   }
 
-  private criarForm(): void {
-    this.esqueceuSenha = new EsqueceuSenha();
-    this.esqueceuSenhaForm = this.esqueceuSenha.criarForm(this.formBuilder);
+  private createForm(): void {
+    this.forgotPassword = new UserForgotPassword();
+    this.forgotPasswordForm = this.forgotPassword.createForm(this.formBuilder);
   }
 
   public onSubmit(): void {
-    this.esqueceuSenha = this.esqueceuSenhaForm.value;
-    this.navController.navigateBack(AUTENTICACAO_CONFIG.pathFront);
+    this.forgotPassword = this.forgotPasswordForm.value;
+    this.navController.navigateBack(AUTH_CONFIG.pathFront);
   }
 }

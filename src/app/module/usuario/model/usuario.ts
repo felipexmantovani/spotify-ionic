@@ -9,7 +9,7 @@ export class Usuario {
   senha: string = null;
   foto: string = null;
 
-  public criarForm(formBuilder: FormBuilder): FormGroup {
+  public createForm(formBuilder: FormBuilder): FormGroup {
     return formBuilder.group({
       id: [this.id],
       nome: [this.nome],

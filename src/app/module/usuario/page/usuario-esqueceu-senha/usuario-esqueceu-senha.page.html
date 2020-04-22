@@ -3,19 +3,19 @@
     <ion-buttons slot="start">
       <ion-back-button icon="arrow-back"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ getNomePagina() }}</ion-title>
+    <ion-title>{{ getPageName() }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content fullscreen class="gradient">
   <div class="p-1">
-    <form [formGroup]="esqueceuSenhaForm">
+    <form [formGroup]="forgotPasswordForm">
       <ion-label 
         class="label-input" 
         color="light">
         E-mail ou nome de usuário
       </ion-label>
-      <ion-input formControlName="autenticacao" type="text" class="mb-0"></ion-input>
+      <ion-input formControlName="auth" type="text" class="mb-0"></ion-input>
       <ion-text color="light">
         <small>Vamos enviar um link de login para o seu e-mail.</small>
       </ion-text>
@@ -24,7 +24,7 @@
     <div class="text-center">
       <ion-button
         class="mt-2"
-        [disabled]="esqueceuSenhaForm.invalid" 
+        [disabled]="forgotPasswordForm.invalid" 
         (click)="onSubmit()" 
         size="large" 
         color="light" 

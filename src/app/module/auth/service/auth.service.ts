@@ -7,13 +7,13 @@ import { PlayerService } from '../../player/service/player.service';
 import { SISTEMA_CONFIG } from '../../sistema/sistema.config';
 import { UsuarioService } from '../../usuario/service/usuario.service';
 import { USUARIO_CONFIG } from '../../usuario/usuario.config';
-import { AUTENTICACAO_CONFIG } from '../autenticacao.config';
+import { AUTH_CONFIG } from '../auth.config';
 import { Login } from '../model/login';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AutenticacaoService {
+export class AuthService {
   private loginNew: Login = new Login();
 
   constructor(
@@ -26,10 +26,10 @@ export class AutenticacaoService {
 
   public login(login: Login): void {
     this.storageService.setKey(
-      AUTENTICACAO_CONFIG.token,
-      `(tokenFake)_${login.autenticacao}_${Math.random()
+      AUTH_CONFIG.token,
+      `(tokenFake)_${login.auth}_${Math.random()
         .toString(36)
-        .slice(-`${login.senha.length}`)}`
+        .slice(-`${login.password.length}`)}`
     );
 
     this.storageService.setKey(USUARIO_CONFIG.storageKey, JSON.stringify(this.usuarioService.novo()));
@@ -41,18 +41,18 @@ export class AutenticacaoService {
 
   public loginFake(): void {
     this.loginNew = new Login();
-    this.loginNew.autenticacao = 'login_fake';
-    this.loginNew.senha = '0123456789';
+    this.loginNew.auth = 'login_fake';
+    this.loginNew.password = '0123456789';
     this.login(this.loginNew);
   }
 
   public logout(): void {
-    this.storageService.removeKey(AUTENTICACAO_CONFIG.token);
+    this.storageService.removeKey(AUTH_CONFIG.token);
     this.navController.navigateRoot(SISTEMA_CONFIG.pathFront);
   }
 
   public async isLogado(): Promise<boolean> {
-    const token = await this.storageService.getKey(AUTENTICACAO_CONFIG.token);
+    const token = await this.storageService.getKey(AUTH_CONFIG.token);
     return token ? true : false;
   }
 }

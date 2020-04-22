@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AutenticacaoService } from '../../../autenticacao/service/autenticacao.service';
-import { UsuarioService } from '../../service/usuario.service';
+import { AuthService } from '../../../auth/service/auth.service';
 import { Usuario } from '../../model/usuario';
+import { UsuarioService } from '../../service/usuario.service';
 
 @Component({
   selector: 'app-usuario-configurar',
@@ -13,7 +13,7 @@ export class UsuarioConfigurarPage implements OnInit {
 
   public usuario: Usuario;
 
-  constructor(private autenticacaoService: AutenticacaoService, private usuarioService: UsuarioService) {}
+  constructor(private authService: AuthService, private usuarioService: UsuarioService) {}
 
   ngOnInit() {
     this.buscarUsuario();
@@ -28,6 +28,6 @@ export class UsuarioConfigurarPage implements OnInit {
   }
 
   public sair(): void {
-    this.autenticacaoService.logout();
+    this.authService.logout();
   }
 }

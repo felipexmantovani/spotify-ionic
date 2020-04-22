@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { LoadingService } from '../../../../core/service/loading/loading.service';
-import { AutenticacaoService } from '../../../autenticacao/service/autenticacao.service';
+import { AuthService } from '../../../auth/service/auth.service';
 import { Usuario } from '../../model/usuario';
 
 @Component({
@@ -10,7 +10,7 @@ import { Usuario } from '../../model/usuario';
   styleUrls: ['./usuario-novo.page.scss']
 })
 export class UsuarioNovoPage implements OnInit {
-  private nomePagina: string = 'Criar conta';
+  private pageName: string = 'Criar conta';
 
   private usuario: Usuario = new Usuario();
   public usuarioForm: FormGroup = null;
@@ -20,20 +20,20 @@ export class UsuarioNovoPage implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private loadingService: LoadingService,
-    private autenticacaoService: AutenticacaoService
+    private authService: AuthService
   ) {}
 
   ngOnInit() {
-    this.criarForm();
+    this.createForm();
   }
 
-  public getNomePagina(): string {
-    return this.nomePagina;
+  public getPageName(): string {
+    return this.pageName;
   }
 
-  private criarForm(): void {
+  private createForm(): void {
     this.usuario = new Usuario();
-    this.usuarioForm = this.usuario.criarForm(this.formBuilder);
+    this.usuarioForm = this.usuario.createForm(this.formBuilder);
   }
 
   public avancar(): void {
@@ -48,7 +48,7 @@ export class UsuarioNovoPage implements OnInit {
     }, 2000);
     setTimeout(() => {
       this.loadingService.hide();
-      this.autenticacaoService.loginFake();
+      this.authService.loginFake();
     }, 3000);
   }
 }

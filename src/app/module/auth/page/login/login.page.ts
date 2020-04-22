@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { LoadingService } from '../../../../core/service/loading/loading.service';
 import { USUARIO_CONFIG } from '../../../usuario/usuario.config';
 import { Login } from '../../model/login';
-import { AutenticacaoService } from '../../service/autenticacao.service';
+import { AuthService } from '../../service/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +17,7 @@ export class LoginPage implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private autenticacaoService: AutenticacaoService,
+    private authService: AuthService,
     private router: Router,
     private loadingService: LoadingService
   ) {}
@@ -36,11 +36,11 @@ export class LoginPage implements OnInit {
     this.login = this.loginForm.value;
     setTimeout(() => {
       this.loadingService.hide();
-      this.autenticacaoService.login(this.login);
+      this.authService.login(this.login);
     }, 2000);
   }
 
-  public goEsqueceuSenha() {
-    this.router.navigateByUrl(`${USUARIO_CONFIG.pathFront}/esqueceu-senha`);
+  public goForgotPassword() {
+    this.router.navigateByUrl(`${USUARIO_CONFIG.pathFront}/forgot-password`);
   }
 }

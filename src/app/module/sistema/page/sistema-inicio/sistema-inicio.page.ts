@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoadingService } from '../../../../core/service/loading/loading.service';
-import { AUTENTICACAO_CONFIG } from '../../../autenticacao/autenticacao.config';
-import { AutenticacaoService } from '../../../autenticacao/service/autenticacao.service';
+import { AUTH_CONFIG } from '../../../auth/auth.config';
+import { AuthService } from '../../../auth/service/auth.service';
 import { USUARIO_CONFIG } from '../../../usuario/usuario.config';
 
 @Component({
@@ -14,20 +14,20 @@ export class SistemaInicioPage implements OnInit {
   constructor(
     private router: Router,
     private loadingService: LoadingService,
-    private autenticacaoService: AutenticacaoService
+    private authService: AuthService
   ) {}
 
   ngOnInit() {}
 
   public goLogin(): void {
-    this.router.navigateByUrl(AUTENTICACAO_CONFIG.pathFront);
+    this.router.navigateByUrl(AUTH_CONFIG.pathFront);
   }
 
   public goFacebook(): void {
     this.loadingService.show('Entrando, espere...');
     setTimeout(() => {
       this.loadingService.hide();
-      this.autenticacaoService.loginFake();
+      this.authService.loginFake();
     }, 2000);
   }
 
