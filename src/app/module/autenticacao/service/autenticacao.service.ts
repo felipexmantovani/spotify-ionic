@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { StorageService } from '../../../core/service/storage/storage.service';
 import { TABS_CONFIG } from '../../../tabs/tabs.config';
+import { MusicaService } from '../../musica/service/musica.service';
+import { PlayerService } from '../../player/service/player.service';
 import { SISTEMA_CONFIG } from '../../sistema/sistema.config';
 import { UsuarioService } from '../../usuario/service/usuario.service';
 import { USUARIO_CONFIG } from '../../usuario/usuario.config';
@@ -12,12 +14,14 @@ import { Login } from '../model/login';
   providedIn: 'root'
 })
 export class AutenticacaoService {
-  private loginNovo: Login = new Login();
+  private loginNew: Login = new Login();
 
   constructor(
     private storageService: StorageService,
     private navController: NavController,
-    private usuarioService: UsuarioService
+    private usuarioService: UsuarioService,
+    private musicaService: MusicaService,
+    private playerService: PlayerService
   ) {}
 
   public login(login: Login): void {
@@ -30,14 +34,16 @@ export class AutenticacaoService {
 
     this.storageService.setKey(USUARIO_CONFIG.storageKey, JSON.stringify(this.usuarioService.novo()));
 
+    this.musicaService.setStorage();
+    this.playerService.setStorage();
     this.navController.navigateRoot(TABS_CONFIG.pathFront);
   }
 
   public loginFake(): void {
-    this.loginNovo = new Login();
-    this.loginNovo.autenticacao = 'login_fake';
-    this.loginNovo.senha = '0123456789';
-    this.login(this.loginNovo);
+    this.loginNew = new Login();
+    this.loginNew.autenticacao = 'login_fake';
+    this.loginNew.senha = '0123456789';
+    this.login(this.loginNew);
   }
 
   public logout(): void {

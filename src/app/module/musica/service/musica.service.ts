@@ -15,8 +15,27 @@ export class MusicaService {
 
   constructor(private artistaService: ArtistaService, private storageService: StorageService) {}
 
-  public async buscarPorId(id: number) {
-    this.musicas = await this.buscarTodas();
+  private create(id: number, titulo: string, artista: Artista): Musica {
+    this.musica = new Musica();
+    this.musica.id = id;
+    this.musica.titulo = titulo;
+    this.musica.artista = artista;
+    return this.musica;
+  }
+
+  public async getAll() {
+    this.musicas = await this.getStorage();
+    if (this.musicas) {
+      return this.musicas;
+    } else {
+      this.setStorage();
+      this.musicas = await this.getStorage();
+      return this.musicas;
+    }
+  }
+
+  public async getById(id: number) {
+    this.musicas = await this.getAll();
     this.musicas.forEach((musicaR: Musica) => {
       if (musicaR.id === id) {
         this.musica = musicaR;
@@ -25,46 +44,26 @@ export class MusicaService {
     return this.musica;
   }
 
-  public async buscarTodas() {
-    this.musicas = await this.getListaStorage();
-    if (this.musicas) {
-      return this.musicas;
-    } else {
-      this.setListaStorage();
-      this.musicas = await this.getListaStorage();
-      return this.musicas;
-    }
-  }
-
-  private novo(id: number, titulo: string, artista: Artista): Musica {
-    this.musica = new Musica();
-    this.musica.id = id;
-    this.musica.titulo = titulo;
-    this.musica.artista = artista;
-    return this.musica;
-  }
-
-  public async buscarRandom() {
-    this.musicas = await this.buscarTodas();
+  public async getRandom() {
+    this.musicas = await this.getAll();
     let id = Math.round(Math.random() * (this.musicas.length - 1) + 0);
-    this.musica = await this.buscarPorId(id);
+    this.musica = await this.getById(id);
     return this.musica;
   }
 
-  private setListaStorage(): void {
-    let musicas = new Array<Musica>();
-    musicas.push(
-      this.novo(0, 'Se...', this.artistaService.buscarPorId(0)),
-      this.novo(1, 'Wonderwall', this.artistaService.buscarPorId(1)),
-      this.novo(2, 'Piccola Stella', this.artistaService.buscarPorId(2)),
-      this.novo(3, 'Best of You', this.artistaService.buscarPorId(3)),
-      this.novo(4, 'Ferreirinha', this.artistaService.buscarPorId(4))
+  public setStorage(): void {
+    this.musicas = new Array<Musica>();
+    this.musicas.push(
+      this.create(0, 'Se...', this.artistaService.buscarPorId(0)),
+      this.create(1, 'Wonderwall', this.artistaService.buscarPorId(1)),
+      this.create(2, 'Piccola Stella', this.artistaService.buscarPorId(2)),
+      this.create(3, 'Best of You', this.artistaService.buscarPorId(3)),
+      this.create(4, 'Ferreirinha', this.artistaService.buscarPorId(4))
     );
-
-    this.storageService.setKey(MUSICA_COFIG.storageKey, JSON.stringify(musicas));
+    this.storageService.setKey(MUSICA_COFIG.storageKey, JSON.stringify(this.musicas));
   }
 
-  private getListaStorage(): Promise<Array<Musica>> {
+  private getStorage(): Promise<Array<Musica>> {
     return new Promise((resolve, reject) => {
       this.storageService
         .getKey(MUSICA_COFIG.storageKey)

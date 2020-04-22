@@ -1,5 +1,7 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { IonButton, IonIcon } from '@ionic/angular';
+import { Subscription } from 'rxjs';
+import { Player } from '../../model/player';
 import { PlayerService } from '../../service/player.service';
 
 @Component({
@@ -7,7 +9,7 @@ import { PlayerService } from '../../service/player.service';
   templateUrl: './player-btn-play-pause.component.html',
   styleUrls: ['./player-btn-play-pause.component.scss']
 })
-export class PlayerBtnPlayPauseComponent {
+export class PlayerBtnPlayPauseComponent implements OnInit, OnDestroy {
   @ViewChild('button', { static: false })
   public button: IonButton;
   @Input()
@@ -29,11 +31,27 @@ export class PlayerBtnPlayPauseComponent {
   @Input()
   public isInModal: boolean = false;
 
-  public isTocando: boolean = false;
+  public player: Player = new Player();
+
+  private subs: Array<Subscription> = new Array<Subscription>();
 
   constructor(private playerService: PlayerService) {}
 
-  public tocar(): void {
-    this.isTocando = this.playerService.playPause(this.isTocando);
+  ngOnInit(): void {
+    this.subs.push(
+      this.playerService.playerBS.subscribe((player) => {
+        this.player = player;
+      })
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.subs.forEach((sub) => {
+      sub ? sub.unsubscribe : null;
+    });
+  }
+
+  public playPause(): void {
+    this.playerService.playPause();
   }
 }

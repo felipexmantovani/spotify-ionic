@@ -4,7 +4,7 @@
     'px-0': !buttonPaddingX,
     'btn-modal': isInModal
   }" 
-  (click)="tocar()"
+  (click)="playPause()"
   size="{{ buttonSize }}" 
   fill="{{ buttonFill }}" 
   color="{{ buttonColor }}"
@@ -13,6 +13,6 @@
     #icon
     size="{{ iconSize }}"
     color="{{ iconColor }}"
-    name="{{ isTocando ? 'pause' : 'play' }}"
+    name="{{ player.playing ? 'pause' : 'play' }}"
   ></ion-icon>
 </ion-button>

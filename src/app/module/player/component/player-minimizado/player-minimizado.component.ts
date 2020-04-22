@@ -21,15 +21,15 @@ export class PlayerMinimizadoComponent implements OnInit {
   constructor(private musicaService: MusicaService, private playerService: PlayerService) {}
 
   ngOnInit() {
-    this.buscarMusicas();
+    this.getSongs();
   }
 
-  private async buscarMusicas() {
-    this.musicas = await this.musicaService.buscarTodas();
+  private async getSongs() {
+    this.musicas = await this.musicaService.getAll();
   }
 
   public async initSlide() {
-    this.musica = await this.musicaService.buscarRandom();
+    this.musica = await this.musicaService.getRandom();
     this.slideOpts = {
       initialSlide: 0,
       speed: 100
