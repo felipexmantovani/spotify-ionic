@@ -5,12 +5,12 @@
     <app-player-btn-like [buttonFill]="'clear'" [buttonColor]="'dark'"></app-player-btn-like>
   </ion-buttons>
 
-  <ion-slides #slides *ngIf="musicas" pager="false" [options]="slideOpts" (ionSlidesDidLoad)="initSlide()">
-    <ion-slide *ngFor="let musica of musicas">
-      <small (click)="modal(musica)" class="musica d-block text-center">
-        <strong>{{ musica.title }}</strong>
-        <span class="musica-ball opacity-05"> • </span>
-        <span class="opacity-05">{{ musica.artist.name }}</span>
+  <ion-slides #slides *ngIf="songs" pager="false" [options]="slideOpts" (ionSlidesDidLoad)="initSlide()">
+    <ion-slide *ngFor="let song of songs">
+      <small (click)="modal(song)" class="song d-block text-center">
+        <strong>{{ song.title }}</strong>
+        <span class="song-ball opacity-05"> • </span>
+        <span class="opacity-05">{{ song.artist.name }}</span>
       </small>
     </ion-slide>
   </ion-slides>

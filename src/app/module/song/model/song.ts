@@ -1,7 +1,7 @@
 import { Artist } from '../../artist/model/artist';
 
-export class Musica {
+export class Song {
   id: number = null;
-  title: string = null;
-  artist: Artist
+  artist: Artist;
+  title: string = null
 }

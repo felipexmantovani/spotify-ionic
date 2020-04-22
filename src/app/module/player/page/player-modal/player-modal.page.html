@@ -20,7 +20,7 @@
 </ion-header>
 
 <ion-content fullscreen class="gradient">
-  <ng-container *ngIf="musica && musicas">
+  <ng-container *ngIf="song && songs">
     <div class="w-100 h-100 foto-hex-bg" #bgPhoto>
       <div class="w-100 h-100 foto-bg-gradient"></div>
     </div>
@@ -30,7 +30,7 @@
         <ion-row>
           <ion-col size="12">
             <div class="px-1 mb-1">
-              <img class="w-100 foto" src="{{ musica.artist.photo }}" alt="{{ musica.artist.name }}" />
+              <img class="w-100 foto" src="{{ song.artist.photo }}" alt="{{ song.artist.name }}" />
             </div>
           </ion-col>
         </ion-row>
@@ -38,8 +38,8 @@
         <ion-row class="px-1">
           <ion-col size="10">
             <ion-text color="light">
-              <h1 class="my-0">{{ musica.titulo }}</h1>
-              <p class="my-0 opacity-05">{{ musica.artist.name }}</p>
+              <h1 class="my-0">{{ song.titulo }}</h1>
+              <p class="my-0 opacity-05">{{ song.artist.name }}</p>
             </ion-text>
           </ion-col>
           <ion-col size="2" class="text-right pr-0">

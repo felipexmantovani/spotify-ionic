@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
-import { Musica } from '../../../musica/model/musica';
-import { MusicaService } from '../../../musica/service/musica.service';
+import { Song } from '../../../song/model/song';
+import { SongService } from '../../../song/service/song.service';
 import { PlayerService } from '../../service/player.service';
 
 @Component({
@@ -15,30 +15,30 @@ export class PlayerMinimizadoComponent implements OnInit {
   public slideOpts: Object;
   public mostrarSlide: boolean = false;
 
-  public musica: Musica;
-  public musicas: Array<Musica>;
+  public song: Song;
+  public songs: Array<Song>;
 
-  constructor(private musicaService: MusicaService, private playerService: PlayerService) {}
+  constructor(private songService: SongService, private playerService: PlayerService) {}
 
   ngOnInit() {
     this.getSongs();
   }
 
   private async getSongs() {
-    this.musicas = await this.musicaService.getAll();
+    this.songs = await this.songService.getAll();
   }
 
   public async initSlide() {
-    this.musica = await this.musicaService.getRandom();
+    this.song = await this.songService.getRandom();
     this.slideOpts = {
       initialSlide: 0,
       speed: 100
     };
-    this.slides.slideTo(this.musica.id);
+    this.slides.slideTo(this.song.id);
     this.mostrarSlide = true;
   }
 
-  public modal(musica: Musica): void {
-    this.playerService.modal(musica, this.musicas);
+  public modal(song: Song): void {
+    this.playerService.modal(song, this.songs);
   }
 }

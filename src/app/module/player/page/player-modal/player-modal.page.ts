@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { ModalController, NavParams } from '@ionic/angular';
 import { ColorPaletteService } from '../../../../core/service/color-palette/color-palette.service';
-import { Musica } from '../../../musica/model/musica';
+import { Song } from '../../../song/model/song';
 
 @Component({
   selector: 'app-player-modal',
@@ -12,8 +12,8 @@ export class PlayerModalPage implements OnInit, AfterViewInit {
   @ViewChild('bgPhoto', { static: false })
   public bgPhoto: ElementRef;
 
-  public musica: Musica;
-  public musicas: Array<Musica>;
+  public song: Song;
+  public songs: Array<Song>;
 
   constructor(
     private modalController: ModalController,
@@ -23,12 +23,12 @@ export class PlayerModalPage implements OnInit, AfterViewInit {
   ) {}
 
   ngOnInit() {
-    this.musica = this.navParams.get('musica');
-    this.musicas = this.navParams.get('musicas');
+    this.song = this.navParams.get('song');
+    this.songs = this.navParams.get('songs');
   }
 
   ngAfterViewInit() {
-    this.backgroundColor(this.musica.artist.photo);
+    this.backgroundColor(this.song.artist.photo);
   }
 
   private async backgroundColor(image: string) {

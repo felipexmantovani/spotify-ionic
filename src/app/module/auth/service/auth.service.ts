@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { StorageService } from '../../../core/service/storage/storage.service';
 import { TABS_CONFIG } from '../../../tabs/tabs.config';
-import { MusicaService } from '../../musica/service/musica.service';
+import { SongService } from '../../song/service/song.service';
 import { PlayerService } from '../../player/service/player.service';
 import { SISTEMA_CONFIG } from '../../sistema/sistema.config';
 import { UsuarioService } from '../../usuario/service/usuario.service';
@@ -20,7 +20,7 @@ export class AuthService {
     private storageService: StorageService,
     private navController: NavController,
     private usuarioService: UsuarioService,
-    private musicaService: MusicaService,
+    private songService: SongService,
     private playerService: PlayerService
   ) {}
 
@@ -34,7 +34,7 @@ export class AuthService {
 
     this.storageService.setKey(USUARIO_CONFIG.storageKey, JSON.stringify(this.usuarioService.novo()));
 
-    this.musicaService.setStorage();
+    this.songService.setStorage();
     this.playerService.setStorage();
     this.navController.navigateRoot(TABS_CONFIG.pathFront);
   }

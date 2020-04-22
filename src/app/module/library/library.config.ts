@@ -1,5 +1,5 @@
 export const LIBRARY_CONFIG = {
-  nome: 'Biblioteca',
+  name: 'Biblioteca',
   path: 'library',
-  pathFont: '/library'
+  pathFront: '/library'
 }

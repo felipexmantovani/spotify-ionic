@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { BehaviorSubject } from 'rxjs';
 import { StorageService } from '../../../core/service/storage/storage.service';
-import { Musica } from '../../musica/model/musica';
+import { Song } from '../../song/model/song';
 import { Player } from '../model/player';
 import { PlayerModalPage } from '../page/player-modal/player-modal.page';
 import { PLAYER_CONFIG } from '../player.config';
@@ -58,12 +58,12 @@ export class PlayerService {
     });
   }
 
-  public async modal(musica: Musica, musicas: Array<Musica>): Promise<any> {
+  public async modal(song: Song, songs: Array<Song>): Promise<any> {
     const modal = await this.modalController.create({
       component: PlayerModalPage,
       componentProps: {
-        musicas: musicas,
-        musica: musica
+        song: song,
+        songs: songs
       }
     });
     return await modal.present();

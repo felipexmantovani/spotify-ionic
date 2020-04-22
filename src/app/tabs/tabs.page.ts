@@ -10,14 +10,14 @@ import { TABS_CONFIG } from './tabs.config';
   styleUrls: ['tabs.page.scss']
 })
 export class TabsPage {
-  private pathHome: string = `${TABS_CONFIG.pathFront}${USUARIO_CONFIG.pathFront}/inicio`;
-  private pathLibraryHome: string = `${TABS_CONFIG.pathFront}${LIBRARY_CONFIG.pathFont}/home`;
-  private pathLibrarySearch: string = `${TABS_CONFIG.pathFront}${LIBRARY_CONFIG.pathFont}/search`;
+  private pathUserHome: string = `${TABS_CONFIG.pathFront}${USUARIO_CONFIG.pathFront}/inicio`;
+  private pathLibraryHome: string = `${TABS_CONFIG.pathFront}${LIBRARY_CONFIG.pathFront}/home`;
+  private pathLibrarySearch: string = `${TABS_CONFIG.pathFront}${LIBRARY_CONFIG.pathFront}/search`;
 
   constructor(private navController: NavController) {}
 
   public goHome(): void {
-    this.navController.navigateRoot(this.pathHome);
+    this.navController.navigateRoot(this.pathUserHome);
   }
 
   public goSearch(): void {

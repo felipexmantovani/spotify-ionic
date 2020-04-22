@@ -1,5 +1,5 @@
 export const AUTH_CONFIG = {
-  nome: 'Autenticação',
+  name: 'Autenticação',
   path: 'auth',
   pathFront: '/auth',
   token: 'tokenKey'
