@@ -11,8 +11,8 @@ export class AuthGuard implements CanLoad, CanActivate {
   constructor(private authService: AuthService, private navController: NavController) {}
 
   private async isLoggedIn(): Promise<boolean> {
-    const logado = await this.authService.isLogado();
-    if (logado) {
+    const logged = await this.authService.isLogged();
+    if (logged) {
       return true;
     } else {
       this.navController.navigateRoot(SYSTEM_CONFIG.pathFront);

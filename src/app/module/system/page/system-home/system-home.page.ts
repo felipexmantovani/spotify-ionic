@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { LoadingService } from '../../../../core/service/loading/loading.service';
 import { AUTH_CONFIG } from '../../../auth/auth.config';
 import { AuthService } from '../../../auth/service/auth.service';
-import { USUARIO_CONFIG } from '../../../usuario/usuario.config';
+import { USER_CONFIG } from '../../../user/user.config';
 
 @Component({
   selector: 'app-system-home',
@@ -30,6 +30,6 @@ export class SystemHomePage {
   }
 
   public createAccount(): void {
-    this.router.navigateByUrl(`${USUARIO_CONFIG.pathFront}/novo`);
+    this.router.navigateByUrl(`${USER_CONFIG.pathFront}/create`);
   }
 }

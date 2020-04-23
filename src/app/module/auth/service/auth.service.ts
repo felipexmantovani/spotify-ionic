@@ -2,11 +2,11 @@ import { Injectable } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { StorageService } from '../../../core/service/storage/storage.service';
 import { TABS_CONFIG } from '../../../tabs/tabs.config';
-import { SongService } from '../../song/service/song.service';
 import { PlayerService } from '../../player/service/player.service';
+import { SongService } from '../../song/service/song.service';
 import { SYSTEM_CONFIG } from '../../system/system.config';
-import { UsuarioService } from '../../usuario/service/usuario.service';
-import { USUARIO_CONFIG } from '../../usuario/usuario.config';
+import { UserService } from '../../user/service/user.service';
+import { USER_CONFIG } from '../../user/user.config';
 import { AUTH_CONFIG } from '../auth.config';
 import { Login } from '../model/login';
 
@@ -19,7 +19,7 @@ export class AuthService {
   constructor(
     private storageService: StorageService,
     private navController: NavController,
-    private usuarioService: UsuarioService,
+    private userService: UserService,
     private songService: SongService,
     private playerService: PlayerService
   ) {}
@@ -32,7 +32,7 @@ export class AuthService {
         .slice(-`${login.password.length}`)}`
     );
 
-    this.storageService.setKey(USUARIO_CONFIG.storageKey, JSON.stringify(this.usuarioService.novo()));
+    this.storageService.setKey(USER_CONFIG.storageKey, JSON.stringify(this.userService.create()));
 
     this.songService.setStorage();
     this.playerService.setStorage();
@@ -51,7 +51,7 @@ export class AuthService {
     this.navController.navigateRoot(SYSTEM_CONFIG.pathFront);
   }
 
-  public async isLogado(): Promise<boolean> {
+  public async isLogged(): Promise<boolean> {
     const token = await this.storageService.getKey(AUTH_CONFIG.token);
     return token ? true : false;
   }

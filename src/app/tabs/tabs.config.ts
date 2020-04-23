@@ -1,5 +1,5 @@
 export const TABS_CONFIG = {
-  nome: 'Tabs',
+  name: 'Tabs',
   path: 'tabs',
   pathFront: '/tabs'
 }

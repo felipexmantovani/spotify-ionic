@@ -11,8 +11,8 @@ export class LoginGuard implements CanActivate {
   constructor(private authService: AuthService, private navController: NavController) {}
 
   public async canActivate(): Promise<boolean> {
-    const logado = await this.authService.isLogado();
-    if (logado) {
+    const logged = await this.authService.isLogged();
+    if (logged) {
       this.navController.navigateRoot(TABS_CONFIG.pathFront);
       return false;
     } else {

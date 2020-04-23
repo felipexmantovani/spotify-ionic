@@ -1,5 +1,5 @@
 export const SYSTEM_CONFIG = {
-  nome: 'Sistema',
+  name: 'Sistema',
   path: 'system',
   pathFront: '/system'
 }

@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button icon="arrow-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ getPageName() }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="p-1">
+    <form [formGroup]="userForm">
+      <ng-container *ngIf="enterEmail">
+        <ion-label 
+          class="label-input" 
+          color="light">
+          Qual é o seu e-mail?
+        </ion-label>
+        <ion-input formControlName="email" type="email" class="mb-0"></ion-input>
+        <ion-text color="light">
+          <small>Você vai ter que confirmar esse e-mail mais tarde.</small>
+        </ion-text>
+      </ng-container>
+  
+      <ng-container *ngIf="!enterEmail">
+        <ion-label class="label-input" color="light">Crie uma senha</ion-label>
+        <ion-input formControlName="password" type="password" class="mb-0"></ion-input>
+        <ion-text color="light">
+          <small>Use pelo menos 8 caracteres.</small>
+        </ion-text>
+      </ng-container>
+    </form>
+
+    <ion-grid class="text-center">
+      <ion-row>
+        <ion-col size="12" *ngIf="enterEmail">
+          <ion-button
+            [disabled]="userForm.get('email').invalid" 
+            (click)="next()" 
+            size="large" 
+            color="light" 
+            shape="round">
+            Avançar
+          </ion-button>
+        </ion-col>
+        <ion-col size="12" *ngIf="!enterEmail">
+          <ion-button
+            [disabled]="userForm.invalid" 
+            (click)="onSubmit()" 
+            size="large" 
+            color="light" 
+            shape="round">
+            Entrar
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

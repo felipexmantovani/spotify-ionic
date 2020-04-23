@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadingService } from '../../../../core/service/loading/loading.service';
-import { USUARIO_CONFIG } from '../../../usuario/usuario.config';
+import { USER_CONFIG } from '../../../user/user.config';
 import { Login } from '../../model/login';
 import { AuthService } from '../../service/auth.service';
 
@@ -23,12 +23,12 @@ export class LoginPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.criarForm();
+    this.createForm();
   }
 
-  private criarForm(): void {
+  private createForm(): void {
     this.login = new Login();
-    this.loginForm = this.login.criarForm(this.formBuilder);
+    this.loginForm = this.login.createForm(this.formBuilder);
   }
 
   public onSubmit(): void {
@@ -41,6 +41,6 @@ export class LoginPage implements OnInit {
   }
 
   public goForgotPassword() {
-    this.router.navigateByUrl(`${USUARIO_CONFIG.pathFront}/forgot-password`);
+    this.router.navigateByUrl(`${USER_CONFIG.pathFront}/forgot-password`);
   }
 }
