@@ -5,15 +5,14 @@ import { SongService } from '../../../song/service/song.service';
 import { PlayerService } from '../../service/player.service';
 
 @Component({
-  selector: 'app-player-minimizado',
-  templateUrl: './player-minimizado.component.html',
-  styleUrls: ['./player-minimizado.component.scss']
+  selector: 'app-player-minimized',
+  templateUrl: './player-minimized.component.html',
+  styleUrls: ['./player-minimized.component.scss']
 })
-export class PlayerMinimizadoComponent implements OnInit {
+export class PlayerMinimizedComponent implements OnInit {
   @ViewChild(IonSlides, { static: false })
   public slides: IonSlides;
   public slideOpts: Object;
-  public mostrarSlide: boolean = false;
 
   public song: Song;
   public songs: Array<Song>;
@@ -35,7 +34,6 @@ export class PlayerMinimizadoComponent implements OnInit {
       speed: 100
     };
     this.slides.slideTo(this.song.id);
-    this.mostrarSlide = true;
   }
 
   public modal(song: Song): void {

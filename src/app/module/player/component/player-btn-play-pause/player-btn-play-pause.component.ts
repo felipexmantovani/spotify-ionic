@@ -38,6 +38,8 @@ export class PlayerBtnPlayPauseComponent implements OnInit, OnDestroy {
   constructor(private playerService: PlayerService) {}
 
   ngOnInit(): void {
+    this.getPlayer();
+    
     this.subs.push(
       this.playerService.playerBS.subscribe((player) => {
         player ? this.player = player : null;
@@ -49,6 +51,10 @@ export class PlayerBtnPlayPauseComponent implements OnInit, OnDestroy {
     this.subs.forEach((sub) => {
       sub ? sub.unsubscribe : null;
     });
+  }
+
+  private async getPlayer() {
+    this.player = await this.playerService.getStorage();
   }
 
   public playPause(): void {

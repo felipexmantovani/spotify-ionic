@@ -1,5 +1,7 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { IonButton, IonIcon } from '@ionic/angular';
+import { Subscription } from 'rxjs';
+import { Player } from '../../model/player';
 import { PlayerService } from '../../service/player.service';
 
 @Component({
@@ -26,9 +28,33 @@ export class PlayerBtnShuffleComponent {
   @Input()
   public iconColor: string;
 
-  public isActive: boolean = false;
+  public player: Player = new Player();
+
+  private subs: Array<Subscription> = new Array<Subscription>();
 
   constructor(private playerService: PlayerService) {}
 
-  public shuffle(): void {}
+  ngOnInit(): void {
+    this.getPlayer();
+    
+    this.subs.push(
+      this.playerService.playerBS.subscribe((player) => {
+        player ? (this.player = player) : null;
+      })
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.subs.forEach((sub) => {
+      sub ? sub.unsubscribe : null;
+    });
+  }
+
+  private async getPlayer() {
+    this.player = await this.playerService.getStorage();
+  }
+
+  public shuffle(): void {
+    this.playerService.shuffle();
+  }
 }

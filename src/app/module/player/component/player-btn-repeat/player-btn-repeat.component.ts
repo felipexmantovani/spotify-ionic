@@ -1,5 +1,7 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { IonButton, IonIcon } from '@ionic/angular';
+import { Subscription } from 'rxjs';
+import { Player } from '../../model/player';
 import { PlayerService } from '../../service/player.service';
 
 @Component({
@@ -7,7 +9,7 @@ import { PlayerService } from '../../service/player.service';
   templateUrl: './player-btn-repeat.component.html',
   styleUrls: ['./player-btn-repeat.component.scss']
 })
-export class PlayerBtnRepeatComponent {
+export class PlayerBtnRepeatComponent implements OnInit, OnDestroy {
   @ViewChild('button', { static: false })
   public button: IonButton;
   @Input()
@@ -26,9 +28,33 @@ export class PlayerBtnRepeatComponent {
   @Input()
   public iconColor: string;
 
-  public isActive: boolean = false;
+  public player: Player = new Player();
+
+  private subs: Array<Subscription> = new Array<Subscription>();
 
   constructor(private playerService: PlayerService) {}
 
-  public repeat(): void {}
+  ngOnInit(): void {
+    this.getPlayer();
+    
+    this.subs.push(
+      this.playerService.playerBS.subscribe((player) => {
+        player ? (this.player = player) : null;
+      })
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.subs.forEach((sub) => {
+      sub ? sub.unsubscribe : null;
+    });
+  }
+
+  private async getPlayer() {
+    this.player = await this.playerService.getStorage();
+  }
+
+  public repeat(): void {
+    this.playerService.repeat();
+  }
 }

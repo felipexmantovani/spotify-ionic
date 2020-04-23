@@ -5,13 +5,13 @@ import { PlayerBtnLikeComponent } from './player-btn-like/player-btn-like.compon
 import { PlayerBtnPlayPauseComponent } from './player-btn-play-pause/player-btn-play-pause.component';
 import { PlayerBtnRepeatComponent } from './player-btn-repeat/player-btn-repeat.component';
 import { PlayerBtnShuffleComponent } from './player-btn-shuffle/player-btn-shuffle.component';
-import { PlayerMinimizadoComponent } from './player-minimizado/player-minimizado.component';
+import { PlayerMinimizedComponent } from './player-minimized/player-minimized.component';
 import { PlayerTimelineComponent } from './player-timeline/player-timeline.component';
 
 @NgModule({
   imports: [CommonModule, IonicModule],
   declarations: [
-    PlayerMinimizadoComponent,
+    PlayerMinimizedComponent,
     PlayerBtnLikeComponent,
     PlayerBtnPlayPauseComponent,
     PlayerTimelineComponent,
@@ -19,7 +19,7 @@ import { PlayerTimelineComponent } from './player-timeline/player-timeline.compo
     PlayerBtnRepeatComponent
   ],
   exports: [
-    PlayerMinimizadoComponent,
+    PlayerMinimizedComponent,
     PlayerBtnLikeComponent,
     PlayerBtnPlayPauseComponent,
     PlayerTimelineComponent,

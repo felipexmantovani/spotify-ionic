@@ -1,4 +1,4 @@
 export const PLAYER_CONFIG = {
-  nome: 'Player',
+  name: 'Player',
   storageKey: 'player'
 }
