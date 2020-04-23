@@ -4,7 +4,7 @@ import { StorageService } from '../../../core/service/storage/storage.service';
 import { TABS_CONFIG } from '../../../tabs/tabs.config';
 import { SongService } from '../../song/service/song.service';
 import { PlayerService } from '../../player/service/player.service';
-import { SISTEMA_CONFIG } from '../../sistema/sistema.config';
+import { SYSTEM_CONFIG } from '../../system/system.config';
 import { UsuarioService } from '../../usuario/service/usuario.service';
 import { USUARIO_CONFIG } from '../../usuario/usuario.config';
 import { AUTH_CONFIG } from '../auth.config';
@@ -48,7 +48,7 @@ export class AuthService {
 
   public logout(): void {
     this.storageService.removeKey(AUTH_CONFIG.token);
-    this.navController.navigateRoot(SISTEMA_CONFIG.pathFront);
+    this.navController.navigateRoot(SYSTEM_CONFIG.pathFront);
   }
 
   public async isLogado(): Promise<boolean> {

@@ -2,14 +2,14 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AUTH_CONFIG } from './module/auth/auth.config';
 import { AuthGuard } from './module/auth/guard/auth.guard';
-import { SISTEMA_CONFIG } from './module/sistema/sistema.config';
+import { SYSTEM_CONFIG } from './module/system/system.config';
 import { USUARIO_CONFIG } from './module/usuario/usuario.config';
 import { TABS_CONFIG } from './tabs/tabs.config';
 
 const routes: Routes = [
   {
-    path: SISTEMA_CONFIG.path,
-    loadChildren: () => import('./module/sistema/sistema.module').then((m) => m.SistemaModule)
+    path: SYSTEM_CONFIG.path,
+    loadChildren: () => import('./module/system/system.module').then((m) => m.SystemModule)
   },
   {
     path: AUTH_CONFIG.path,
@@ -25,7 +25,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     loadChildren: () => import('./tabs/tabs.module').then((m) => m.TabsPageModule)
   },
-  { path: '', redirectTo: SISTEMA_CONFIG.path, pathMatch: 'full' }
+  { path: '', redirectTo: SYSTEM_CONFIG.path, pathMatch: 'full' }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],

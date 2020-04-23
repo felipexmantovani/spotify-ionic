@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoadingService } from '../../../../core/service/loading/loading.service';
 import { AUTH_CONFIG } from '../../../auth/auth.config';
@@ -6,18 +6,16 @@ import { AuthService } from '../../../auth/service/auth.service';
 import { USUARIO_CONFIG } from '../../../usuario/usuario.config';
 
 @Component({
-  selector: 'app-sistema-inicio',
-  templateUrl: './sistema-inicio.page.html',
-  styleUrls: ['./sistema-inicio.page.scss']
+  selector: 'app-system-home',
+  templateUrl: './system-home.page.html',
+  styleUrls: ['./system-home.page.scss']
 })
-export class SistemaInicioPage implements OnInit {
+export class SystemHomePage {
   constructor(
     private router: Router,
     private loadingService: LoadingService,
     private authService: AuthService
   ) {}
-
-  ngOnInit() {}
 
   public goLogin(): void {
     this.router.navigateByUrl(AUTH_CONFIG.pathFront);
@@ -31,7 +29,7 @@ export class SistemaInicioPage implements OnInit {
     }, 2000);
   }
 
-  public criarConta(): void {
+  public createAccount(): void {
     this.router.navigateByUrl(`${USUARIO_CONFIG.pathFront}/novo`);
   }
 }

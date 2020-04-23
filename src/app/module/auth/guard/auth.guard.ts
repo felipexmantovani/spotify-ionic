@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, CanLoad } from '@angular/router';
 import { NavController } from '@ionic/angular';
-import { SISTEMA_CONFIG } from '../../sistema/sistema.config';
+import { SYSTEM_CONFIG } from '../../system/system.config';
 import { AuthService } from '../service/auth.service';
 
 @Injectable({
@@ -15,7 +15,7 @@ export class AuthGuard implements CanLoad, CanActivate {
     if (logado) {
       return true;
     } else {
-      this.navController.navigateRoot(SISTEMA_CONFIG.pathFront);
+      this.navController.navigateRoot(SYSTEM_CONFIG.pathFront);
       return false;
     }
   }

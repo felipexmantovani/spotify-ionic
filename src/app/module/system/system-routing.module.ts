@@ -4,15 +4,15 @@ import { LoginGuard } from '../auth/guard/login.guard';
 
 const routes: Routes = [
   {
-    path: 'inicio',
+    path: 'home',
     canActivate: [LoginGuard],
-    loadChildren: () => import('./page/sistema-inicio/sistema-inicio.module').then((m) => m.SistemaInicioPageModule)
+    loadChildren: () => import('./page/system-home/system-home.module').then((m) => m.SystemHomePageModule)
   },
-  { path: '', redirectTo: 'inicio', pathMatch: 'full' }
+  { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class SistemaRoutingModule {}
+export class SystemRoutingModule {}
