@@ -47,7 +47,7 @@ export class AuthService {
   }
 
   public logout(): void {
-    this.storageService.removeKey(AUTH_CONFIG.token);
+    this.storageService.clearKeys();
     this.navController.navigateRoot(SYSTEM_CONFIG.pathFront);
   }
 

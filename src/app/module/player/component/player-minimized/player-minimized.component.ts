@@ -12,6 +12,7 @@ import { PlayerService } from '../../service/player.service';
 export class PlayerMinimizedComponent implements OnInit {
   @ViewChild(IonSlides, { static: false })
   public slides: IonSlides;
+
   public slideOpts: Object;
 
   public song: Song;
@@ -34,6 +35,14 @@ export class PlayerMinimizedComponent implements OnInit {
       speed: 100
     };
     this.slides.slideTo(this.song.id);
+  }
+
+  public change() {
+    this.slides.getSwiper()
+      .then(async (value) => {
+        const activeSongId = parseInt((value.slides[value.activeIndex] as HTMLElement).id);
+        this.song = await this.songService.getById(activeSongId);
+      });
   }
 
   public modal(song: Song): void {

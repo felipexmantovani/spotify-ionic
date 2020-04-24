@@ -25,13 +25,11 @@ export class SongService {
 
   public async getAll() {
     this.songs = await this.getStorage();
-    if (this.songs) {
-      return this.songs;
-    } else {
+    if (!this.songs) {
       this.setStorage();
       this.songs = await this.getStorage();
-      return this.songs;
     }
+    return this.songs;
   }
 
   public async getById(id: number) {
