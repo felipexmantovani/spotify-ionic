@@ -4,9 +4,11 @@ ion-toolbar {
   --ion-color-base: var(--ion-color-medium) !important;
   border-bottom: 1px solid var(--ion-color-dark);
 }
+
 .song {
-  font-size: 0.6em;
+  font-size: 0.7em;
   width: max-content;
+  padding-right: 1em;
 }
 .song-ball {
   font-weight: 700;
@@ -15,6 +17,6 @@ ion-toolbar {
 .buttons {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: flex-end;
   align-items: center;
 }

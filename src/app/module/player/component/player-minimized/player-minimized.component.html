@@ -1,14 +1,14 @@
 <app-player-timeline></app-player-timeline>
 
 <ion-toolbar color="dark">
-  <ion-grid class="ion-no-padding">
-    <ion-row class="ion-no-padding ion-align-items-center ion-justify-content-center">
+  <ion-grid class="p-0">
+    <ion-row class="p-0 ion-align-items-center ion-justify-content-center">
 
-      <ion-col [size]="3" class="ion-no-padding ion-padding-end">
-        <ion-img *ngIf="song" [src]="song.artist.photo" [alt]="song.artist.name"></ion-img>
+      <ion-col [size]="2" class="p-0">
+        <ion-img *ngIf="song" (click)="modal(song)" [src]="song.artist.photo" [alt]="song.artist.name"></ion-img>
       </ion-col>
 
-      <ion-col [size]="6" class="ion-no-padding">
+      <ion-col [size]="7" class="p-0 px-1">
         <ion-slides 
           #slides 
           *ngIf="songs"
@@ -16,8 +16,8 @@
           [options]="slideOpts" 
           (ionSlideDidChange)="change()"
           (ionSlidesDidLoad)="initSlide()">
-          <ion-slide id="{{ song.id }}" *ngFor="let song of songs" class="d-block">
-            <small (click)="modal(song)" class="song d-block text-center">
+          <ion-slide (click)="modal(song)" id="{{ song.id }}" *ngFor="let song of songs" class="d-block">
+            <small class="song d-block text-center">
               <strong>{{ song.title }}</strong>
               <span class="opacity-05 song-ball"> • </span>
               <span class="opacity-05">{{ song.artist.name }}</span>
@@ -26,17 +26,20 @@
         </ion-slides>
       </ion-col>
 
-      <ion-col [size]="3" class="ion-no-padding ion-padding-start">
+      <ion-col [size]="3" class="p-0">
         <div class="buttons">
           <app-player-btn-like 
+            class="mr-1"
             [buttonFill]="'clear'" 
             [buttonColor]="'dark'"
             [buttonPaddingX]="false"
+            [iconSize]="'large'"
           ></app-player-btn-like>
           <app-player-btn-play-pause
             [buttonFill]="'clear'"
             [buttonColor]="'light'"
             [buttonPaddingX]="false"
+            [iconSize]="'large'"
           ></app-player-btn-play-pause>
         </div>
       </ion-col>
