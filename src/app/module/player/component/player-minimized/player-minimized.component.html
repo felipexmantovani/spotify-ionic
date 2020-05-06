@@ -5,7 +5,7 @@
     <ion-row class="p-0 ion-align-items-center ion-justify-content-center">
 
       <ion-col [size]="2" class="p-0">
-        <ion-img *ngIf="song" (click)="modal(song)" [src]="song.artist.photo" [alt]="song.artist.name"></ion-img>
+        <app-song-avatar *ngIf="song" (click)="modal(song)" [song]="song"></app-song-avatar>
       </ion-col>
 
       <ion-col [size]="7" class="p-0 px-1">
