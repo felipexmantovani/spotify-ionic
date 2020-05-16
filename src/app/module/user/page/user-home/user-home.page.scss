@@ -103,3 +103,12 @@
     }
   }
 }
+
+.recently-played {
+  .recently-played-item {
+    text-align: left;
+    strong {
+      font-size: 0.7em;
+    }
+  }
+}

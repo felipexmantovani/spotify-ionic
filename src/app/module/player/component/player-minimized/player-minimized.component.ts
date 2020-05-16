@@ -13,7 +13,7 @@ export class PlayerMinimizedComponent implements OnInit {
   @ViewChild(IonSlides, { static: false })
   public slides: IonSlides;
 
-  public slideOpts: Object;
+  public slideOpts: any;
 
   public song: Song;
   public songs: Array<Song>;

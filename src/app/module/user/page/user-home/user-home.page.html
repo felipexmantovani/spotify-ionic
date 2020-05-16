@@ -10,61 +10,29 @@
 
 <ion-content fullscreen class="gradient-25deg">
   <div class="p-1 pt-0">
-    <ion-text color="light">
-      <h1 class="mt-0">Bom dia</h1>
-      <div class="salutation mb-3">
-        <div class="salutation-box">
-          <app-song-avatar></app-song-avatar>
-          <strong>Spotify Ionic</strong>
-        </div>
-        <div class="salutation-box">
-          <app-song-avatar></app-song-avatar>
-          <strong>Spotify Ionic</strong>
-        </div>
-
-        <div class="salutation-box">
-          <app-song-avatar></app-song-avatar>
-          <strong>Spotify Ionic</strong>
-          <span class="animation"><i></i><i></i><i></i></span>
-        </div>
-        <div class="salutation-box">
-          <app-song-avatar></app-song-avatar>
-          <strong>Spotify Ionic</strong>
-        </div>
-
-        <div class="salutation-box">
-          <app-song-avatar></app-song-avatar>
-          <strong>Spotify Ionic</strong>
-        </div>
-        <div class="salutation-box">
-          <app-song-avatar></app-song-avatar>
-          <strong>Spotify Ionic</strong>
-        </div>
+    <ion-text color="light"><h1 class="mt-0">Bom dia</h1></ion-text>
+    <div class="salutation mb-3">
+      <div class="salutation-box" *ngFor="let playlist of playlists; index as i">
+        <app-song-avatar></app-song-avatar>
+        <ion-text color="light"><strong>Spotify Ionic</strong></ion-text>
+        <span class="animation" *ngIf="i === 2"><i></i><i></i><i></i></span>
       </div>
-    </ion-text>
+    </div>
 
-    <ion-text color="light">
-      <h1>Tocadas recentemente</h1>
-    </ion-text>
-
-    <ion-text color="light">
-      <h1>Não sai dos seus ouvidos</h1>
-    </ion-text>
-
-    <ion-text color="light">
-      <h1>Seus podcasts mais escutados</h1>
-    </ion-text>
-
-    <ion-text color="light">
-      <h1>Suas playlists</h1>
-    </ion-text>
-
-    <ion-text color="light">
-      <h1>Paradas</h1>
-    </ion-text>
-
-    <ion-text color="light">
-      <h1>Escute denovo</h1>
-    </ion-text>
+    <ion-text color="light"><h1>Tocadas recentemente</h1></ion-text>
+    <div class="recently-played">
+      <ion-slides 
+        #slidesRecently 
+        pager="false" 
+        [options]="slidesRecentlyOpts" 
+        (ionSlidesDidLoad)="initSlide()">
+        <ion-slide *ngFor="let playlist of playlists; index as i">
+          <div class="recently-played-item">
+            <app-song-avatar></app-song-avatar>
+            <ion-text color="light" class="d-block"><strong>{{ playlist.nome }}</strong></ion-text>
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </div>
   </div>
 </ion-content>
