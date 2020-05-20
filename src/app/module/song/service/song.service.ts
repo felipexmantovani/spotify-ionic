@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { StorageService } from '../../../core/service/storage/storage.service';
 import { Artist } from '../../artist/model/artist';
 import { ArtistService } from '../../artist/service/artist.service';
@@ -12,6 +13,8 @@ export class SongService {
   private song: Song;
 
   private songs: Array<Song>;
+
+  public songsBS: BehaviorSubject<Array<Song>> = new BehaviorSubject(new Array<Song>());
 
   constructor(private artistService: ArtistService, private storageService: StorageService) {}
 
@@ -49,16 +52,21 @@ export class SongService {
     return this.song;
   }
 
-  public setStorage(): void {
+  public setStorage(songs?: Array<Song>): void {
     this.songs = new Array<Song>();
-    this.songs.push(
-      this.create(0, 'Se...', this.artistService.getById(0)),
-      this.create(1, 'Wonderwall', this.artistService.getById(1)),
-      this.create(2, 'Piccola Stella', this.artistService.getById(2)),
-      this.create(3, 'Best of You', this.artistService.getById(3)),
-      this.create(4, 'Ferreirinha', this.artistService.getById(4))
-    );
+    if (!songs) {
+      this.songs.push(
+        this.create(0, 'Se...', this.artistService.getById(0)),
+        this.create(1, 'Wonderwall', this.artistService.getById(1)),
+        this.create(2, 'Piccola Stella', this.artistService.getById(2)),
+        this.create(3, 'Best of You', this.artistService.getById(3)),
+        this.create(4, 'Ferreirinha', this.artistService.getById(4))
+      );
+    } else {
+      this.songs = songs;
+    }
     this.storageService.setKey(SONG_COFIG.storageKey, JSON.stringify(this.songs));
+    this.songsBS.next(this.songs);
   }
 
   private getStorage(): Promise<Array<Song>> {

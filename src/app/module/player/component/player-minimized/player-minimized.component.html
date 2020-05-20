@@ -29,11 +29,13 @@
       <ion-col [size]="3" class="p-0">
         <div class="buttons">
           <app-player-btn-like 
+            *ngIf="song"
             class="mr-1"
             [buttonFill]="'clear'" 
             [buttonColor]="'dark'"
             [buttonPaddingX]="false"
             [iconSize]="'large'"
+            [song]="song"
           ></app-player-btn-like>
           <app-player-btn-play-pause
             [buttonFill]="'clear'"

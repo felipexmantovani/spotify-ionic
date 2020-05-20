@@ -3,6 +3,7 @@ import { ModalController } from '@ionic/angular';
 import { BehaviorSubject } from 'rxjs';
 import { StorageService } from '../../../core/service/storage/storage.service';
 import { Song } from '../../song/model/song';
+import { SongService } from '../../song/service/song.service';
 import { Player } from '../model/player';
 import { PlayerModalPage } from '../page/player-modal/player-modal.page';
 import { PLAYER_CONFIG } from '../player.config';
@@ -15,10 +16,16 @@ export class PlayerService {
 
   public playerBS: BehaviorSubject<Player> = new BehaviorSubject(new Player);
 
-  constructor(private modalController: ModalController, private storageService: StorageService) {}
+  constructor(private songService: SongService, private modalController: ModalController, private storageService: StorageService) {}
 
-  public like(value: boolean): boolean {
-    return !value;
+  public async like(song: Song) {
+    let songs: Array<Song> = await this.songService.getAll();
+    songs.forEach(songItem => {
+      if (songItem.id === song.id) {
+        songItem.liked = !song.liked;
+      }
+    });
+    this.songService.setStorage(songs);
   }
 
   public async playPause() {

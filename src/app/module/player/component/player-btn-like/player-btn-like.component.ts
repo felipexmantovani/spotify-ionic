@@ -1,5 +1,6 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { IonButton, IonIcon } from '@ionic/angular';
+import { Song } from '../../../song/model/song';
 import { PlayerService } from '../../service/player.service';
 
 @Component({
@@ -24,11 +25,12 @@ export class PlayerBtnLikeComponent {
   @Input()
   public iconSize: string;
 
-  public isLiked: boolean = false;
+  @Input()
+  public song: Song;
 
   constructor(private playerService: PlayerService) {}
 
   public like(): void {
-    this.isLiked = this.playerService.like(this.isLiked);
+    this.playerService.like(this.song);
   }
 }
