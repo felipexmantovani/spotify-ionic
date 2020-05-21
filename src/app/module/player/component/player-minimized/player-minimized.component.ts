@@ -16,7 +16,7 @@ export class PlayerMinimizedComponent implements OnInit, OnDestroy {
 
   public slideOpts: any;
 
-  public song: Song;
+  public song: Song = new Song();
   public songs: Array<Song>;
 
   private subs: Array<Subscription> = new Array<Subscription>();

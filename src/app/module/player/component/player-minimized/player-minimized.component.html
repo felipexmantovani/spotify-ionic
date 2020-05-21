@@ -5,7 +5,7 @@
     <ion-row class="p-0 ion-align-items-center ion-justify-content-center">
 
       <ion-col [size]="2" class="p-0">
-        <app-song-avatar *ngIf="song" (click)="modal(song)" [song]="song"></app-song-avatar>
+        <app-song-avatar *ngIf="song.id" (click)="modal(song)" [song]="song"></app-song-avatar>
       </ion-col>
 
       <ion-col [size]="7" class="p-0 px-1">
@@ -29,20 +29,20 @@
       <ion-col [size]="3" class="p-0">
         <div class="buttons">
           <app-player-btn-like 
-            *ngIf="song"
+            *ngIf="song.id"
             class="mr-1"
             [buttonFill]="'clear'" 
             [buttonColor]="'dark'"
             [buttonPaddingX]="false"
             [iconSize]="'large'"
-            [song]="song"
-          ></app-player-btn-like>
+            [song]="song">
+          </app-player-btn-like>
           <app-player-btn-play-pause
             [buttonFill]="'clear'"
             [buttonColor]="'light'"
             [buttonPaddingX]="false"
-            [iconSize]="'large'"
-          ></app-player-btn-play-pause>
+            [iconSize]="'large'">
+          </app-player-btn-play-pause>
         </div>
       </ion-col>
 
