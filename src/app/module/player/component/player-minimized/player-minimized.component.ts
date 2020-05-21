@@ -16,19 +16,19 @@ export class PlayerMinimizedComponent implements OnInit, OnDestroy {
 
   public slideOpts: any;
 
-  public song: Song = new Song();
+  public song: Song;
   public songs: Array<Song>;
 
   private subs: Array<Subscription> = new Array<Subscription>();
 
   constructor(private songService: SongService, private playerService: PlayerService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getSongs();
     
     this.subs.push(
       this.songService.songsBS.subscribe((songs) => {
-        if (songs) {
+        if (songs && this.song) {
           this.songs = songs;
           this.songs.forEach((songItem) => {
             if (songItem.id === this.song.id) {
@@ -40,7 +40,7 @@ export class PlayerMinimizedComponent implements OnInit, OnDestroy {
     );
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subs.forEach(sub => {
       sub ? sub.unsubscribe : null;
     });
