@@ -1,7 +1,10 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonSlides } from '@ionic/angular';
+import { Subscription } from 'rxjs';
 import { TABS_CONFIG } from '../../../../tabs/tabs.config';
+import { Player } from '../../../player/model/player';
+import { PlayerService } from '../../../player/service/player.service';
 import { USER_CONFIG } from '../../user.config';
 
 @Component({
@@ -9,7 +12,7 @@ import { USER_CONFIG } from '../../user.config';
   templateUrl: './user-home.page.html',
   styleUrls: ['./user-home.page.scss']
 })
-export class UserHomePage implements OnInit {
+export class UserHomePage implements OnInit, OnDestroy {
   @ViewChild('slidesRecently', { static: false })
   public slidesRecently: IonSlides;
 
@@ -17,7 +20,11 @@ export class UserHomePage implements OnInit {
 
   public playlists: Array<any>;
 
-  constructor(private router: Router) {}
+  public player: Player;
+
+  private subs: Array<Subscription> = new Array<Subscription>();
+
+  constructor(private router: Router, private playerService: PlayerService) {}
 
   ngOnInit(): void {
     this.playlists = [
@@ -28,6 +35,20 @@ export class UserHomePage implements OnInit {
       {nome: 'Spotify Ionic'},
       {nome: 'Spotify Ionic'}
     ]
+
+    this.getPlayer();
+    
+    this.subs.push(
+      this.playerService.playerBS.subscribe(player => {
+        player ? this.player = player : null;
+      })
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.subs.forEach(sub => {
+      sub ? sub.unsubscribe : null;
+    });
   }
 
   public goConfiguration(): void {
@@ -41,5 +62,9 @@ export class UserHomePage implements OnInit {
       slidesPerView: 2.8,
       spaceBetween: 16
     };
+  }
+
+  private async getPlayer() {
+    this.player = await this.playerService.getStorage();
   }
 }
