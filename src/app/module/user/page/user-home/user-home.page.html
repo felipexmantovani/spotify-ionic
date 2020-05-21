@@ -11,7 +11,7 @@
 <ion-content fullscreen class="gradient-25deg">
   <div class="p-1 pt-0">
     <ion-text color="light"><h1 class="mt-0">Bom dia</h1></ion-text>
-    <div class="salutation mb-3">
+    <div class="salutation mb-3" *ngIf="player">
       <div class="salutation-box" *ngFor="let playlist of playlists; index as i">
         <app-song-avatar></app-song-avatar>
         <ion-text color="light"><strong>Spotify Ionic</strong></ion-text>
