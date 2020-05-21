@@ -15,7 +15,7 @@
       <div class="salutation-box" *ngFor="let playlist of playlists; index as i">
         <app-song-avatar></app-song-avatar>
         <ion-text color="light"><strong>Spotify Ionic</strong></ion-text>
-        <span class="animation" *ngIf="i === 2"><i></i><i></i><i></i></span>
+        <span class="animation" *ngIf="i === 2 && player.playing"><i></i><i></i><i></i></span>
       </div>
     </div>
 
