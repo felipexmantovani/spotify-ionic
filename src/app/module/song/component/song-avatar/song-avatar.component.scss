@@ -6,3 +6,8 @@
     width: 50%;
   }
 }
+
+ion-img.rounded {
+  border-radius: 100%;
+  overflow: hidden;
+}

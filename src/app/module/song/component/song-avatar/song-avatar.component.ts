@@ -16,6 +16,9 @@ export class SongAvatarComponent implements OnInit {
   @Input()
   public thumbQuantity: number = 4;
 
+  @Input()
+  public thumbRounded: boolean = false;
+
   constructor(private songService: SongService) {}
 
   ngOnInit() {

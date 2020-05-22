@@ -1,7 +1,7 @@
-<ion-img *ngIf="song; else thumbs;" [src]="song.artist.photo" [alt]="song.artist.name"></ion-img>
+<ion-img [ngClass]="{ 'rounded' : thumbRounded }" *ngIf="song; else thumbs;" [src]="song.artist.photo" [alt]="song.artist.name"></ion-img>
 
 <ng-template #thumbs>
   <div class="thumb-box">
-    <ion-img *ngFor="let song of songs; index as i" [src]="song.artist.photo" [alt]="song.artist.name"></ion-img>
+    <ion-img [ngClass]="{ 'rounded' : thumbRounded }" *ngFor="let song of songs; index as i" [src]="song.artist.photo" [alt]="song.artist.name"></ion-img>
   </div>
 </ng-template>
