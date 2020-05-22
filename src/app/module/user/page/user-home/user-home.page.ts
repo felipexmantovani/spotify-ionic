@@ -5,6 +5,10 @@ import { Subscription } from 'rxjs';
 import { TABS_CONFIG } from '../../../../tabs/tabs.config';
 import { Player } from '../../../player/model/player';
 import { PlayerService } from '../../../player/service/player.service';
+import { Playlist } from '../../../playlist/model/playlist';
+import { PlaylistService } from '../../../playlist/service/playlist.service';
+import { Song } from '../../../song/model/song';
+import { SongService } from '../../../song/service/song.service';
 import { USER_CONFIG } from '../../user.config';
 
 @Component({
@@ -13,34 +17,32 @@ import { USER_CONFIG } from '../../user.config';
   styleUrls: ['./user-home.page.scss']
 })
 export class UserHomePage implements OnInit, OnDestroy {
-  @ViewChild('slidesRecently', { static: false })
-  public slidesRecently: IonSlides;
+  @ViewChild('slides', { static: false })
+  public slides: IonSlides;
 
-  public slidesRecentlyOpts: any;
+  public slidesOpts: any;
 
-  public playlists: Array<any>;
+  public playlists: Array<Playlist>;
+
+  public songs: Array<Song>;
 
   public player: Player;
 
   private subs: Array<Subscription> = new Array<Subscription>();
 
-  constructor(private router: Router, private playerService: PlayerService) {}
+  constructor(private router: Router, private playerService: PlayerService, private playlistService: PlaylistService, private songService: SongService) {}
 
   ngOnInit(): void {
-    this.playlists = [
-      {nome: 'Spotify Ionic'},
-      {nome: 'Spotify Ionic'},
-      {nome: 'Spotify Ionic'},
-      {nome: 'Spotify Ionic'},
-      {nome: 'Spotify Ionic'},
-      {nome: 'Spotify Ionic'}
-    ]
-
+    this.getPlaylist();
+    this.getSongs();
     this.getPlayer();
     
     this.subs.push(
       this.playerService.playerBS.subscribe(player => {
         player ? this.player = player : null;
+      }),
+      this.songService.songsBS.subscribe(songs => {
+        songs ? this.songs = songs : null;
       })
     );
   }
@@ -51,12 +53,20 @@ export class UserHomePage implements OnInit, OnDestroy {
     });
   }
 
+  private async getSongs() {
+    this.songs = await this.songService.getAll();
+  }
+
+  private getPlaylist(): void {
+    this.playlists = this.playlistService.getAll();
+  }
+
   public goConfiguration(): void {
     this.router.navigateByUrl(`${TABS_CONFIG.pathFront}${USER_CONFIG.pathFront}/configuration`);
   }
 
   public initSlide(): void {
-    this.slidesRecentlyOpts = {
+    this.slidesOpts = {
       freeMode: true,
       speed: 100,
       slidesPerView: 2.8,

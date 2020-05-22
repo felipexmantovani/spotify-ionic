@@ -14,22 +14,38 @@
     <div class="salutation mb-3" *ngIf="player">
       <div class="salutation-box" *ngFor="let playlist of playlists; index as i">
         <app-song-avatar></app-song-avatar>
-        <ion-text color="light"><strong>Spotify Ionic</strong></ion-text>
+        <ion-text color="light"><strong>{{ playlist.name }}</strong></ion-text>
         <span class="animation" *ngIf="i === 2 && player.playing"><i></i><i></i><i></i></span>
       </div>
     </div>
 
     <ion-text color="light"><h1>Tocadas recentemente</h1></ion-text>
-    <div class="recently-played">
+    <div class="slides mb-3">
       <ion-slides 
-        #slidesRecently 
+        #slides 
         pager="false" 
-        [options]="slidesRecentlyOpts" 
+        [options]="slidesOpts" 
+        (ionSlidesDidLoad)="initSlide()">
+        <ion-slide *ngFor="let song of songs; index as i">
+          <div class="slides-item text-center">
+            <app-song-avatar [song]="song" [thumbRounded]="true"></app-song-avatar>
+            <ion-text color="light" class="d-block"><strong>{{ song.artist.name | textResume: 14 }}</strong></ion-text>
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </div>
+
+    <ion-text color="light"><h1>Suas playlists</h1></ion-text>
+    <div class="slides">
+      <ion-slides 
+        #slides 
+        pager="false" 
+        [options]="slidesOpts" 
         (ionSlidesDidLoad)="initSlide()">
         <ion-slide *ngFor="let playlist of playlists; index as i">
-          <div class="recently-played-item">
+          <div class="slides-item text-left">
             <app-song-avatar></app-song-avatar>
-            <ion-text color="light" class="d-block"><strong>{{ playlist.nome }}</strong></ion-text>
+            <ion-text color="light" class="d-block"><strong>{{ playlist.name }}</strong></ion-text>
           </div>
         </ion-slide>
       </ion-slides>
