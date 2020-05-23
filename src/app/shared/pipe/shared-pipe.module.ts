@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { TextResumePipe } from './text-resume/text-resume.pipe';
+import { StringResumePipe } from './string-resume/text-resume.pipe';
 
 @NgModule({
-  declarations: [TextResumePipe],
-  exports: [TextResumePipe]
+  declarations: [StringResumePipe],
+  exports: [StringResumePipe]
 })
 export class SharedPipeModule {}

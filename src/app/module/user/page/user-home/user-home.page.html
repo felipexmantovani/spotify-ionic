@@ -29,7 +29,7 @@
         <ion-slide *ngFor="let song of songs; index as i">
           <div class="slides-item text-center">
             <app-song-avatar [song]="song" [thumbRounded]="true"></app-song-avatar>
-            <ion-text color="light" class="d-block"><strong>{{ song.artist.name | textResume: 14 }}</strong></ion-text>
+            <ion-text color="light" class="d-block"><strong>{{ song.artist.name | stringResume: 14 }}</strong></ion-text>
           </div>
         </ion-slide>
       </ion-slides>
