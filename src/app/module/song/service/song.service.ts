@@ -18,11 +18,12 @@ export class SongService {
 
   constructor(private artistService: ArtistService, private storageService: StorageService) {}
 
-  private create(id: number, title: string, artist: Artist): Song {
+  private create(id: number, title: string, time: string, artist: Artist): Song {
     this.song = new Song();
     this.song.id = id;
-    this.song.title = title;
     this.song.artist = artist;
+    this.song.time = time;
+    this.song.title = title;
     return this.song;
   }
 
@@ -56,11 +57,11 @@ export class SongService {
     this.songs = new Array<Song>();
     if (!songs) {
       this.songs.push(
-        this.create(0, 'Se...', this.artistService.getById(0)),
-        this.create(1, 'Wonderwall', this.artistService.getById(1)),
-        this.create(2, 'Piccola Stella', this.artistService.getById(2)),
-        this.create(3, 'Best of You', this.artistService.getById(3)),
-        this.create(4, 'Ferreirinha', this.artistService.getById(4))
+        this.create(0, 'Se...', '04:52' , this.artistService.getById(0)),
+        this.create(1, 'Wonderwall', '03:22' , this.artistService.getById(1)),
+        this.create(2, 'Piccola Stella', '03:53' , this.artistService.getById(2)),
+        this.create(3, 'Best of You', '04:16' , this.artistService.getById(3)),
+        this.create(4, 'Ferreirinha', '03:41' , this.artistService.getById(4))
       );
     } else {
       this.songs = songs;

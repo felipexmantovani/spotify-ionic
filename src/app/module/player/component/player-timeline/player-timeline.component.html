@@ -7,10 +7,10 @@
   <ion-grid class="p-0">
     <ion-row class="p-0">
       <ion-col size="6" class="text-left p-0">
-        <span class="start">1:10</span>
+        <span class="start">{{ timeCurrent }}</span>
       </ion-col>
       <ion-col size="6" class="text-right p-0">
-        <span class="end">3:59</span>
+        <span class="end" *ngIf="song">{{ song.time }}</span>
       </ion-col>
     </ion-row>
   </ion-grid>
