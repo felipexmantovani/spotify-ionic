@@ -1,4 +1,4 @@
-import { StringResumePipe } from './text-resume.pipe';
+import { StringResumePipe } from './string-resume.pipe';
 
 describe('StringResumePipe', () => {
   it('create an instance', () => {

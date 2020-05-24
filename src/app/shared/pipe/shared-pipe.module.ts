@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { StringResumePipe } from './string-resume/text-resume.pipe';
+import { StringResumePipe } from './string-resume/string-resume.pipe';
 
 @NgModule({
   declarations: [StringResumePipe],
