@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { Song } from '../../../song/model/song';
@@ -10,7 +10,7 @@ import { PlayerService } from '../../service/player.service';
   templateUrl: './player-minimized.component.html',
   styleUrls: ['./player-minimized.component.scss']
 })
-export class PlayerMinimizedComponent implements OnInit, OnDestroy {
+export class PlayerMinimizedComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild(IonSlides, { static: false })
   public slides: IonSlides;
 
@@ -19,13 +19,19 @@ export class PlayerMinimizedComponent implements OnInit, OnDestroy {
   public song: Song;
   public songs: Array<Song>;
 
+  @ViewChild('buttons', { static: false })
+  public buttons: ElementRef;
+  
+  @Input()
+  public buttonsScale: number = 1;
+
   private subs: Array<Subscription> = new Array<Subscription>();
 
-  constructor(private songService: SongService, private playerService: PlayerService) {}
+  constructor(private songService: SongService, private playerService: PlayerService, private renderer: Renderer2) {}
 
   ngOnInit(): void {
     this.getSongs();
-    
+
     this.subs.push(
       this.songService.songsBS.subscribe((songs) => {
         if (songs && this.song) {
@@ -40,8 +46,12 @@ export class PlayerMinimizedComponent implements OnInit, OnDestroy {
     );
   }
 
+  ngAfterViewInit(): void {
+    this.renderer.setStyle(this.buttons.nativeElement, 'transform', `scale(${this.buttonsScale})`);
+  }
+
   ngOnDestroy(): void {
-    this.subs.forEach(sub => {
+    this.subs.forEach((sub) => {
       sub ? sub.unsubscribe : null;
     });
   }
