@@ -30,25 +30,30 @@ export class UserHomePage implements OnInit, OnDestroy {
 
   private subs: Array<Subscription> = new Array<Subscription>();
 
-  constructor(private router: Router, private playerService: PlayerService, private playlistService: PlaylistService, private songService: SongService) {}
+  constructor(
+    private router: Router,
+    private playerService: PlayerService,
+    private playlistService: PlaylistService,
+    private songService: SongService
+  ) {}
 
   ngOnInit(): void {
     this.getPlaylist();
     this.getSongs();
     this.getPlayer();
-    
+
     this.subs.push(
-      this.playerService.playerBS.subscribe(player => {
-        player ? this.player = player : null;
+      this.playerService.playerBS.subscribe((player) => {
+        player ? (this.player = player) : null;
       }),
-      this.songService.songsBS.subscribe(songs => {
-        songs ? this.songs = songs : null;
+      this.songService.songsBS.subscribe((songs) => {
+        songs ? (this.songs = songs) : null;
       })
     );
   }
 
   ngOnDestroy(): void {
-    this.subs.forEach(sub => {
+    this.subs.forEach((sub) => {
       sub ? sub.unsubscribe : null;
     });
   }
