@@ -32,7 +32,7 @@
         [options]="slidesOpts" 
         (ionSlidesDidLoad)="initSlide()">
         <ion-slide *ngFor="let song of songs; index as i">
-          <div class="slides-item text-center">
+          <div class="slides-item text-align-center">
             <app-song-avatar [song]="song" [thumbRounded]="true"></app-song-avatar>
             <ion-text color="light" class="d-block"><strong>{{ song.artist.name | stringResume: 14 }}</strong></ion-text>
           </div>
@@ -48,7 +48,7 @@
         [options]="slidesOpts" 
         (ionSlidesDidLoad)="initSlide()">
         <ion-slide *ngFor="let playlist of playlists; index as i">
-          <div class="slides-item text-left">
+          <div class="slides-item text-align-left">
             <app-song-avatar></app-song-avatar>
             <ion-text color="light" class="d-block"><strong>{{ playlist.name }}</strong></ion-text>
           </div>

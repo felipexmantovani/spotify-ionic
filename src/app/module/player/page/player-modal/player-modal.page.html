@@ -6,7 +6,7 @@
       </ion-button>
     </ion-buttons>
 
-    <ion-title class="title-modal text-center">
+    <ion-title class="title-modal text-align-center">
       <span class="d-block title-modal-title">Tocando da playlist</span>
       <span class="d-block title-modal-subtitle">Spotify Ionic</span>
     </ion-title>
@@ -42,7 +42,7 @@
               <p class="my-0 color-light-shade">{{ song.artist.name }}</p>
             </ion-text>
           </ion-col>
-          <ion-col size="2" class="text-right pr-0">
+          <ion-col size="2" class="text-align-right pr-0">
             <app-player-btn-like
               [iconSize]="'large'"
               [buttonFill]="'clear'"
@@ -57,7 +57,7 @@
         </ion-row>
         
         <ion-row class="px-1 ion-align-items-center ion-justify-content-center">
-          <ion-col size="2" class="pl-0 text-left">
+          <ion-col size="2" class="pl-0 text-align-left">
             <app-player-btn-shuffle
               [buttonPaddingX]="false"
               [buttonFill]="'clear'"
@@ -65,12 +65,12 @@
               [iconSize]="'large'"
             ></app-player-btn-shuffle>
           </ion-col>
-          <ion-col size="2" class="text-right">
+          <ion-col size="2" class="text-align-right">
             <ion-button class="btn-prev-next" fill="clear" color="light">
               <ion-icon name="skip-backward" size="large"></ion-icon>
             </ion-button>
           </ion-col>
-          <ion-col size="4" class="text-center">
+          <ion-col size="4" class="text-align-center">
             <app-player-btn-play-pause
               [buttonFill]="'solid'"
               [buttonColor]="'light'"
@@ -78,12 +78,12 @@
               [isInModal]="true"
             ></app-player-btn-play-pause>
           </ion-col>
-          <ion-col size="2" class="text-left">
+          <ion-col size="2" class="text-align-left">
             <ion-button class="btn-prev-next" fill="clear" color="light">
               <ion-icon name="skip-forward" size="large"></ion-icon>
             </ion-button>
           </ion-col>
-          <ion-col size="2" class="pr-0 text-right">
+          <ion-col size="2" class="pr-0 text-align-right">
             <app-player-btn-repeat
               [iconSize]="'large'"
               [buttonFill]="'clear'"
@@ -93,7 +93,7 @@
           </ion-col>
         </ion-row>
 
-        <ion-row class="px-1 text-right">
+        <ion-row class="px-1 text-align-right">
           <ion-col size="12">
             <ion-button class="btn-list" fill="clear" color="light">
               <ion-icon name="list" size="small"></ion-icon>
