@@ -19,8 +19,8 @@
           <ion-slide (click)="modal(song)" id="{{ song.id }}" *ngFor="let song of songs" class="d-block">
             <small class="song d-block text-center">
               <strong>{{ song.title }}</strong>
-              <span class="opacity-05 song-ball"> • </span>
-              <span class="opacity-05">{{ song.artist.name }}</span>
+              <span class="color-light-shade song-ball"> • </span>
+              <span class="color-light-shade">{{ song.artist.name }}</span>
             </small>
           </ion-slide>
         </ion-slides>
