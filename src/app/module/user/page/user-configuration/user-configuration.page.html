@@ -1,21 +1,452 @@
 <ion-header>
-  <ion-toolbar color="medium">
+  <ion-toolbar color="medium" class="text-center">
     <ion-buttons slot="start">
       <ion-back-button icon="arrow-back"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ getPageName() }}</ion-title>
+    <ion-title size="small" class="title-center">
+      <strong>{{ getPageName() }}</strong>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="p-1" *ngIf="user">
+    <ion-grid class="p-0">
+      <ion-row class="ion-align-items-center" (click)="goProfile()">
+        <ion-col class="pl-0" size="3">
+          <ion-avatar>
+            <ion-img [src]="user.photo" [alt]="user.fullName"></ion-img>
+          </ion-avatar>
+        </ion-col>
+        <ion-col size="8">
+          <ion-text color="light">
+            <h3 class="my-0">{{ user.fullName }}</h3>
+            <small class="color-light-shade">Ver perfil</small>
+          </ion-text>
+        </ion-col>
+        <ion-col size="1" class="pr-0 text-right">
+          <ion-icon color="light" name="arrow-dropright"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <div class="mb-2">
+      <ion-text color="light">
+        <h5>Economia de Dados</h5>
+      </ion-text>
+      <ion-grid class="p-0">
+        <ion-row class="ion-align-items-center">
+          <ion-col size="10" class="pl-0">
+            <ion-text color="light" class="d-block">
+              <h6>Desligado</h6>
+              <small class="color-light-shade d-block">Define a qualidade da música como baixa e desativa o Canvas.</small>
+            </ion-text>
+          </ion-col>
+          <ion-col size="2" class="pr-0">
+            <ion-toggle color="success"></ion-toggle>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="mb-2">
+      <ion-text color="light">
+        <h5>Reprodução</h5>
+      </ion-text>
+      <ion-grid class="p-0">
+        <ion-row class="ion-align-items-center">
+          
+          <ion-col size="10" class="pl-0">
+            <ion-text color="light" class="d-block">
+              <h6>Modo offline</h6>
+              <small class="color-light-shade d-block">Quando você fica offline, só pode tocar as músicas e podcasts baixados.</small>
+            </ion-text>
+          </ion-col>
+          <ion-col size="2" class="pr-0">
+            <ion-toggle color="success"></ion-toggle>
+          </ion-col>
+          
+          <ion-col size="12" class="px-0">
+            <ion-text color="light" class="d-block">
+              <h6>Transição gradual</h6>
+              <small class="color-light-shade d-block">Permite fazer transição gradual de músicas.</small>
+            </ion-text>
+            <ion-item>
+              <ion-range min="0" max="12" pin="true" value="5">
+                <ion-label slot="start">Desligado</ion-label>
+                <ion-label slot="end">12 s</ion-label>
+              </ion-range>
+            </ion-item>
+          </ion-col>
+
+          <ion-col size="10" class="pl-0">
+            <ion-text color="light" class="d-block">
+              <h6>Sem pausas</h6>
+              <small class="color-light-shade d-block">Permite a reprodução sem pausas.</small>
+            </ion-text>
+          </ion-col>
+          <ion-col size="2" class="pr-0">
+            <ion-toggle color="success" checked></ion-toggle>
+          </ion-col>
+
+          <ion-col size="10" class="pl-0">
+            <ion-text color="light" class="d-block">
+              <h6>Automix</h6>
+              <small class="color-light-shade d-block">Permite transições graduais entre as músicas de uma playlist.</small>
+            </ion-text>
+          </ion-col>
+          <ion-col size="2" class="pr-0">
+            <ion-toggle color="success" checked></ion-toggle>
+          </ion-col>
+
+          <ion-col size="10" class="pl-0">
+            <ion-text color="light" class="d-block">
+              <h6>Permitir a reprodução de conteúdo...</h6>
+              <small class="color-light-shade d-block">Ative para que conteúdo explícito seja reproduzido.</small>
+            </ion-text>
+          </ion-col>
+          <ion-col size="2" class="pr-0">
+            <ion-toggle color="success" checked></ion-toggle>
+          </ion-col>
+
+          <ion-col size="10" class="pl-0">
+            <ion-text color="light" class="d-block">
+              <h6>Mostrar núsicas indisponíveis</h6>
+              <small class="color-light-shade d-block">Mostrar músicas que não podem ser tocadas.</small>
+            </ion-text>
+          </ion-col>
+          <ion-col size="2" class="pr-0">
+            <ion-toggle color="success"></ion-toggle>
+          </ion-col>
+
+          <ion-col size="10" class="pl-0">
+            <ion-text color="light" class="d-block">
+              <h6>Normalizar volume</h6>
+              <small class="color-light-shade d-block">Definir o mesmo nível de volume para todas as faixas.</small>
+            </ion-text>
+          </ion-col>
+          <ion-col size="2" class="pr-0">
+            <ion-toggle color="success" checked></ion-toggle>
+          </ion-col>
+
+          <ion-col size="7" class="pl-0">
+            <ion-text color="light" class="d-block">
+              <h6>Nível de volume</h6>
+              <small class="color-light-shade d-block">Ajuste o volume de acordo com o seu ambiente.</small>
+            </ion-text>
+          </ion-col>
+          <ion-col size="5" class="pr-0">
+            <ion-text color="light">
+              <ion-select interface="popover">
+                <ion-select-option value="1">Alto</ion-select-option>
+                <ion-select-option value="2" selected>Normal</ion-select-option>
+                <ion-select-option value="3">Baixo</ion-select-option>
+              </ion-select>
+            </ion-text>
+          </ion-col>
+
+          <ion-col size="10" class="pl-0">
+            <ion-text color="light" class="d-block">
+              <h6>Status de transmissão</h6>
+              <small class="color-light-shade d-block">Permitir que outros aplicativos em seu dispositivo vejam o que você está ouvindo.</small>
+            </ion-text>
+          </ion-col>
+          <ion-col size="2" class="pr-0">
+            <ion-toggle color="success"></ion-toggle>
+          </ion-col>
+
+          <ion-col size="10" class="pl-0">
+            <ion-text color="light" class="d-block">
+              <h6>AutoPlay</h6>
+              <small class="color-light-shade d-block">Continue escutando faixas parecidas quando a música acabar.</small>
+            </ion-text>
+          </ion-col>
+          <ion-col size="2" class="pr-0">
+            <ion-toggle color="success" checked></ion-toggle>
+          </ion-col>
+
+          <ion-col size="10" class="pl-0">
+            <ion-text color="light" class="d-block">
+              <h6>Canvas</h6>
+              <small class="color-light-shade d-block">Exibir efeitos visuais curtos em loop durante a reprodução de músicas.</small>
+            </ion-text>
+          </ion-col>
+          <ion-col size="2" class="pr-0">
+            <ion-toggle color="success" checked></ion-toggle>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="mb-2">
+      <ion-text color="light">
+        <h5>Dispositivos</h5>
+      </ion-text>
+      <ion-grid class="p-0">
+        <ion-row class="ion-align-items-center">
+          <ion-col size="12" class="pl-0">
+            <ion-text color="light" class="d-block">
+              <h6>Conectar a um dispositivo</h6>
+              <small class="color-light-shade d-block">Ouça e controle o Spotify em seus dispositivos.</small>
+            </ion-text>
+          </ion-col>
+
+          <ion-col size="10" class="pl-0">
+            <ion-text color="light" class="d-block">
+              <h6>Mostrar apenas dispositivos locais</h6>
+              <small class="color-light-shade d-block">Mostrar apenas dispositivos conectados à sua rede Wi-Fi ou ethernet no menu de dispositivos.</small>
+            </ion-text>
+          </ion-col>
+          <ion-col size="2" class="pr-0">
+            <ion-toggle color="success"></ion-toggle>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="mb-2">
+      <ion-text color="light">
+        <h5>Conectar a aplicativos</h5>
+      </ion-text>
+      <ion-grid class="p-0">
+        <ion-row class="ion-align-items-center">
+          <ion-col size="12" class="pl-0">
+            <ion-text color="light" class="d-block">
+              <h6>Navegação</h6>
+              <small class="color-light-shade d-block">Conecte aplicativos de navegação.</small>
+            </ion-text>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="mb-2">
+      <ion-text color="light">
+        <h5>Modo veicular</h5>
+      </ion-text>
+      <ion-grid class="p-0">
+        <ion-row class="ion-align-items-center">
+          <ion-col size="10" class="pl-0">
+            <ion-text color="light" class="d-block">
+              <h6>Ativar automaticamente</h6>
+              <small class="color-light-shade d-block">O Spotify entrará em modo veicular sempre que se conectar ao seu carro por Bluetooth.</small>
+            </ion-text>
+          </ion-col>
+          <ion-col size="2" class="pr-0">
+            <ion-toggle color="success" checked></ion-toggle>
+          </ion-col>
+
+          <ion-col size="10" class="pl-0">
+            <ion-text color="light" class="d-block">
+              <h6>Sempre ativado</h6>
+              <small class="color-light-shade d-block">O Spotify continuará em modo veicular.</small>
+            </ion-text>
+          </ion-col>
+          <ion-col size="2" class="pr-0">
+            <ion-toggle color="success"></ion-toggle>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="mb-2">
+      <ion-text color="light">
+        <h5>Redes sociais</h5>
+      </ion-text>
+      <ion-grid class="p-0">
+        <ion-row class="ion-align-items-center">
+          <ion-col size="10" class="pl-0">
+            <ion-text color="light" class="d-block">
+              <h6>Sessão particular</h6>
+              <small class="color-light-shade d-block">Inicie uma sessão particular para ouvir músicas.</small>
+            </ion-text>
+          </ion-col>
+          <ion-col size="2" class="pr-0">
+            <ion-toggle color="success"></ion-toggle>
+          </ion-col>
+
+          <ion-col size="10" class="pl-0">
+            <ion-text color="light" class="d-block">
+              <h6>Músicas escutadas</h6>
+              <small class="color-light-shade d-block">Mostrar o que eu escuto o no Spotify para quem me segue.</small>
+            </ion-text>
+          </ion-col>
+          <ion-col size="2" class="pr-0">
+            <ion-toggle color="success" checked></ion-toggle>
+          </ion-col>
+
+          <ion-col size="10" class="pl-0">
+            <ion-text color="light" class="d-block">
+              <h6>Artistas tocados recentemente</h6>
+              <small class="color-light-shade d-block">Mostrar meus artistas tocados recentemente no meu perfil.</small>
+            </ion-text>
+          </ion-col>
+          <ion-col size="2" class="pr-0">
+            <ion-toggle color="success" checked></ion-toggle>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="mb-2">
+      <ion-text color="light">
+        <h5>Qualidade de música</h5>
+      </ion-text>
+      <ion-grid class="p-0">
+        <ion-row class="ion-align-items-center">
+          <ion-col size="7" class="pl-0">
+            <ion-text color="light" class="d-block">
+              <h6>Transmissão</h6>
+              <small class="color-light-shade d-block">Uma qualidade melhor usa mais dados.</small>
+            </ion-text>
+          </ion-col>
+          <ion-col size="5" class="pr-0">
+            <ion-text color="light">
+              <ion-select interface="popover">
+                <ion-select-option value="1" selected>Automático</ion-select-option>
+                <ion-select-option value="2">Baixo</ion-select-option>
+                <ion-select-option value="3">Normal</ion-select-option>
+                <ion-select-option value="4">Alta</ion-select-option>
+                <ion-select-option value="5">Altíssima</ion-select-option>
+              </ion-select>
+            </ion-text>
+          </ion-col>
+
+          <ion-col size="7" class="pl-0">
+            <ion-text color="light" class="d-block">
+              <h6>Downloads</h6>
+              <small class="color-light-shade d-block">Uma qualidade melhor usa mais espaço em disco.</small>
+            </ion-text>
+          </ion-col>
+          <ion-col size="5" class="pr-0">
+            <ion-text color="light">
+              <ion-select interface="popover">
+                <ion-select-option value="1" selected>Normal</ion-select-option>
+                <ion-select-option value="2">Alta</ion-select-option>
+                <ion-select-option value="3">Altíssima</ion-select-option>
+              </ion-select>
+            </ion-text>
+          </ion-col>
+
+          <ion-col size="10" class="pl-0">
+            <ion-text color="light" class="d-block">
+              <h6>Baixar pela rede de celular</h6>
+              <small class="color-light-shade d-block">Configuração recomendada: Desativado.</small>
+            </ion-text>
+          </ion-col>
+          <ion-col size="2" class="pr-0">
+            <ion-toggle color="success"></ion-toggle>
+          </ion-col>
+
+          <ion-col size="12" class="pl-0">
+            <ion-text color="light" class="d-block">
+              <h6>Equalizador</h6>
+              <small class="color-light-shade d-block">Abra o painel de controle do equalizador.</small>
+            </ion-text>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="mb-2">
+      <ion-text color="light">
+        <h5>Armazenamento</h5>
+      </ion-text>
+      <ion-grid class="p-0">
+        <ion-row class="ion-align-items-center">
+          <ion-col size="12" class="pl-0">
+            <div class="storage">
+              <div class="storage-bar">
+                <span class="bg-primary"></span>
+                <span class="bg-success"></span>
+                <span class="bg-light-shade"></span>
+                <span class="bg-medium-tint"></span>
+              </div>
+              <ul class="storage-legend">
+                <li><i class="bg-primary"></i> <span class="text">Outros aplicativos</span><span class="size">30,3 GB</span></li>
+                <li><i class="bg-success"></i> <span class="text">Download</span><span class="size">4,3 GB</span></li>
+                <li><i class="bg-light-shade"></i> <span class="text">Cache</span><span class="size">263,0 MB</span></li>
+                <li><i class="bg-medium-tint"></i> <span class="text">Livre</span><span class="size">15,5 GB</span></li>
+              </ul>
+            </div>
+          </ion-col>
+
+          <ion-col size="12" class="pl-0">
+            <ion-text color="light" class="d-block">
+              <h6>Limpar cache</h6>
+              <small class="color-light-shade d-block">Limpe o cache para liberar espaço de armazenamento. Seus downloads não serão excluídos.</small>
+            </ion-text>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="mb-2">
+      <ion-text color="light">
+        <h5>Notificações</h5>
+      </ion-text>
+      <ion-grid class="p-0">
+        <ion-row class="ion-align-items-center">
+          <ion-col size="12" class="pl-0">
+            <ion-text color="light" class="d-block">
+              <h6>Notificações</h6>
+              <small class="color-light-shade d-block">Escolha as notificações por push que você quer receber.</small>
+            </ion-text>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="mb-2">
+      <ion-text color="light">
+        <h5>Sobre</h5>
+      </ion-text>
+      <ion-grid class="p-0">
+        <ion-row class="ion-align-items-center">
+          <ion-col size="12" class="pl-0">
+            <ion-text color="light" class="d-block">
+              <span class="color-medium-tint d-block">Versão</span>
+              <span class="color-light-shade d-block">8.5.59.1137</span>
+            </ion-text>
+          </ion-col>
+
+          <ion-col size="12" class="pl-0">
+            <ion-text color="light" class="d-block">
+              <h6>Software de terceiros</h6>
+              <small class="color-light-shade d-block">Software que nos ajudou.</small>
+            </ion-text>
+          </ion-col>
+
+          <ion-col size="12" class="pl-0">
+            <ion-text color="light" class="d-block">
+              <h6>Termos e condições</h6>
+              <small class="color-light-shade d-block">Tudo o que você precisa saber.</small>
+            </ion-text>
+          </ion-col>
+
+          <ion-col size="12" class="pl-0">
+            <ion-text color="light" class="d-block">
+              <h6>Política de privacidade</h6>
+              <small class="color-light-shade d-block">Importante para todos nós.</small>
+            </ion-text>
+          </ion-col>
+
+          <ion-col size="12" class="pl-0">
+            <ion-text color="light" class="d-block">
+              <h6>Suporte</h6>
+              <small class="color-light-shade d-block">Obtenha ajuda nossa e da comunidade.</small>
+            </ion-text>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
 
     <ion-text color="light">
-      <h6 class="my-1">Outros</h6>
+      <h5>Outros</h5>
     </ion-text>
     <ion-text (click)="logout()" color="light" class="d-block">
-      Sair
-      <small class="opacity-08 d-block">Você entrou como {{ user.fullName }}</small>
+      <h6>Sair</h6>
+      <small class="color-light-shade d-block">Você entrou como {{ user.fullName }}</small>
     </ion-text>
 
   </div>
