@@ -16,7 +16,7 @@ export class UserService {
     this.user.name = 'Felipe',
     this.user.lastName = 'Mantovani',
     this.user.fullName = `${this.user.name} ${this.user.lastName}`,
-    this.user.photo = 'https://avatars1.githubusercontent.com/u/4302885?s=460&v=4'
+    this.user.photo = 'assets/user/user.jpg'
     return this.user;
   }
 

@@ -1,0 +1,57 @@
+ion-avatar {
+  width: 130px;
+  height: 130px;
+}
+
+ion-title {
+  background-color: var(--ion-color-medium);
+}
+
+app-song-avatar {
+  width: 3.75em;
+  display: block;
+}
+
+.list {
+  display: inline-block;
+  list-style: none;
+  width: 100%;
+  margin: 1em 0 0 0;
+  padding: 0;
+  li {
+    width: 100%;
+    padding: 0.5em 0;
+    display: flex;
+    align-items: center;
+    &:first-child {
+      padding-top: 0;
+    }
+    &:last-child {
+      padding-bottom: 0;
+    }
+    .text-followers {
+      margin-top: 0.25em;
+      span {
+        font-size: 0.85em;
+        margin-right: 0.25em;
+      }
+    }
+  }
+}
+
+.text-transform-uppercase {
+  font-size: 0.9em;
+}
+
+.user {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  margin-top: 5em;
+  z-index: 1;
+}
+
+.infos {
+  z-index: 2;
+}

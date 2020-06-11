@@ -1,0 +1,129 @@
+<ion-header>
+  <ion-toolbar color="medium" class="text-align-center transparent">
+    <ion-buttons slot="start">
+      <ion-back-button icon="arrow-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title #ionTitle color="light" size="small" class="title-center">
+      <strong *ngIf="user">{{ user.fullName }}</strong>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon size="large" name="more"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content
+  class="gradient"
+  fullscreen
+  [scrollEvents]="true"
+  scrollOpacity
+  [elementFadeIn]="ionTitle.el"
+  [elementFadeOut]="userBox">
+  <div class="p-1">
+    <ion-grid class="p-0 position-relative">
+      <div #userBox>
+        <ion-row class="user">
+          <ion-col class="text-align-center" *ngIf="user">
+            <ion-avatar class="d-inline-block">
+              <ion-img [src]="user.photo" [alt]="user.fullName"></ion-img>
+            </ion-avatar>
+            <ion-text color="light">
+              <h1>{{ user.fullName }}</h1>
+            </ion-text>
+            <ion-button 
+              class="borda-cinza mb-1" 
+              size="small" 
+              color="light" 
+              shape="round" 
+              fill="outline">
+              Editar perfil
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-grid>
+  </div>
+
+  <ion-grid class="infos position-relative p-0">
+    <div #infos class="bg-dark px-1">
+      <ion-row class="text-align-center pt-1 mb-1">
+        <ion-col>
+          <ion-text color="light">
+            <small>
+              <span class="d-block">9</span>
+              <span class="color-light-shade text-transform-uppercase">Playlists</span>
+            </small>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text color="light">
+            <small>
+              <span class="d-block">57</span>
+              <span class="color-light-shade text-transform-uppercase">Seguidores</span>
+            </small>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text color="light">
+            <small>
+              <span class="d-block">0</span>
+              <span class="color-light-shade text-transform-uppercase">Seguindo</span>
+            </small>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12" class="text-align-center">
+          <ion-text color="light">
+            <h5>Artistas tocados recentemente</h5>
+          </ion-text>
+          <ul class="list" *ngIf="songs">
+            <li *ngFor="let song of songs">
+              <app-song-avatar [song]="song" [thumbRounded]="true"></app-song-avatar>
+              <div class="text-align-left ml-1">
+                <ion-text color="light">
+                  <span class="d-block">{{ song.artist.name }}</span>
+                  <div class="text-followers color-light-shade">
+                    <span>123.000</span>
+                    <small>seguidores</small>
+                  </div>
+                </ion-text>
+              </div>
+            </li>
+          </ul>
+          
+          <div class="text-align-left my-2">
+            <ion-text color="light">Ver tudo</ion-text>
+          </div>
+        </ion-col>
+
+        <ion-col size="12" class="text-align-center">
+          <ion-text color="light">
+            <h5>Playlists públicas</h5>
+          </ion-text>
+          <ul class="list" *ngIf="playlists">
+            <li *ngFor="let playlist of playlists">
+              <app-song-avatar></app-song-avatar>
+              <div class="text-align-left ml-1">
+                <ion-text color="light">
+                  <span class="d-block">{{ playlist.name }}</span>
+                  <div class="text-followers color-light-shade">
+                    <span>123</span>
+                    <small>seguidores</small>
+                  </div>
+                </ion-text>
+              </div>
+            </li>
+          </ul>
+
+          <div class="text-align-left mt-2 mb-1">
+            <ion-text color="light">Ver tudo</ion-text>
+          </div>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-grid>
+</ion-content>

@@ -18,6 +18,10 @@ const routes: Routes = [
     path: 'forgot-password',
     loadChildren: () => import('./page/user-forgot-password/user-forgot-password.module').then((m) => m.UserForgotPasswordPageModule)
   },
+  {
+    path: 'profile',
+    loadChildren: () => import('./page/user-profile/user-profile.module').then((m) => m.UserProfilePageModule)
+  },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
