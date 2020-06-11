@@ -1,2 +1,8 @@
-# spotify-ionic
-Spotify Clone em Ionic - Desenvolvimento de algumas telas do Spotify APP Mobile utilizando o framework Ionic
+# Spotify Ionic
+Desenvolvimento em Ionic de algumas telas do APP mobile do Spotify.
+
+## Instalação
+```
+cd spotify-ionic
+npm install
+```
