@@ -3,9 +3,11 @@
     <ion-buttons slot="start">
       <ion-back-button icon="arrow-back"></ion-back-button>
     </ion-buttons>
-    <ion-title #ionTitle color="light" size="small" class="title-center">
-      <strong *ngIf="user">{{ user.fullName }}</strong>
-    </ion-title>
+    <span #ionTitle>
+      <ion-title color="light" size="small" class="title-center">
+        <strong *ngIf="user">{{ user.fullName }}</strong>
+      </ion-title>
+    </span>
     <ion-buttons slot="end">
       <ion-button>
         <ion-icon size="large" name="more"></ion-icon>
@@ -19,7 +21,7 @@
   fullscreen
   [scrollEvents]="true"
   scrollOpacity
-  [elementFadeIn]="ionTitle.el"
+  [elementFadeIn]="ionTitle"
   [elementFadeOut]="userBox">
   <div class="p-1">
     <ion-grid class="p-0 position-relative">
