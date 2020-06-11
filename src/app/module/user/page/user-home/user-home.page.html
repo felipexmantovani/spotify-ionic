@@ -1,9 +1,11 @@
 <ion-header>
   <ion-toolbar color="dark" class="transparent">
     <ion-buttons slot="end">
-      <ion-button #iconConfiguration (click)="goConfiguration()">
-        <ion-icon size="large" name="settings"></ion-icon>
-      </ion-button>
+      <span #iconConfiguration>
+        <ion-button (click)="goConfiguration()">
+          <ion-icon size="large" name="settings"></ion-icon>
+        </ion-button>
+      </span>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -13,7 +15,7 @@
   fullscreen 
   [scrollEvents]="true"
   scrollOpacity
-  [elementFadeOut]="iconConfiguration.el">
+  [elementFadeOut]="iconConfiguration">
   <div class="p-1 pt-0">
     <ion-text color="light"><h1 class="mt-0">Bom dia</h1></ion-text>
     <div class="salutation mb-3" *ngIf="player">
