@@ -36,18 +36,18 @@ export class PlayerBtnRepeatComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getPlayer();
-    
+
     this.subs.push(
       this.playerService.playerBS.subscribe((player) => {
-        player ? (this.player = player) : null;
+        if (player) {
+          this.player = player;
+        }
       })
     );
   }
 
   ngOnDestroy(): void {
-    this.subs.forEach((sub) => {
-      sub ? sub.unsubscribe : null;
-    });
+    this.subs.forEach((sub) => sub.unsubscribe);
   }
 
   private async getPlayer() {

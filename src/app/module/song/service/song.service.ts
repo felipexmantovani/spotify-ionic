@@ -48,7 +48,7 @@ export class SongService {
 
   public async getRandom() {
     this.songs = await this.getAll();
-    let id = Math.round(Math.random() * (this.songs.length - 1) + 0);
+    const id = Math.round(Math.random() * (this.songs.length - 1) + 0);
     this.song = await this.getById(id);
     return this.song;
   }

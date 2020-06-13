@@ -44,18 +44,20 @@ export class UserHomePage implements OnInit, OnDestroy {
 
     this.subs.push(
       this.playerService.playerBS.subscribe((player) => {
-        player ? (this.player = player) : null;
+        if (player) {
+          this.player = player;
+        }
       }),
       this.songService.songsBS.subscribe((songs) => {
-        songs ? (this.songs = songs) : null;
+        if (songs) {
+          this.songs = songs;
+        }
       })
     );
   }
 
   ngOnDestroy(): void {
-    this.subs.forEach((sub) => {
-      sub ? sub.unsubscribe : null;
-    });
+    this.subs.forEach((sub) => sub.unsubscribe);
   }
 
   private async getSongs() {

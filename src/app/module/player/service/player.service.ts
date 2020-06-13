@@ -14,12 +14,12 @@ import { PLAYER_CONFIG } from '../player.config';
 export class PlayerService {
   private player: Player;
 
-  public playerBS: BehaviorSubject<Player> = new BehaviorSubject(new Player);
+  public playerBS: BehaviorSubject<Player> = new BehaviorSubject(new Player());
 
   constructor(private songService: SongService, private modalController: ModalController, private storageService: StorageService) {}
 
   public async like(song: Song) {
-    let songs: Array<Song> = await this.songService.getAll();
+    const songs: Array<Song> = await this.songService.getAll();
     songs.forEach(songItem => {
       if (songItem.id === song.id) {
         songItem.liked = !song.liked;
@@ -47,7 +47,7 @@ export class PlayerService {
   }
 
   public setStorage(player?: Player): void {
-    player ? this.player = player : this.player = new Player;
+    player ? this.player = player : this.player = new Player();
     this.storageService.setKey(PLAYER_CONFIG.storageKey, JSON.stringify(this.player));
     this.playerBS.next(player);
   }
@@ -68,10 +68,7 @@ export class PlayerService {
   public async modal(song: Song, songs: Array<Song>): Promise<any> {
     const modal = await this.modalController.create({
       component: PlayerModalPage,
-      componentProps: {
-        song: song,
-        songs: songs
-      }
+      componentProps: { song, songs }
     });
     return await modal.present();
   }

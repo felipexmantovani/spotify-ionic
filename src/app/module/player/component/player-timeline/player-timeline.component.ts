@@ -33,7 +33,7 @@ export class PlayerTimelineComponent implements OnInit, AfterViewInit {
 
   constructor(private renderer: Renderer2) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     if (!this.isSmall) {
       this.showMarker = true;
       this.showMinutes = true;

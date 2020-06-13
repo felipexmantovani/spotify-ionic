@@ -3,4 +3,4 @@ export const USER_CONFIG = {
   path: 'user',
   pathFront: '/user',
   storageKey: 'user'
-}
+};

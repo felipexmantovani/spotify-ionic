@@ -23,7 +23,7 @@ export class UserCreatePage implements OnInit {
     private authService: AuthService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.createForm();
   }
 

@@ -27,22 +27,30 @@ export class LogoComponent implements OnInit, AfterViewInit {
 
   constructor(private renderer: Renderer2) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.path = `${this.path}/${this.cor}.png`;
   }
 
   ngAfterViewInit() {
     if (!this.tamanho) {
-      this.addClasse('logo-100');
+      this.addClass('logo-100');
     } else {
-      this.tamanho === '25' ? this.addClasse('logo-25') : null;
-      this.tamanho === '50' ? this.addClasse('logo-50') : null;
-      this.tamanho === '75' ? this.addClasse('logo-75') : null;
-      this.tamanho === '100' ? this.addClasse('logo-100') : null;
+      if (this.tamanho === '25') {
+        this.addClass('logo-25');
+      }
+      if (this.tamanho === '50') {
+        this.addClass('logo-50');
+      }
+      if (this.tamanho === '75') {
+        this.addClass('logo-75');
+      }
+      if (this.tamanho === '100') {
+        this.addClass('logo-100');
+      }
     }
   }
 
-  private addClasse(classe: string): void {
+  private addClass(classe: string): void {
     this.renderer.addClass(this.element.nativeElement, classe);
   }
 }

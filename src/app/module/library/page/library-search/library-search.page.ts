@@ -8,5 +8,5 @@ import { Component, OnInit } from '@angular/core';
 export class LibrarySearchPage implements OnInit {
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit(): void {}
 }

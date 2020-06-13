@@ -21,12 +21,16 @@ export class SongAvatarComponent implements OnInit {
 
   constructor(private songService: SongService) {}
 
-  ngOnInit() {
-    !this.song ? this.getSongs() : null;
+  ngOnInit(): void {
+    if (!this.song) {
+      this.getSongs();
+    }
   }
 
   private async getSongs() {
     this.songs = await this.songService.getAll();
-    this.songs ? (this.songs = this.songs.filter((song, i) => i < this.thumbQuantity)) : null;
+    if (this.songs) {
+      this.songs = this.songs.filter((song, i) => i < this.thumbQuantity);
+    }
   }
 }

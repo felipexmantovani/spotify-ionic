@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { IonButton, IonIcon } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { Player } from '../../model/player';
@@ -9,7 +9,7 @@ import { PlayerService } from '../../service/player.service';
   templateUrl: './player-btn-shuffle.component.html',
   styleUrls: ['./player-btn-shuffle.component.scss']
 })
-export class PlayerBtnShuffleComponent {
+export class PlayerBtnShuffleComponent implements OnInit, OnDestroy {
   @ViewChild('button', { static: false })
   public button: IonButton;
   @Input()
@@ -36,18 +36,18 @@ export class PlayerBtnShuffleComponent {
 
   ngOnInit(): void {
     this.getPlayer();
-    
+
     this.subs.push(
       this.playerService.playerBS.subscribe((player) => {
-        player ? (this.player = player) : null;
+         if (player) {
+           this.player = player;
+         }
       })
     );
   }
 
   ngOnDestroy(): void {
-    this.subs.forEach((sub) => {
-      sub ? sub.unsubscribe : null;
-    });
+    this.subs.forEach((sub) => sub.unsubscribe);
   }
 
   private async getPlayer() {

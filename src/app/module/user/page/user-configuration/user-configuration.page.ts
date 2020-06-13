@@ -18,7 +18,7 @@ export class UserConfigurationPage implements OnInit {
 
   constructor(private authService: AuthService, private userService: UserService, private router: Router) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getUser();
   }
 

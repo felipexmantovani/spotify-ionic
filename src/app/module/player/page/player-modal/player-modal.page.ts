@@ -27,7 +27,7 @@ export class PlayerModalPage implements OnInit, OnDestroy, AfterViewInit {
     private songService: SongService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.song = this.navParams.get('song');
     this.songs = this.navParams.get('songs');
 
@@ -46,9 +46,7 @@ export class PlayerModalPage implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnDestroy() {
-    this.subs.forEach(sub => {
-      sub ? sub.unsubscribe : null;
-    });
+    this.subs.forEach(sub => sub.unsubscribe);
   }
 
   ngAfterViewInit() {
@@ -56,7 +54,7 @@ export class PlayerModalPage implements OnInit, OnDestroy, AfterViewInit {
   }
 
   private async backgroundColor(image: string) {
-    let palette = await this.colorPaletteService.getByImage(image);
+    const palette = await this.colorPaletteService.getByImage(image);
     if (palette) {
       this.renderer.setStyle(this.bgPhoto.nativeElement, 'background-color', palette.DarkVibrant.hex);
     }

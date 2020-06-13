@@ -38,7 +38,7 @@ export class UserProfilePage implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked(): void {
-    let userBoxHeight = (<HTMLElement>this.userBox.nativeElement).children[0].clientHeight;
+    const userBoxHeight = (this.userBox.nativeElement as HTMLElement).children[0].clientHeight;
     this.renderer.setStyle(this.infos.nativeElement, 'margin-top', `${userBoxHeight}px`);
   }
 

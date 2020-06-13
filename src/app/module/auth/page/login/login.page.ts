@@ -22,7 +22,7 @@ export class LoginPage implements OnInit {
     private loadingService: LoadingService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.createForm();
   }
 

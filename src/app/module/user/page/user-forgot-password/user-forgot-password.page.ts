@@ -20,7 +20,7 @@ export class UserForgotPasswordPage implements OnInit {
     private navController: NavController
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.createForm();
   }
 

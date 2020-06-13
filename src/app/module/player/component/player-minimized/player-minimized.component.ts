@@ -21,7 +21,7 @@ export class PlayerMinimizedComponent implements OnInit, OnDestroy, AfterViewIni
 
   @ViewChild('buttons', { static: false })
   public buttons: ElementRef;
-  
+
   @Input()
   public buttonsScale: number = 1;
 
@@ -51,9 +51,7 @@ export class PlayerMinimizedComponent implements OnInit, OnDestroy, AfterViewIni
   }
 
   ngOnDestroy(): void {
-    this.subs.forEach((sub) => {
-      sub ? sub.unsubscribe : null;
-    });
+    this.subs.forEach((sub) => sub.unsubscribe);
   }
 
   private async getSongs() {
@@ -71,7 +69,7 @@ export class PlayerMinimizedComponent implements OnInit, OnDestroy, AfterViewIni
 
   public change() {
     this.slides.getSwiper().then(async (value) => {
-      const activeSongId = parseInt((value.slides[value.activeIndex] as HTMLElement).id);
+      const activeSongId = parseInt((value.slides[value.activeIndex] as HTMLElement).id, 10);
       this.song = await this.songService.getById(activeSongId);
     });
   }
