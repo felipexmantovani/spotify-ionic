@@ -1,4 +1,4 @@
-import { AfterViewChecked, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { AfterViewChecked, Component, ElementRef, HostListener, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { Playlist } from '../../../playlist/model/playlist';
 import { PlaylistService } from '../../../playlist/service/playlist.service';
 import { Song } from '../../../song/model/song';
@@ -17,6 +17,9 @@ export class UserProfilePage implements OnInit, AfterViewChecked {
 
   @ViewChild('userBox', { static: false })
   public userBox: ElementRef;
+
+  @ViewChild('userInfos', { static: false })
+  public userInfos: ElementRef;
 
   @ViewChild('header', { static: false })
   public header: ElementRef;
@@ -56,5 +59,19 @@ export class UserProfilePage implements OnInit, AfterViewChecked {
 
   private getPlaylist(): void {
     this.playlists = this.playlistService.getAll();
+  }
+
+  @HostListener('ionScroll', ['$event'])
+  public scaleUser(event: CustomEvent): void {
+    const scrollTop = 100 - event.detail.scrollTop;
+    let scale: number = 1;
+    if (scrollTop === 100) {
+      scale = 1;
+    } else if (scrollTop > 10) {
+      scale = parseFloat(`0.${scrollTop}`);
+    } else {
+      scale = parseFloat(`0.0${scrollTop}`);
+    }
+    this.renderer.setStyle(this.userInfos.nativeElement, 'transform', `scale(${scale})`);
   }
 }

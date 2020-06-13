@@ -26,21 +26,23 @@
   [elementFadeOut]="userBox">
   <div #userBox>
     <div class="user gradient">
-      <div class="text-align-center" *ngIf="user">
-        <ion-avatar class="d-inline-block">
-          <ion-img [src]="user.photo" [alt]="user.fullName"></ion-img>
-        </ion-avatar>
-        <ion-text color="light">
-          <h1>{{ user.fullName }}</h1>
-        </ion-text>
-        <ion-button
-          class="borda-cinza mb-1"
-          size="small"
-          color="light"
-          shape="round"
-          fill="outline">
-          Editar perfil
-        </ion-button>
+      <div #userInfos>
+        <div class="text-align-center" *ngIf="user">
+          <ion-avatar class="d-inline-block">
+            <ion-img [src]="user.photo" [alt]="user.fullName"></ion-img>
+          </ion-avatar>
+          <ion-text color="light">
+            <h1>{{ user.fullName }}</h1>
+          </ion-text>
+          <ion-button
+            class="borda-cinza mb-1"
+            size="small"
+            color="light"
+            shape="round"
+            fill="outline">
+            Editar perfil
+          </ion-button>
+        </div>
       </div>
     </div>
   </div>
