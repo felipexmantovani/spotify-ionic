@@ -13,16 +13,16 @@
   <div class="p-1" *ngIf="user">
     <ion-grid class="p-0">
       <ion-row class="ion-align-items-center" (click)="goProfile()">
-        <ion-col class="pl-0" size="3">
-          <ion-avatar>
-            <ion-img [src]="user.photo" [alt]="user.fullName"></ion-img>
-          </ion-avatar>
-        </ion-col>
-        <ion-col size="8">
-          <ion-text color="light">
-            <h3 class="my-0">{{ user.fullName }}</h3>
-            <small class="color-light-shade">Ver perfil</small>
-          </ion-text>
+        <ion-col class="pl-0" size="11">
+          <div class="user">
+            <ion-avatar>
+              <ion-img [src]="user.photo" [alt]="user.fullName"></ion-img>
+            </ion-avatar>
+            <ion-text color="light">
+              <h3 class="my-0">{{ user.fullName }}</h3>
+              <small class="color-light-shade">Ver perfil</small>
+            </ion-text>
+          </div>
         </ion-col>
         <ion-col size="1" class="pr-0 text-align-right">
           <ion-icon color="light" name="arrow-dropright"></ion-icon>
@@ -55,7 +55,7 @@
       </ion-text>
       <ion-grid class="p-0">
         <ion-row class="ion-align-items-center">
-          
+
           <ion-col size="10" class="pl-0">
             <ion-text color="light" class="d-block">
               <h6>Modo offline</h6>
@@ -65,13 +65,13 @@
           <ion-col size="2" class="pr-0">
             <ion-toggle color="success"></ion-toggle>
           </ion-col>
-          
+
           <ion-col size="12" class="px-0">
             <ion-text color="light" class="d-block">
               <h6>Transição gradual</h6>
               <small class="color-light-shade d-block">Permite fazer transição gradual de músicas.</small>
             </ion-text>
-            <ion-item>
+            <ion-item lines="none">
               <ion-range min="0" max="12" pin="true" value="5">
                 <ion-label slot="start">Desligado</ion-label>
                 <ion-label slot="end">12 s</ion-label>

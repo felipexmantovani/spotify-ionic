@@ -15,6 +15,16 @@ ion-range {
   --pin-color: var(--ion-color-medium);
 }
 
+.user {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  ion-avatar {
+    margin-right: 0.5em;
+  }
+}
+
 .storage {
   width: 100%;
   height: auto;
