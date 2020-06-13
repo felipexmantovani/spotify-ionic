@@ -15,7 +15,7 @@ export class LogoComponent implements OnInit, AfterViewInit {
   public color: string = 'white';
 
   @Input()
-  public size: string;
+  public percentSize: number = 100;
 
   constructor(private renderer: Renderer2) {}
 
@@ -24,25 +24,6 @@ export class LogoComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    if (!this.size) {
-      this.addClass('logo-100');
-    } else {
-      if (this.size === '25') {
-        this.addClass('logo-25');
-      }
-      if (this.size === '50') {
-        this.addClass('logo-50');
-      }
-      if (this.size === '75') {
-        this.addClass('logo-75');
-      }
-      if (this.size === '100') {
-        this.addClass('logo-100');
-      }
-    }
-  }
-
-  private addClass(classLogo: string): void {
-    this.renderer.addClass(this.element.nativeElement, classLogo);
+    this.renderer.setStyle(this.element.nativeElement, 'width', `${this.percentSize}%`);
   }
 }
