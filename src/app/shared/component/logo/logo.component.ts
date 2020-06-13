@@ -1,12 +1,4 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  Input,
-  OnInit,
-  Renderer2,
-  ViewChild
-} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnInit, Renderer2, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-logo',
@@ -20,37 +12,37 @@ export class LogoComponent implements OnInit, AfterViewInit {
   public path: string = 'assets/logo';
 
   @Input()
-  public cor: string = 'white';
+  public color: string = 'white';
 
   @Input()
-  public tamanho: string = null;
+  public size: string;
 
   constructor(private renderer: Renderer2) {}
 
   ngOnInit(): void {
-    this.path = `${this.path}/${this.cor}.png`;
+    this.path = `${this.path}/${this.color}.png`;
   }
 
-  ngAfterViewInit() {
-    if (!this.tamanho) {
+  ngAfterViewInit(): void {
+    if (!this.size) {
       this.addClass('logo-100');
     } else {
-      if (this.tamanho === '25') {
+      if (this.size === '25') {
         this.addClass('logo-25');
       }
-      if (this.tamanho === '50') {
+      if (this.size === '50') {
         this.addClass('logo-50');
       }
-      if (this.tamanho === '75') {
+      if (this.size === '75') {
         this.addClass('logo-75');
       }
-      if (this.tamanho === '100') {
+      if (this.size === '100') {
         this.addClass('logo-100');
       }
     }
   }
 
-  private addClass(classe: string): void {
-    this.renderer.addClass(this.element.nativeElement, classe);
+  private addClass(classLogo: string): void {
+    this.renderer.addClass(this.element.nativeElement, classLogo);
   }
 }
