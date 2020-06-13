@@ -18,6 +18,9 @@ export class UserProfilePage implements OnInit, AfterViewChecked {
   @ViewChild('userBox', { static: false })
   public userBox: ElementRef;
 
+  @ViewChild('header', { static: false })
+  public header: ElementRef;
+
   public user: User;
 
   public songs: Array<Song>;
@@ -38,8 +41,9 @@ export class UserProfilePage implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked(): void {
+    const headerHeight = (this.header.nativeElement as HTMLElement).clientHeight;
     const userBoxHeight = (this.userBox.nativeElement as HTMLElement).children[0].clientHeight;
-    this.renderer.setStyle(this.infos.nativeElement, 'margin-top', `${userBoxHeight}px`);
+    this.renderer.setStyle(this.infos.nativeElement, 'margin-top', `${userBoxHeight - headerHeight}px`);
   }
 
   private async getUser() {

@@ -1,51 +1,48 @@
 <ion-header>
-  <ion-toolbar color="medium" class="text-align-center transparent">
-    <ion-buttons slot="start">
-      <ion-back-button icon="arrow-back"></ion-back-button>
-    </ion-buttons>
-    <span #ionTitle>
-      <ion-title color="light" size="small" class="title-center">
-        <strong *ngIf="user">{{ user.fullName }}</strong>
-      </ion-title>
-    </span>
-    <ion-buttons slot="end">
-      <ion-button>
-        <ion-icon size="large" name="more"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
+  <div #header>
+    <ion-toolbar color="medium" class="text-align-center transparent">
+      <ion-buttons slot="start">
+        <ion-back-button icon="arrow-back"></ion-back-button>
+      </ion-buttons>
+      <span #ionTitle>
+        <ion-title color="light" size="small" class="title-center">
+          <strong *ngIf="user">{{ user.fullName }}</strong>
+        </ion-title>
+      </span>
+      <ion-buttons slot="end">
+        <ion-button>
+          <ion-icon size="large" name="more"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </div>
 </ion-header>
 
 <ion-content
-  class="gradient"
   fullscreen
   [scrollEvents]="true"
   appScrollOpacity
   [elementFadeIn]="ionTitle"
   [elementFadeOut]="userBox">
-  <div class="p-1">
-    <ion-grid class="p-0 position-relative">
-      <div #userBox>
-        <ion-row class="user">
-          <ion-col class="text-align-center" *ngIf="user">
-            <ion-avatar class="d-inline-block">
-              <ion-img [src]="user.photo" [alt]="user.fullName"></ion-img>
-            </ion-avatar>
-            <ion-text color="light">
-              <h1>{{ user.fullName }}</h1>
-            </ion-text>
-            <ion-button 
-              class="borda-cinza mb-1" 
-              size="small" 
-              color="light" 
-              shape="round" 
-              fill="outline">
-              Editar perfil
-            </ion-button>
-          </ion-col>
-        </ion-row>
+  <div #userBox>
+    <div class="user gradient">
+      <div class="text-align-center" *ngIf="user">
+        <ion-avatar class="d-inline-block">
+          <ion-img [src]="user.photo" [alt]="user.fullName"></ion-img>
+        </ion-avatar>
+        <ion-text color="light">
+          <h1>{{ user.fullName }}</h1>
+        </ion-text>
+        <ion-button
+          class="borda-cinza mb-1"
+          size="small"
+          color="light"
+          shape="round"
+          fill="outline">
+          Editar perfil
+        </ion-button>
       </div>
-    </ion-grid>
+    </div>
   </div>
 
   <ion-grid class="infos position-relative p-0">
@@ -96,7 +93,7 @@
               </div>
             </li>
           </ul>
-          
+
           <div class="text-align-left my-2">
             <ion-text color="light">Ver tudo</ion-text>
           </div>
