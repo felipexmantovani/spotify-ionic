@@ -2,7 +2,7 @@
 Desenvolvimento de algumas telas do APP mobile do Spotify com Ionic.
 
 <div align="center">
-<img src='https://github.com/felipexmantovani/spotify-ionic/blob/master/doc/screen-1.gif?raw=true' style="min-width: 100%" />
+<img src='https://raw.githubusercontent.com/felipexmantovani/spotify-ionic/master/doc/screen-2.gif' style="min-width: 100%" />
 </div>
 
 ---
